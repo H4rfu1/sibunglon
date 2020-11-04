@@ -14,12 +14,12 @@
 Route::get('/', function () {
     return view('auth/login');
 });
-Route::get('/login', function () {
-    return view('login');
-});
-Route::get('/daftar', function () {
-    return view('daftar');
-});
+// Route::get('/login', function () {
+//     return view('login');
+// });
+// Route::get('/daftar', function () {
+//     return view('daftar');
+// });
 
 Auth::routes();
 
