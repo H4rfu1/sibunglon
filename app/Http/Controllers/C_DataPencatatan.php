@@ -33,12 +33,15 @@ class C_DataPencatatan extends Controller
                                         ->join('users', 'data_perawatan.id_akun', '=', 'users.id')
                                         ->get();
         // dd($datapencatatan);
-        return view('pencatatan.V_DataPencatatan', compact('datapencatatan'));
+        
+        return view('pencatatan.V_DataPencatatan', ['datapencatatan' => $datapencatatan]);
     }
 
     public function buatPencatatan()
     {
-        return view('pencatatan.V_InputPencatatan');
+        $jenismelon = DB::table('jenis_melon')->orderBy('jenismelon')->get();
+        $nogrenhouse = DB::table('no_greenhouse')->orderBy('no_greenhouse')->get();
+        return view('pencatatan.V_InputPencatatan', ['jenismelon' => $jenismelon, 'nogrenhouse' => $nogrenhouse]);
     }
 
 
