@@ -100,7 +100,6 @@ class C_DataPencatatan extends Controller
         $data->prediksi_tanggalpanen = strtotime($data->prediksi_tanggalpanen);
         $data->prediksi_tanggalpanen = date('Y-m-d',$data->prediksi_tanggalpanen);
 
-
         // dd($data);
         return view('pencatatan.V_EditPencatatan', ['data' => $data, 'jenismelon' => $jenismelon, 'nogrenhouse' => $nogrenhouse]);
     }
@@ -114,35 +113,16 @@ class C_DataPencatatan extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $user = User::find($id);
-        // $user->name = $request->name;
-        // $user->tempat_lahir = $request->tempat_lahir;
-        // $user->tanggal_lahir = $request->tanggal_lahir;
-        // $user->jenis_kelamin = $request->jenis_kelamin;
-        // $user->alamat = $request->alamat;
-        // $user->no_hp = $request->no_hp;
-        // $user->email = $request->email;
-
-        // $user->save();
-
-        User::where('id', $id)
+        M_DataPencatatan::where('id_dataperawatan', $id)
             ->update([
-                'name' => $request->name,
-                'tempat_lahir' => $request->tempat_lahir,
-                'tanggal_lahir' => $request->tanggal_lahir,
-                'jenis_kelamin' => $request->jenis_kelamin,
-                'alamat' => $request->alamat,
-                'no_hp' => $request->no_hp,
-                'email' => $request->email,
-                'password' => Hash::make($request->password)
+                'id_jenismelon' => $request->jenis_melon,
+                'id_greenhouse' => $request->no_greenhouse,
+                'tanggal_tanam' => $request->tanggal_tanam,
+                'id_akun' => $request->pencatat,
+                'tanggal_pemberianpupuk' => $request->tanggal_pemupukan,
+                'prediksi_tanggalpanen' => $request->tanggal_panen
             ]);
-            if((int)$request->role == 1){
-                return redirect('akun/admin')->with('status', 'Data Admin Berhasil diubah');
-            }elseif((int)$request->role == 2){
-                return redirect('akun/pengawas')->with('status', 'Berhasil mengubah data akun pengawas');
-            }elseif((int)$request->role == 3){
-                return redirect('akun/pemimpin')->with('status', 'Berhasil mengubah data akun pemimpin');
-            }
+            return redirect('pencatatan')->with('status', 'Data Pencatatan Perkembangan Melon Berhasil Disimpan');
     }
 
     /**

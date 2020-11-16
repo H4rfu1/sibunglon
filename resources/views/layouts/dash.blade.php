@@ -83,19 +83,13 @@
                         <li><a href="{{url('akun/pengawas')}}">Akun Pengawas</a>
                         </li>
                     </ul>
-                  </li>                  
+                  </li>
                 </ul>
               </div>
               <div class="menu_section">
                 <h3>Laporan</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-bar-chart-o"></i> Laporan <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                        <li><a href="#level1_1">Laporan Harian</a>
-                        <li><a href="#level1_2">Laporan Bulanan</a>
-                        </li>
-                    </ul>
-                  </li>                  
+                    <li><a href="{{url('pencatatan')}}"><i class="fa fa-edit"></i> Pencatatan </a></li>                                       
                 </ul>
               </div>
               @endif

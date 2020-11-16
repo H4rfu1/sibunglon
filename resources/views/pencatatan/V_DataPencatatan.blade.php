@@ -30,8 +30,10 @@
                             <th class="column-title">Tanggal tanam</th>
                             <th class="column-title">Tanggal Pemupukan</th>
                             <th class="column-title">Tanggal Panen</th>
+                            @if( Auth::user()->id_role == 2)
                             <th class="column-title no-link last"><span class="nobr">Action</span>
                             </th>
+                            @endif
                           </tr>
                         </thead>
 
@@ -45,10 +47,12 @@
                             <td class=" ">{{ $p->tanggal_tanam }}</td>
                             <td class=" ">{{ $p->tanggal_pemberianpupuk }}</td>
                             <td class=" ">{{ $p->prediksi_tanggalpanen }}</td>
+                            @if( Auth::user()->id_role == 2)
                             <td class=" last">
                               <a href="{{url('editpencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
-                              <a href="{{url('profil/'.$p->id_dataperawatan)}}"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a>
+                              <!-- <a href="{{url('profil/'.$p->id_dataperawatan)}}"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a> -->
                             </td>
+                            @endif
                           </tr>
                           @else
                           <tr class="odd pointer">
@@ -58,10 +62,12 @@
                             <td class=" ">{{ $p->tanggal_tanam }}</td>
                             <td class=" ">{{ $p->tanggal_pemberianpupuk }}</td>
                             <td class=" ">{{ $p->prediksi_tanggalpanen }}</td>
+                            @if( Auth::user()->id_role == 2)
                             <td class=" last">
                               <a href="{{url('editpencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
-                              <a href="{{url('profil/'.$p->id_dataperawatan)}}"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a>
-                            </td>                            
+                              <!-- <a href="{{url('profil/'.$p->id_dataperawatan)}}"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a> -->
+                            </td>           
+                            @endif                 
                           </tr>
                           @endif
                           @endforeach

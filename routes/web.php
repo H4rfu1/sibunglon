@@ -40,7 +40,7 @@ Route::post('/simpanpencatatan', 'C_DataPencatatan@store');
 
 Route::get('/editpencatatan/{id}', 'C_DataPencatatan@edit');
 
-Route::post('/editpencatatan/{id}', 'C_DataPencatatan@edit');
+Route::post('/pencatatan/{id}', 'C_DataPencatatan@update');
 
 Auth::routes();
 

@@ -177,8 +177,7 @@
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
-                                    <form class="" action="{{url('editpencatatan/'.$data->id_dataperawatan )}}" method="post" novalidate>
-                                    @method('patch')
+                                    <form class="" action="{{url('pencatatan/'.$data->id_dataperawatan )}}" method="post" novalidate>
                                       @csrf
                                       <input type="hidden" name="pencatat" value="{{Auth::user()->id}}">
                                         <div class="field item form-group">
