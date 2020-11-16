@@ -12,14 +12,27 @@
 */
 
 Route::get('/', function () {
-    return view('auth/login');
+    return view('auth.login');
 });
 // Route::get('/login', function () {
 //     return view('login');
 // });
-// Route::get('/daftar', function () {
-//     return view('daftar');
-// });
+
+//kelola akun
+Route::get('/profil/{id}', 'AkunController@index');
+
+Route::patch('/profil/{id}', 'AkunController@update');
+
+Route::get('/profil/{id}/edit', 'AkunController@edit');
+
+Route::post('/daftarakun', 'AkunController@store');
+
+Route::get('/buatakun/{role}', 'AkunController@buatakun');
+
+Route::get('/akun/{role}', 'AkunController@akun');
+
+//kelola pencatatan
+Route::get('/pencatatan', 'C_DataPencatatan@index');
 
 Auth::routes();
 
