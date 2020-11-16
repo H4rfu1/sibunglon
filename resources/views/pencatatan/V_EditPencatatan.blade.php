@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Ubah akun | </title>
+    <title>Ubah pencatatan | </title>
 
     <!-- favicon -->
     <link rel="shortcut icon" href="{{url('favicon.ico')}}" type="image/x-icon">
@@ -162,7 +162,7 @@
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3>Ubah Akun</h3>
+                            <h3>Ubah Pencatatan perkembangan melon</h3>
                         </div>
 
                     </div>
@@ -172,98 +172,63 @@
                         <div class="col-md-12 col-sm-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Akun 
-                                      @if($data->id_role == 3)
-                                        {{'Pemimpin'}}
-                                      @elseif($data->id_role == 2)
-                                        {{'Pengawas'}}
-                                      @else
-                                        {{'error'}}
-                                      @endif
+                                    <h2>Pencatatan perkembangan melon
                                     </h2>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
-                                    <form class="" action="{{url('profil/'.$data->id)}}" method="post" novalidate>
+                                    <form class="" action="{{url('editpencatatan/'.$data->id_dataperawatan )}}" method="post" novalidate>
                                     @method('patch')
                                       @csrf
-                                      <input type="hidden" name="role" value="{{$data->id_role}}">
+                                      <input type="hidden" name="pencatat" value="{{Auth::user()->id}}">
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Nama<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Jenis Melon<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Nama Lengkap" required="required" value="{{$data->name}}"/>
+                                                <select name="jenis_melon" id="jenis_melon" class="form-control">
+                                                @foreach($jenismelon as $item)
+                                                    <option class="form-control" value="{{ $item->id_jenismelon }}" 
+                                                    @if($item->id_jenismelon == $data->id_jenismelon)
+                                                        {{"selected"}}
+                                                    @endif
+                                                    >{{ $item->jenismelon }}</option>
+                                                @endforeach
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Email<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">No Greenhouse<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="email" class='email' required="required" type="email" value="{{$data->email}}"/></div>
-                                        </div>
-                                        <!-- <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Confirm email address<span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" type="email" class='email' name="confirm_email" data-validate-linked='email' required='required' /></div>
-                                        </div> -->
-                                        <!-- <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">No. HP <span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" type="number" class='number' name="number" data-validate-minmax="10,100" required='required'></div>
-                                        </div> -->
-                                        <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Jenis Kelamin<span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="6" name="jenis_kelamin" placeholder="laki-laki/perempuan" required="required" value="{{$data->jenis_kelamin}}"/>
+                                            <select name="no_greenhouse" id="no_greenhouse" class="form-control">
+                                                @foreach($nogrenhouse as $item)
+                                                    <option class="form-control" value="{{ $item->id_greenhouse }}"
+                                                    @if($item->id_greenhouse == $data->id_greenhouse)
+                                                        {{"selected"}}
+                                                    @endif
+                                                     >{{ $item->no_greenhouse }}</option>
+                                                @endforeach
+                                                </select>
                                             </div>
                                         </div>
+
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Tempat Lahir<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Tanggal Tanam<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="6" name="tempat_lahir" placeholder="Kota/kabupaten" required="required" value="{{$data->tempat_lahir}}"/>
-                                            </div>
+                                                <input class="form-control" class='date' type="date" name="tanggal_tanam" required='required' value="{{$data->tanggal_tanam}}"></div>
                                         </div>
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Tanggal Lahir<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Tanggal Pemberian Pupuk <span class="required" >*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="date" name="tanggal_lahir" required='required' value="{{$data->tanggal_lahir}}"></div>
-                                        </div>
-                                        <!-- <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Time<span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='time' type="time" name="time" required='required'></div>
-                                        </div> -->
-                                        
-                                        <div class="field item form-group">
-											<label class="col-form-label col-md-3 col-sm-3  label-align">Password<span class="required">*</span></label>
-											<div class="col-md-6 col-sm-6">
-												<input class="form-control" type="password" id="password1" name="password" pattern="(?=.*[a-z,A-Z]).{3,}" title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character" required value=""/>
-												
-												<span style="position: absolute;right:15px;top:7px;" onclick="hideshow()" >
-													<i id="slash" class="fa fa-eye-slash"></i>
-													<i id="eye" class="fa fa-eye"></i>
-												</span>
-											</div>
-										</div>
-                                        
-                                        <!-- <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Ulangi password<span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" type="password" name="password2" data-validate-linked='password' required='required' /></div>
-                                        </div> -->
-                                        <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">No. HP<span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" type="tel" class='tel' name="no_hp" required='required' data-validate-length-range="10,13" value="{{$data->no_hp}}"/></div>
+                                                <input class="form-control" class='date' type="date" name="tanggal_pemupukan" required='required' value="{{$data->tanggal_pemberianpupuk}}"></div>
                                         </div>
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">alamat<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Prediksi Tanggal Panen<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <textarea required="required" name='alamat'>{{$data->alamat}}</textarea></div>
+                                                <input class="form-control" class='date' type="date" name="tanggal_panen" required='required' value="{{$data->prediksi_tanggalpanen}}"></div>
                                         </div>
                                         <div class="ln_solid">
                                             <div class="form-group">
-                                                <div class="col-md-6 offset-md-3">
-                                                    <a class="btn btn-danger" href = "{{url('profil/'.$data->id)}}"
-                                                    >Batal</a>
+                                                <div class="col-md-6 offset-md-3 mt-2">
+                                                    <a class="btn btn-danger" href = "{{url('pencatatan')}}">Batal</a>
                                                     <button type='submit' class="btn btn-success">Simpan</button>
                                                 </div>
                                             </div>

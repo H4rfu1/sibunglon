@@ -86,11 +86,23 @@ class C_DataPencatatan extends Controller
      */
     public function edit($id)
     {
-        $data = User::where('id', $id)->first();
-        $data->tanggal_lahir = strtotime($data->tanggal_lahir);
-        $data->tanggal_lahir = date('Y-m-d',$data->tanggal_lahir);
+        $jenismelon = DB::table('jenis_melon')->orderBy('jenismelon')->get();
+        $nogrenhouse = DB::table('no_greenhouse')->orderBy('no_greenhouse')->get();
+
+        $data = M_DataPencatatan::where('id_dataperawatan', $id)->first();
+
+        $data->tanggal_tanam = strtotime($data->tanggal_tanam);
+        $data->tanggal_tanam = date('Y-m-d',$data->tanggal_tanam);
+
+        $data->tanggal_pemberianpupuk = strtotime($data->tanggal_pemberianpupuk);
+        $data->tanggal_pemberianpupuk = date('Y-m-d',$data->tanggal_pemberianpupuk);
+
+        $data->prediksi_tanggalpanen = strtotime($data->prediksi_tanggalpanen);
+        $data->prediksi_tanggalpanen = date('Y-m-d',$data->prediksi_tanggalpanen);
+
+
         // dd($data);
-        return view('akun.editakun', compact('data'));
+        return view('pencatatan.V_EditPencatatan', ['data' => $data, 'jenismelon' => $jenismelon, 'nogrenhouse' => $nogrenhouse]);
     }
 
     /**

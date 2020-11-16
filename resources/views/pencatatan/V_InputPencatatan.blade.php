@@ -175,6 +175,7 @@
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Jenis Melon<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <select name="jenis_melon" id="jenis_melon" class="form-control">
+                                                    <option value="" disabled selected></option>
                                                 @foreach($jenismelon as $item)
                                                     <option class="form-control" value="{{ $item->id_jenismelon }}" >{{ $item->jenismelon }}</option>
                                                 @endforeach
@@ -185,6 +186,7 @@
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">No Greenhouse<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                             <select name="no_greenhouse" id="no_greenhouse" class="form-control">
+                                                <option value="" disabled selected></option>
                                                 @foreach($nogrenhouse as $item)
                                                     <option class="form-control" value="{{ $item->id_greenhouse }}" >{{ $item->no_greenhouse }}</option>
                                                 @endforeach

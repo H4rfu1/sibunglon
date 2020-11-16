@@ -27,6 +27,9 @@
                             <th class="column-title">ID. Pencatatan</th>
                             <th class="column-title">No. Greenhouse</th>
                             <th class="column-title">Pencatat</th>
+                            <th class="column-title">Tanggal tanam</th>
+                            <th class="column-title">Tanggal Pemupukan</th>
+                            <th class="column-title">Tanggal Panen</th>
                             <th class="column-title no-link last"><span class="nobr">Action</span>
                             </th>
                           </tr>
@@ -39,7 +42,11 @@
                             <td>{{ $p->id_dataperawatan }}</td>
                             <td class=" ">{{ $p->no_greenhouse }}</td>
                             <td class=" ">{{ $p->name }}</td>
-                            <td class=" last"><a href="{{url('profil/'.$p->id_dataperawatan)}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
+                            <td class=" ">{{ $p->tanggal_tanam }}</td>
+                            <td class=" ">{{ $p->tanggal_pemberianpupuk }}</td>
+                            <td class=" ">{{ $p->prediksi_tanggalpanen }}</td>
+                            <td class=" last">
+                              <a href="{{url('editpencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
                               <a href="{{url('profil/'.$p->id_dataperawatan)}}"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a>
                             </td>
                           </tr>
@@ -48,8 +55,11 @@
                             <td>{{ $p->id_dataperawatan }}</td>
                             <td class=" ">{{ $p->no_greenhouse }}</td>
                             <td class=" ">{{ $p->name }}</td>
+                            <td class=" ">{{ $p->tanggal_tanam }}</td>
+                            <td class=" ">{{ $p->tanggal_pemberianpupuk }}</td>
+                            <td class=" ">{{ $p->prediksi_tanggalpanen }}</td>
                             <td class=" last">
-                              <a href="{{url('profil/'.$p->id_dataperawatan)}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
+                              <a href="{{url('editpencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
                               <a href="{{url('profil/'.$p->id_dataperawatan)}}"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a>
                             </td>                            
                           </tr>

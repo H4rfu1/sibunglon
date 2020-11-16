@@ -38,6 +38,10 @@ Route::get('/inputpencatatan', 'C_DataPencatatan@buatPencatatan');
 
 Route::post('/simpanpencatatan', 'C_DataPencatatan@store');
 
+Route::get('/editpencatatan/{id}', 'C_DataPencatatan@edit');
+
+Route::post('/editpencatatan/{id}', 'C_DataPencatatan@edit');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
