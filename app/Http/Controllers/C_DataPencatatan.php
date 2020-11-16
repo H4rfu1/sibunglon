@@ -41,15 +41,6 @@ class C_DataPencatatan extends Controller
         return view('pencatatan.V_InputPencatatan');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -59,51 +50,16 @@ class C_DataPencatatan extends Controller
      */
     public function store(Request $request)
     {
-        // $user = new User;
-        // $user->name = $request->name;
-        // $user->id_role = (int)$request->role;
-        // $user->tempat_lahir = $request->tempat_lahir;
-        // $user->tanggal_lahir = $request->tanggal_lahir;
-        // $user->jenis_kelamin = $request->jenis_kelamin;
-        // $user->alamat = $request->alamat;
-        // $user->no_hp = $request->no_hp;
-        // $user->email = $request->email;
-        // $user->password = Hash::make($request->password);
-
-        // $user->save();
-        // $request->validate([
-        //     'name' => 'required',
-        //     'id_role' => 'required',
-        //     'tempat_lahir' => 'required',
-        //     'tanggal_lahir' => 'required',
-        //     'jenis_kelamin' => 'required',
-        //     'alamat' => 'required',
-        //     'no_hp' => 'required',
-        //     'email' => 'required',
-        //     'password' => 'required'
-        // ]);
-
-
-        User::create([
-            'name' => $request->name,
-            'id_role' => (int)$request->role,
-            'tempat_lahir' => $request->tempat_lahir,
-            'tanggal_lahir' => $request->tanggal_lahir,
-            'jenis_kelamin' => $request->jenis_kelamin,
-            'alamat' => $request->alamat,
-            'no_hp' => $request->no_hp,
-            'email' => $request->email,
-            'password' => Hash::make($request->password)
+        M_DataPencatatan::create([
+            'id_jenismelon' => $request->jenis_melon,
+            'id_greenhouse' => $request->no_greenhouse,
+            'tanggal_tanam' => $request->tanggal_tanam,
+            'id_akun' => $request->pencatat,
+            'tanggal_pemberianpupuk' => $request->tanggal_pemupukan,
+            'prediksi_tanggalpanen' => $request->tanggal_panen
         ]);
 
-        if((int)$request->role == 1){
-            return redirect('akun/admin')->with('status', 'Data Admin Berhasil ditambah');
-        }elseif((int)$request->role == 2){
-            return redirect('akun/pengawas')->with('status', 'Berhasil menambahkan data akun pengawas');
-        }elseif((int)$request->role == 3){
-            return redirect('akun/pemimpin')->with('status', 'Berhasil menambahkan data akun pemimpin');
-        }
-
+            return redirect('pencatatan')->with('status', 'Berhasil Menambahkan Data Pencatatan Perkembangan Melon');
         
     }
 

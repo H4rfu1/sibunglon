@@ -153,7 +153,7 @@
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3>Daftar Akun</h3>
+                            <h3> Pencatatan perkembangan melon</h3>
                         </div>
 
                     </div>
@@ -163,47 +163,47 @@
                         <div class="col-md-12 col-sm-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Akun
+                                    <h2> Form Pencatatan
                                     </h2>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
-                                    <form class="" action="{{url('daftarakun')}}" method="post" novalidate>
+                                    <form class="" action="{{url('simpanpencatatan')}}" method="post" novalidate>
                                       @csrf
-                                      <input type="hidden" name="pencatatan" value="{{Auth::user()->id}}">
+                                      <input type="hidden" name="pencatat" value="{{Auth::user()->id}}">
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Jenis Melon<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control"  type="text" data-validate-length-range="1" name="jenis_kelamin" placeholder="laki-laki/perempuan" required="required" />
+                                                <input class="form-control"  type="text" data-validate-length-range="1" name="jenis_melon" placeholder="laki-laki/perempuan" required="required" />
                                             </div>
                                         </div>
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">No Greenhouse<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" type="text"  data-validate-length-range="1" name="tempat_lahir" placeholder="Kota/kabupaten" required="required" />
+                                                <input class="form-control" type="text"  data-validate-length-range="1" name="no_greenhouse" placeholder="Kota/kabupaten" required="required" />
                                             </div>
                                         </div>
 
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Tanggal Tanam<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="date" name="tanggal_lahir" required='required'></div>
+                                                <input class="form-control" class='date' type="date" name="tanggal_tanam" required='required'></div>
                                         </div>
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Tanggal Pemberian Pupuk <span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="date" name="tanggal_lahir" required='required'></div>
+                                                <input class="form-control" class='date' type="date" name="tanggal_pemupukan" required='required'></div>
                                         </div>
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Prediksi Tanggal Panen<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="date" name="tanggal_lahir" required='required'></div>
+                                                <input class="form-control" class='date' type="date" name="tanggal_panen" required='required'></div>
                                         </div>
                                         <div class="ln_solid">
                                             <div class="form-group">
                                                 <div class="col-md-6 offset-md-3 mt-2">
                                                     <a class="btn btn-danger" href = "{{url('pencatatan')}}">Batal</a>
-                                                    <button type='submit' class="btn btn-success">Daftar</button>
+                                                    <button type='submit' class="btn btn-success">Simpan</button>
                                                 </div>
                                             </div>
                                         </div>

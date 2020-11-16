@@ -24,9 +24,9 @@
                       <table class="table table-striped jambo_table bulk_action">
                         <thead>
                           <tr class="headings">
-                            <th class="column-title">No.</th>
-                            <th class="column-title"> ID. Pencatatan</th>
-                            <th class="column-title">No. Greenhouse </th>
+                            <th class="column-title">ID. Pencatatan</th>
+                            <th class="column-title">No. Greenhouse</th>
+                            <th class="column-title">Pencatat</th>
                             <th class="column-title no-link last"><span class="nobr">Action</span>
                             </th>
                           </tr>
@@ -35,19 +35,22 @@
                         <tbody>
                           @foreach($datapencatatan as $p)
                           @if($loop->iteration % 2 == 1)
-                          <tr class="even pointer" onclick="window.location='{{url('profil/'.$p->id)}}';" style="cursor: pointer;">
-                            <td>{{ $loop->iteration }}</td>
-                            <td class=" ">{{ $p->id_dataperawatan }}</td>
-                            <td class=" ">{{ $p->id_greenhouse }}</td>
-                            <td class=" last"><a href="{{url('profil/'.$p->id_dataperawatan)}}"><span class="badge badge-info">Detail</span></a>
+                          <tr class="even pointer">
+                            <td>{{ $p->id_dataperawatan }}</td>
+                            <td class=" ">{{ $p->no_greenhouse }}</td>
+                            <td class=" ">{{ $p->name }}</td>
+                            <td class=" last"><a href="{{url('profil/'.$p->id_dataperawatan)}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
+                              <a href="{{url('profil/'.$p->id_dataperawatan)}}"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a>
                             </td>
                           </tr>
                           @else
-                          <tr class="odd pointer" onclick="window.location='{{url('profil/'.$p->id)}}';" style="cursor: pointer;">
-                            <td>{{ $loop->iteration }}</td>
-                            <td class=" ">{{ $p->id_dataperawatan }}</td>
-                            <td class=" ">{{ $p->id_greenhouse }}</td>
-                            <td class=" last"><a href="{{url('profil/'.$p->id_dataperawatan)}}"><span class="badge badge-info">Detail</span></a>
+                          <tr class="odd pointer">
+                            <td>{{ $p->id_dataperawatan }}</td>
+                            <td class=" ">{{ $p->no_greenhouse }}</td>
+                            <td class=" ">{{ $p->name }}</td>
+                            <td class=" last">
+                              <a href="{{url('profil/'.$p->id_dataperawatan)}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
+                              <a href="{{url('profil/'.$p->id_dataperawatan)}}"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a>
                             </td>                            
                           </tr>
                           @endif
@@ -55,8 +58,6 @@
                         </tbody>
                       </table>
                     </div>
-							
-						
                   </div>
                 </div>
             </div>

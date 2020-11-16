@@ -36,6 +36,7 @@ Route::get('/pencatatan', 'C_DataPencatatan@index');
 
 Route::get('/inputpencatatan', 'C_DataPencatatan@buatPencatatan');
 
+Route::post('/simpanpencatatan', 'C_DataPencatatan@store');
 
 Auth::routes();
 
