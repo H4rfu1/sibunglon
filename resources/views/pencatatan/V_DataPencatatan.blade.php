@@ -10,7 +10,9 @@
         <div class="col-md-12 col-sm-12  ">
                 <div class="x_panel">
                   <div class="x_content">
-                  <a class="btn btn-primary" href="{{url('buatpencatatan')}}">Tambah Pencatatan</a>
+                  @if(Auth::user()->id_role == 2)
+                  <a class="btn btn-primary" href="{{url('inputpencatatan')}}">Tambah Pencatatan</a>
+                  @endif
                     @if (session('status'))
                       <div class="alert alert-success alert-dismissible " role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
@@ -22,9 +24,9 @@
                       <table class="table table-striped jambo_table bulk_action">
                         <thead>
                           <tr class="headings">
-                            <th class="column-title">No. </th>
-                            <th class="column-title">Nama</th>
-                            <th class="column-title">email </th>
+                            <th class="column-title">No.</th>
+                            <th class="column-title"> ID. Pencatatan</th>
+                            <th class="column-title">No. Greenhouse </th>
                             <th class="column-title no-link last"><span class="nobr">Action</span>
                             </th>
                           </tr>

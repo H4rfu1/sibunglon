@@ -28,14 +28,17 @@ class C_DataPencatatan extends Controller
 
     public function index()
     {
-        $datapencatatan = M_DataPencatatan::all();
+        $datapencatatan = M_DataPencatatan::join('jenis_melon', 'data_perawatan.id_jenismelon', '=', 'jenis_melon.id_jenismelon')
+                                        ->join('no_greenhouse', 'data_perawatan.id_greenhouse', '=', 'no_greenhouse.id_greenhouse')
+                                        ->join('users', 'data_perawatan.id_akun', '=', 'users.id')
+                                        ->get();
         // dd($datapencatatan);
         return view('pencatatan.V_DataPencatatan', compact('datapencatatan'));
     }
 
-    public function buatakun($role)
+    public function buatPencatatan()
     {
-        return view('akun.buatakun', compact('role'));
+        return view('pencatatan.V_InputPencatatan');
     }
 
     /**

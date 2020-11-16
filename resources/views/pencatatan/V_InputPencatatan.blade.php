@@ -172,21 +172,14 @@
                         <div class="col-md-12 col-sm-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Akun 
-                                      @if($role == 3)
-                                        {{'Pemimpin'}}
-                                      @elseif($role == 2)
-                                        {{'Pengawas'}}
-                                      @else
-                                        {{'error'}}
-                                      @endif
+                                    <h2>Akun
                                     </h2>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
                                     <form class="" action="{{url('daftarakun')}}" method="post" novalidate>
                                       @csrf
-                                      <input type="hidden" name="role" value="{{$role}}">
+                                      <input type="hidden" name="pencatatan" value="{{Auth::user()->id}}">
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Nama<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
@@ -261,14 +254,7 @@
                                         <div class="ln_solid">
                                             <div class="form-group">
                                                 <div class="col-md-6 offset-md-3">
-                                                    <a class="btn btn-danger" href = "
-                                                    @if($role == 3)
-                                                    {{url('akun/pemimpin')}}
-                                                    @else
-                                                    {{url('akun/pengawas')}}
-                                                    @endif
-                                                    "
-                                                    >Batal</a>
+                                                    <a class="btn btn-danger" href = "{{url('pencatatan')}}">Batal</a>
                                                     <button type='submit' class="btn btn-success">Daftar</button>
                                                 </div>
                                             </div>

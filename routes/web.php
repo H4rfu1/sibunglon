@@ -34,6 +34,9 @@ Route::get('/akun/{role}', 'AkunController@akun');
 //kelola pencatatan
 Route::get('/pencatatan', 'C_DataPencatatan@index');
 
+Route::get('/inputpencatatan', 'C_DataPencatatan@buatPencatatan');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
