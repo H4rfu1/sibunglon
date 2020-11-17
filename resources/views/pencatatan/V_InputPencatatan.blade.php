@@ -198,6 +198,7 @@
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Tanggal Tanam<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <input class="form-control" class='date' type="date" name="tanggal_tanam" required='required'></div>
+                                            <div class="badge badge-secondary " style="outline: rgb(255, 0, 0) solid 1px;">data tidak boleh kosong</div>
                                         </div>
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Tanggal Pemberian Pupuk <span class="required">*</span></label>
@@ -263,7 +264,7 @@
 		}
 	</script>
 
-    <script>
+    <!-- <script>
         // initialize a validator instance from the "FormValidator" constructor.
         // A "<form>" element is optionally passed as an argument, but is not a must
         var validator = new FormValidator({
@@ -281,13 +282,13 @@
             validator.reset();
         };
         // stuff related ONLY for this demo page:
-        $('.toggleValidationTooltips').change(function() {
-            validator.settings.alerts = !this.checked;
-            if (this.checked)
-                $('form .alert').remove();
-        }).prop('checked', false);
+        // $('.toggleValidationTooltips').change(function() {
+        //     validator.settings.alerts = !this.checked;
+        //     if (this.checked)
+        //         $('form .alert').remove();
+        // }).prop('checked', false);
 
-    </script>
+    </script> -->
 
     <!-- jQuery -->
     <script src="{{url('vendors/jquery/dist/jquery.min.js')}}"></script>

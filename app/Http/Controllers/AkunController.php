@@ -33,7 +33,7 @@ class AkunController extends Controller
             return view('akun.pemimpin', compact('pemimpin'));
         }elseif($role == 'pengawas'){
             $pengawas = User::where('id_role', 2)->get();
-            dd($pengawas);
+            // dd($pengawas);
             return view('akun.pengawas', compact('pengawas'));
         }elseif($role == 'admin'){
             $admin = User::where('id_role', 1)->get();

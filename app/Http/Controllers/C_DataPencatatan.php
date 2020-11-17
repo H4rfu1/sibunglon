@@ -133,6 +133,6 @@ class C_DataPencatatan extends Controller
      */
     public function destroy($id)
     {
-        //
+        return "delete";
     }
 }

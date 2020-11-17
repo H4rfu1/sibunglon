@@ -185,9 +185,9 @@
                                 </div>
                                 <div class="x_content">
                                     <form class="" action="{{url('profil/'.$data->id)}}" method="post" novalidate>
-                                    @method('patch')
-                                      @csrf
-                                      <input type="hidden" name="role" value="{{$data->id_role}}">
+                                        @csrf
+                                        @method('patch')
+                                        <input type="hidden" name="role" value="{{$data->id_role}}">
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Nama<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">

@@ -179,6 +179,7 @@
                                 <div class="x_content">
                                     <form class="" action="{{url('pencatatan/'.$data->id_dataperawatan )}}" method="post" novalidate>
                                       @csrf
+                                      @method('patch')
                                       <input type="hidden" name="pencatat" value="{{Auth::user()->id}}">
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Jenis Melon<span class="required">*</span></label>

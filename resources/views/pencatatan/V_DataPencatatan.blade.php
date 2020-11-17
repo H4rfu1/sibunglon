@@ -50,7 +50,7 @@
                             @if( Auth::user()->id_role == 2)
                             <td class=" last">
                               <a href="{{url('editpencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
-                              <!-- <a href="{{url('profil/'.$p->id_dataperawatan)}}"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a> -->
+                              <a href="#" data-toggle="modal" data-target="#exampleModal" data-id="{{$p->id_dataperawatan}}" class="text-decoration-none"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a>
                             </td>
                             @endif
                           </tr>
@@ -65,7 +65,7 @@
                             @if( Auth::user()->id_role == 2)
                             <td class=" last">
                               <a href="{{url('editpencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
-                              <!-- <a href="{{url('profil/'.$p->id_dataperawatan)}}"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a> -->
+                              <a href="#" data-toggle="modal" data-target="#exampleModal" data-id="{{$p->id_dataperawatan}}" class="text-decoration-none"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a>
                             </td>           
                             @endif                 
                           </tr>
@@ -82,4 +82,29 @@
   </div>
 </div>
 <!-- /page content -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <form id="delete-form" action="{{url('/pencatatan/2')}}" method="POST">
+      @csrf
+      @method('delete')
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Hapus</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Apakah anda yakin ingin hapus?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Delete</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
 @endsection
