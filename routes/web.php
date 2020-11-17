@@ -23,6 +23,8 @@ Route::get('/profil/{id}', 'AkunController@index');
 
 Route::patch('/profil/{id}', 'AkunController@update');
 
+Route::delete('/profil/{id}', 'AkunController@destroy');
+
 Route::get('/profil/{id}/edit', 'AkunController@edit');
 
 Route::post('/daftarakun', 'AkunController@store');

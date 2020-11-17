@@ -254,7 +254,7 @@
                                         <div class="ln_solid">
                                             <div class="form-group">
                                                 <div class="col-md-6 offset-md-3">
-                                                    <a class="btn btn-danger" href = "
+                                                    <a class="btn btn-info" href = "
                                                     @if($data->id_role == 3)
                                                     {{url('akun/pemimpin')}}
                                                     @elseif($data->id_role == 2)
@@ -264,7 +264,8 @@
                                                     @endif
                                                     ">Kembali</a>
                                                     @if(Auth::user()->id_role == 1 || Auth::user()->id == $data->id)
-                                                    <a type='submit' class="btn btn-warning"href = "{{url('profil/'.$data->id)}}/edit"
+                                                    <a href="#" data-toggle="modal" data-target="#exampleModal" data-id="{{$data->id}}" data-nama="{{$data->name}}" class="btn btn-danger">Hapus</a>
+                                                    <a type='submit' class="btn btn-warning" href = "{{url('profil/'.$data->id)}}/edit"
                                                     >Ubah</a>
                                                     @endif
                                                 </div>
@@ -278,6 +279,32 @@
                 </div>
             </div>
             <!-- /page content -->
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <form id="delete-form" action="" method="POST">
+                @csrf
+                @method('delete')
+                <input type="hidden" name="role" value="{{$data->id_role}}">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Hapus</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Apakah anda yakin ingin hapus?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </div>
+                </form>
+                </div>
+            </div>
+            </div>
 
             <!-- footer content -->
             <footer>
@@ -355,6 +382,18 @@
 
     <!-- Custom Theme Scripts -->
     <script src="{{url('js/custom.min.js')}}"></script>
+    <script>
+        $('#exampleModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var id = button.data('id')
+        var nama = button.data('nama') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        modal.find('#delete-form').attr('action', "{{url('profil')}}/" +id)
+        modal.find('.modal-title').text('Menghapus akun ' + nama)
+      })
+    </script>
 
 </body>
 

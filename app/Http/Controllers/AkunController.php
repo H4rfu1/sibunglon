@@ -194,8 +194,15 @@ class AkunController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        User::destroy($id);
+        if((int)$request->role == 1){
+            return redirect('akun/admin')->with('status', 'Data Admin Berhasil diubah');
+        }elseif((int)$request->role == 2){
+            return redirect('akun/pengawas')->with('status', 'Berhasil menghapus data akun pengawas');
+        }elseif((int)$request->role == 3){
+            return redirect('akun/pemimpin')->with('status', 'Berhasil menghapus data akun pemimpin');
+        }
     }
 }
