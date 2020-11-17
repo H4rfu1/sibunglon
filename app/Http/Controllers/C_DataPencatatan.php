@@ -133,6 +133,7 @@ class C_DataPencatatan extends Controller
      */
     public function destroy($id)
     {
-        return "delete";
+        M_DataPencatatan::destroy($id);
+        return redirect('pencatatan')->with('status', 'Data Pencatatan Perkembangan Melon Berhasil Dihapus');
     }
 }
