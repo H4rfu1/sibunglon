@@ -222,7 +222,7 @@
                                         <div class="ln_solid">
                                             <div class="form-group">
                                                 <div class="col-md-6 offset-md-3">
-                                                    <a class="btn btn-info" href = "{{url('pencatatan)}}">Kembali</a>                                                </div>
+                                                    <a class="btn btn-info" href = "{{url('pencatatan')}}">Kembali</a>                                                </div>
                                             </div>
                                         </div>
                                     </form>
@@ -234,31 +234,7 @@
             </div>
             <!-- /page content -->
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                <form id="delete-form" action="" method="POST">
-                @csrf
-                @method('delete')
-                <input type="hidden" name="role" value="{{$data->id_role}}">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Hapus</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Apakah anda yakin ingin hapus?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Delete</button>
-                </div>
-                </form>
-                </div>
-            </div>
-            </div>
+            
 
             <!-- footer content -->
             <footer>
@@ -270,58 +246,6 @@
             <!-- /footer content -->
         </div>
     </div>
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')}}"></script>
-    <script src="{{url('vendors/validator/multifield.js')}}"></script>
-    <script src="{{url('vendors/validator/validator.js')}}"></script>
-    
-    <!-- Javascript functions	-->
-	<script>
-		function hideshow(){
-			var password = document.getElementById("password1");
-			var slash = document.getElementById("slash");
-			var eye = document.getElementById("eye");
-			
-			if(password.type === 'password'){
-				password.type = "text";
-				slash.style.display = "block";
-				eye.style.display = "none";
-			}
-			else{
-				password.type = "password";
-				slash.style.display = "none";
-				eye.style.display = "block";
-			}
-
-		}
-	</script>
-
-    <script>
-        // initialize a validator instance from the "FormValidator" constructor.
-        // A "<form>" element is optionally passed as an argument, but is not a must
-        var validator = new FormValidator({
-            "events": ['blur', 'input', 'change']
-        }, document.forms[0]);
-        // on form "submit" event
-        document.forms[0].onsubmit = function(e) {
-            var submit = true,
-                validatorResult = validator.checkAll(this);
-            console.log(validatorResult);
-            return !!validatorResult.valid;
-        };
-        // on form "reset" event
-        document.forms[0].onreset = function(e) {
-            validator.reset();
-        };
-        // stuff related ONLY for this demo page:
-        $('.toggleValidationTooltips').change(function() {
-            validator.settings.alerts = !this.checked;
-            if (this.checked)
-                $('form .alert').remove();
-        }).prop('checked', false);
-
-    </script>
 
     <!-- jQuery -->
     <script src="{{url('vendors/jquery/dist/jquery.min.js')}}"></script>
@@ -336,18 +260,6 @@
 
     <!-- Custom Theme Scripts -->
     <script src="{{url('js/custom.min.js')}}"></script>
-    <script>
-        $('#exampleModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget) // Button that triggered the modal
-        var id = button.data('id')
-        var nama = button.data('nama') // Extract info from data-* attributes
-        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-        var modal = $(this)
-        modal.find('#delete-form').attr('action', "{{url('profil')}}/" +id)
-        modal.find('.modal-title').text('Menghapus akun ' + nama)
-      })
-    </script>
 
 </body>
 

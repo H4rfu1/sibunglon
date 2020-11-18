@@ -47,7 +47,7 @@
                             <td class=" last">
                               <a href="#" data-toggle="modal" data-target="#exampleModal" data-id="{{$p->id_dataperawatan}}" class="text-decoration-none"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a>
                               <a href="{{url('editpencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
-                              <a href="{{url('pencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-warning" style="font-size: 1em;">Detail</span></a>
+                              <a href="{{url('pencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-info" style="font-size: 1em;">Detail</span></a>
                             </td>
                             @endif
                           </tr>
@@ -61,7 +61,7 @@
                             <td class=" last">
                               <a href="#" data-toggle="modal" data-target="#exampleModal" data-id="{{$p->id_dataperawatan}}" class="text-decoration-none"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a>
                               <a href="{{url('editpencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
-                              <a href="{{url('pencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-warning" style="font-size: 1em;">Detail</span></a>           
+                              <a href="{{url('pencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-info" style="font-size: 1em;">Detail</span></a>           
                             </td>           
                             @endif                 
                           </tr>

@@ -78,6 +78,7 @@ class C_DataPencatatan extends Controller
         ->join('no_greenhouse', 'data_perawatan.id_greenhouse', '=', 'no_greenhouse.id_greenhouse')
         ->join('users', 'data_perawatan.id_akun', '=', 'users.id')
         ->where('id_dataperawatan', $id)->first();
+        
         return view('pencatatan.V_DetailPencatatan', ['data' => $data]);
     }
 
