@@ -42,6 +42,8 @@ Route::post('/simpanpencatatan', 'C_DataPencatatan@store');
 
 Route::get('/editpencatatan/{id}', 'C_DataPencatatan@edit');
 
+Route::get('/pencatatan/{id}', 'C_DataPencatatan@show');
+
 Route::patch('/pencatatan/{id}', 'C_DataPencatatan@update');
 
 Route::delete('/pencatatan/{id}', 'C_DataPencatatan@destroy');

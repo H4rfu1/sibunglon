@@ -26,10 +26,8 @@
                           <tr class="headings">
                             <th class="column-title">ID. Pencatatan</th>
                             <th class="column-title">No. Greenhouse</th>
-                            <th class="column-title">Pencatat</th>
+                            <th class="column-title">Pengawas</th>
                             <th class="column-title">Tanggal tanam</th>
-                            <th class="column-title">Tanggal Pemupukan</th>
-                            <th class="column-title">Tanggal Panen</th>
                             @if( Auth::user()->id_role == 2)
                             <th class="column-title no-link last"><span class="nobr">Action</span>
                             </th>
@@ -40,32 +38,30 @@
                         <tbody>
                           @foreach($datapencatatan as $p)
                           @if($loop->iteration % 2 == 1)
-                          <tr class="even pointer">
+                          <tr class="even pointer" onclick="window.location='{{url('pencatatan/'.$p->id_dataperawatan)}}';" style="cursor: pointer;">
                             <td>{{ $p->id_dataperawatan }}</td>
                             <td class=" ">{{ $p->no_greenhouse }}</td>
                             <td class=" ">{{ $p->name }}</td>
                             <td class=" ">{{ $p->tanggal_tanam }}</td>
-                            <td class=" ">{{ $p->tanggal_pemberianpupuk }}</td>
-                            <td class=" ">{{ $p->prediksi_tanggalpanen }}</td>
                             @if( Auth::user()->id_role == 2)
                             <td class=" last">
-                              <a href="{{url('editpencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
                               <a href="#" data-toggle="modal" data-target="#exampleModal" data-id="{{$p->id_dataperawatan}}" class="text-decoration-none"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a>
+                              <a href="{{url('editpencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
+                              <a href="{{url('pencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-warning" style="font-size: 1em;">Detail</span></a>
                             </td>
                             @endif
                           </tr>
                           @else
-                          <tr class="odd pointer">
+                          <tr class="odd pointer" onclick="window.location='{{url('pencatatan/'.$p->id_dataperawatan)}}';" style="cursor: pointer;">
                             <td>{{ $p->id_dataperawatan }}</td>
                             <td class=" ">{{ $p->no_greenhouse }}</td>
                             <td class=" ">{{ $p->name }}</td>
                             <td class=" ">{{ $p->tanggal_tanam }}</td>
-                            <td class=" ">{{ $p->tanggal_pemberianpupuk }}</td>
-                            <td class=" ">{{ $p->prediksi_tanggalpanen }}</td>
                             @if( Auth::user()->id_role == 2)
                             <td class=" last">
-                              <a href="{{url('editpencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
                               <a href="#" data-toggle="modal" data-target="#exampleModal" data-id="{{$p->id_dataperawatan}}" class="text-decoration-none"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a>
+                              <a href="{{url('editpencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
+                              <a href="{{url('pencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-warning" style="font-size: 1em;">Detail</span></a>           
                             </td>           
                             @endif                 
                           </tr>

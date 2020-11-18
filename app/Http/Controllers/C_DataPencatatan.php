@@ -74,8 +74,11 @@ class C_DataPencatatan extends Controller
      */
     public function show($id)
     {
-        // $user = User::where('id', $id)->get();
-        // return view('akun.pengawas', ['user' => $user]);
+        $data = M_DataPencatatan::join('jenis_melon', 'data_perawatan.id_jenismelon', '=', 'jenis_melon.id_jenismelon')
+        ->join('no_greenhouse', 'data_perawatan.id_greenhouse', '=', 'no_greenhouse.id_greenhouse')
+        ->join('users', 'data_perawatan.id_akun', '=', 'users.id')
+        ->where('id_dataperawatan', $id)->first();
+        return view('pencatatan.V_DetailPencatatan', ['data' => $data]);
     }
 
     /**
