@@ -264,9 +264,10 @@
                                                     @endif
                                                     ">Kembali</a>
                                                     @if(Auth::user()->id_role == 1 || Auth::user()->id == $data->id)
-                                                    <a href="#" data-toggle="modal" data-target="#exampleModal" data-id="{{$data->id}}" data-nama="{{$data->name}}" class="btn btn-danger">Hapus</a>
-                                                    <a type='submit' class="btn btn-warning" href = "{{url('profil/'.$data->id)}}/edit"
-                                                    >Ubah</a>
+                                                        <a type='submit' class="btn btn-warning" href = "{{url('profil/'.$data->id)}}/edit">Ubah</a>
+                                                        @if(Auth::user()->id_role == 1)
+                                                            <a href="#" data-toggle="modal" data-target="#exampleModal" data-id="{{$data->id}}" data-nama="{{$data->name}}" class="btn btn-danger">Hapus</a>
+                                                        @endif
                                                     @endif
                                                 </div>
                                             </div>
