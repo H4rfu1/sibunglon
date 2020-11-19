@@ -190,7 +190,7 @@
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Nama<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Nama Lengkap" required="required" value="{{old('name')}}"/>
+                                                <input class="form-control" name="name" placeholder="Nama Lengkap" required="required" value="{{old('name')}}"/>
                                             </div>
                                         </div>
                                         <div class="field item form-group">
@@ -211,13 +211,13 @@
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Jenis Kelamin<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="6" name="jenis_kelamin" placeholder="laki-laki/perempuan" required="required" />
+                                                <input class="form-control"  name="jenis_kelamin" placeholder="laki-laki/perempuan" required="required" />
                                             </div>
                                         </div>
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Tempat Lahir<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="6" name="tempat_lahir" placeholder="Kota/kabupaten" required="required" />
+                                                <input class="form-control"  name="tempat_lahir" placeholder="Kota/kabupaten" required="required" />
                                             </div>
                                         </div>
                                         <div class="field item form-group">

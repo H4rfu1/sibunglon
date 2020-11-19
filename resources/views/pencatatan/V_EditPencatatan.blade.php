@@ -215,16 +215,6 @@
                                             <div class="col-md-6 col-sm-6">
                                                 <input class="form-control" class='date' type="date" name="tanggal_tanam" required='required' value="{{$data->tanggal_tanam}}"></div>
                                         </div>
-                                        <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Tanggal Pemberian Pupuk <span class="required" >*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="date" name="tanggal_pemupukan" required='required' value="{{$data->tanggal_pemberianpupuk}}"></div>
-                                        </div>
-                                        <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Prediksi Tanggal Panen<span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="date" name="tanggal_panen" required='required' value="{{$data->prediksi_tanggalpanen}}"></div>
-                                        </div>
                                         <div class="ln_solid">
                                             <div class="form-group">
                                                 <div class="col-md-6 offset-md-3 mt-2">

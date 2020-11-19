@@ -38,7 +38,11 @@
                         <tbody>
                           @foreach($datapencatatan as $p)
                           @if($loop->iteration % 2 == 1)
+                          @if( Auth::user()->id_role == 2)
+                          <tr class="even pointer">
+                          @else
                           <tr class="even pointer" onclick="window.location='{{url('pencatatan/'.$p->id_dataperawatan)}}';" style="cursor: pointer;">
+                          @endif
                             <td>{{ $p->id_dataperawatan }}</td>
                             <td class=" ">{{ $p->no_greenhouse }}</td>
                             <td class=" ">{{ $p->name }}</td>
@@ -52,8 +56,12 @@
                             @endif
                           </tr>
                           @else
+                          @if( Auth::user()->id_role == 2)
+                          <tr class="odd pointer">
+                          @else
                           <tr class="odd pointer" onclick="window.location='{{url('pencatatan/'.$p->id_dataperawatan)}}';" style="cursor: pointer;">
-                            <td>{{ $p->id_dataperawatan }}</td>
+                          @endif                            
+                          <td>{{ $p->id_dataperawatan }}</td>
                             <td class=" ">{{ $p->no_greenhouse }}</td>
                             <td class=" ">{{ $p->name }}</td>
                             <td class=" ">{{ $p->tanggal_tanam }}</td>
@@ -97,7 +105,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Delete</button>
+        <button type="submit" class="btn btn-primary">Hapus</button>
       </div>
       </form>
     </div>

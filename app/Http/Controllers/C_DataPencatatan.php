@@ -133,12 +133,23 @@ class C_DataPencatatan extends Controller
      */
     public function update(Request $request, $id)
     {
+        //metode sistem pakar
+        $data = DB::table('jenis_melon')
+            ->where('id_jenismelon', '=', $request->jenis_melon)
+            ->first();
+        $tanampanen = strtotime($request->tanggal_tanam . " +". $data->masa_panen ." days");
+        $tanampanen = date('Y-m-d',$tanampanen);
+        $tanampupuk = strtotime($request->tanggal_tanam . " +". $data->masa_pupuk ." days");
+        $tanampupuk = date('Y-m-d',$tanampupuk);
+        
         M_DataPencatatan::where('id_dataperawatan', $id)
             ->update([
                 'id_jenismelon' => $request->jenis_melon,
                 'id_greenhouse' => $request->no_greenhouse,
                 'tanggal_tanam' => $request->tanggal_tanam,
-                'id_akun' => $request->pencatat
+                'id_akun' => $request->pencatat,
+                'tanggal_pemberianpupuk' => $tanampupuk,
+                'prediksi_tanggalpanen' => $tanampanen
             ]);
             return redirect('pencatatan')->with('status', 'Data Pencatatan Perkembangan Melon Berhasil Disimpan');
     }
