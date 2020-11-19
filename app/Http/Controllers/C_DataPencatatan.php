@@ -53,13 +53,22 @@ class C_DataPencatatan extends Controller
      */
     public function store(Request $request)
     {
+        //metode sistem pakar
+        $data = DB::table('jenis_melon')
+            ->where('id_jenismelon', '=', $request->jenis_melon)
+            ->first();
+        $tanampanen = strtotime($request->tanggal_tanam . " +". $data->masa_panen ." days");
+        $tanampanen = date('Y-m-d',$tanampanen);
+        $tanampupuk = strtotime($request->tanggal_tanam . " +". $data->masa_pupuk ." days");
+        $tanampupuk = date('Y-m-d',$tanampupuk);
+
         M_DataPencatatan::create([
             'id_jenismelon' => $request->jenis_melon,
             'id_greenhouse' => $request->no_greenhouse,
             'tanggal_tanam' => $request->tanggal_tanam,
             'id_akun' => $request->pencatat,
-            'tanggal_pemberianpupuk' => $request->tanggal_pemupukan,
-            'prediksi_tanggalpanen' => $request->tanggal_panen
+            'tanggal_pemberianpupuk' => $tanampupuk,
+            'prediksi_tanggalpanen' => $tanampanen
         ]);
 
             return redirect('pencatatan')->with('status', 'Berhasil Menambahkan Data Pencatatan Perkembangan Melon');
@@ -74,12 +83,19 @@ class C_DataPencatatan extends Controller
      */
     public function show($id)
     {
+        
+
         $data = M_DataPencatatan::join('jenis_melon', 'data_perawatan.id_jenismelon', '=', 'jenis_melon.id_jenismelon')
         ->join('no_greenhouse', 'data_perawatan.id_greenhouse', '=', 'no_greenhouse.id_greenhouse')
         ->join('users', 'data_perawatan.id_akun', '=', 'users.id')
         ->where('id_dataperawatan', $id)->first();
+
+        //sistem pakar rekoendasi
+        $keterangan = DB::table('jenis_melon')
+            ->where('id_jenismelon', '=', $data->id_jenismelon)
+            ->first();
         
-        return view('pencatatan.V_DetailPencatatan', ['data' => $data]);
+        return view('pencatatan.V_DetailPencatatan', ['data' => $data, 'keterangan' => $keterangan]);
     }
 
     /**
@@ -122,9 +138,7 @@ class C_DataPencatatan extends Controller
                 'id_jenismelon' => $request->jenis_melon,
                 'id_greenhouse' => $request->no_greenhouse,
                 'tanggal_tanam' => $request->tanggal_tanam,
-                'id_akun' => $request->pencatat,
-                'tanggal_pemberianpupuk' => $request->tanggal_pemupukan,
-                'prediksi_tanggalpanen' => $request->tanggal_panen
+                'id_akun' => $request->pencatat
             ]);
             return redirect('pencatatan')->with('status', 'Data Pencatatan Perkembangan Melon Berhasil Disimpan');
     }

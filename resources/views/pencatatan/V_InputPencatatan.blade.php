@@ -174,7 +174,7 @@
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Jenis Melon<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <select name="jenis_melon" id="jenis_melon" class="form-control">
+                                                <select name="jenis_melon" id="jenis_melon" class="form-control" required='required'>
                                                     <option value="" disabled selected></option>
                                                 @foreach($jenismelon as $item)
                                                     <option class="form-control" value="{{ $item->id_jenismelon }}" >{{ $item->jenismelon }}</option>
@@ -185,7 +185,7 @@
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">No Greenhouse<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                            <select name="no_greenhouse" id="no_greenhouse" class="form-control">
+                                            <select name="no_greenhouse" id="no_greenhouse" class="form-control" required='required'>
                                                 <option value="" disabled selected></option>
                                                 @foreach($nogrenhouse as $item)
                                                     <option class="form-control" value="{{ $item->id_greenhouse }}" >{{ $item->no_greenhouse }}</option>
@@ -197,18 +197,7 @@
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Tanggal Tanam<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="date" name="tanggal_tanam" required='required'></div>
-                                            <div class="badge badge-secondary " style="outline: rgb(255, 0, 0) solid 1px;">data tidak boleh kosong</div>
-                                        </div>
-                                        <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Tanggal Pemberian Pupuk <span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="date" name="tanggal_pemupukan" required='required'></div>
-                                        </div>
-                                        <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Prediksi Tanggal Panen<span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="date" name="tanggal_panen" required='required'></div>
+                                                <input class="form-control" class='date' type="date" name="tanggal_tanam" required='required'></div>                                            
                                         </div>
                                         <div class="ln_solid">
                                             <div class="form-group">
@@ -264,7 +253,7 @@
 		}
 	</script>
 
-    <!-- <script>
+    <script>
         // initialize a validator instance from the "FormValidator" constructor.
         // A "<form>" element is optionally passed as an argument, but is not a must
         var validator = new FormValidator({
@@ -288,7 +277,7 @@
         //         $('form .alert').remove();
         // }).prop('checked', false);
 
-    </script> -->
+    </script>
 
     <!-- jQuery -->
     <script src="{{url('vendors/jquery/dist/jquery.min.js')}}"></script>
@@ -299,7 +288,7 @@
     <!-- NProgress -->
     <script src="{{url('vendors/nprogress/nprogress.js')}}"></script>
     <!-- validator -->
-    <!-- <script src="vendors/validator/validator.js"></script> -->
+    <script src="vendors/validator/validator.js"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="{{url('js/custom.min.js')}}"></script>

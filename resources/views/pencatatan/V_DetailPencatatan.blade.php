@@ -216,7 +216,7 @@
                                         <div class="field item form-group">
                                             <label class="col-md-3 col-sm-3  label-align">Rekomendasi<span > : </span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <p>{{"data rekomendasi perawatan"}}</p>
+                                                <p>{{$keterangan->keterangan}}</p>
                                             </div>
                                         </div>
                                         <div class="ln_solid">
