@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Buat akun | </title>
+    <title>Profil | </title>
 
     <!-- favicon -->
     <link rel="shortcut icon" href="{{url('favicon.ico')}}" type="image/x-icon">
@@ -39,7 +39,7 @@
                     <!-- menu profile quick info -->
                     <div class="profile clearfix">
                         <div class="profile_pic">
-                            <img src="{{url('images/img.jpg')}}" alt="..." class="img-circle profile_img">
+                            <img src="{{url('images/img.png')}}" alt="..." class="img-circle profile_img">
                         </div>
                         <div class="profile_info">
                             <span>Welcome,</span>
@@ -115,7 +115,7 @@
 
                     <!-- /menu footer buttons -->
                     <div class="sidebar-footer hidden-small">
-                        <a data-toggle="tooltip" data-placement="top" title="Settings">
+                        <!-- <a data-toggle="tooltip" data-placement="top" title="Settings">
                             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                         </a>
                         <a data-toggle="tooltip" data-placement="top" title="FullScreen">
@@ -123,10 +123,14 @@
                         </a>
                         <a data-toggle="tooltip" data-placement="top" title="Lock">
                             <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-                        </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                        </a> -->
+                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                         </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </div>
                     <!-- /menu footer buttons -->
                 </div>
@@ -142,12 +146,13 @@
                         <ul class=" navbar-right">
                             <li class="nav-item dropdown open" style="padding-left: 15px;">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="{{asset('images/img.jpg')}}" alt="">{{ Auth::user()->name }}
+                                    <img src="{{asset('images/img.png')}}" alt="">{{ Auth::user()->name }}
                                 </a>
                                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{url('profil/'.Auth::user()->id)}}"> Profile</a>
                                     <a class="dropdown-item"  href="{{ route('logout') }}"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                    
                                 </div>
                             </li>
 
@@ -162,7 +167,7 @@
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3>Daftar Akun</h3>
+                            <h3>Detail Akun</h3>
                         </div>
 
                     </div>
@@ -173,30 +178,21 @@
                             <div class="x_panel">
                                 <div class="x_title">
                                     <h2>Akun 
-                                      @if($role == 3)
-                                        {{'Pemimpin'}}
-                                      @elseif($role == 2)
-                                        {{'Pengawas'}}
-                                      @else
-                                        {{'error'}}
-                                      @endif
                                     </h2>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
-                                    <form class="" action="{{url('daftarakun')}}" method="post" novalidate>
-                                      @csrf
-                                      <input type="hidden" name="role" value="{{$role}}">
+                                    <form class="" novalidate>
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Nama<span class="required">*</span></label>
+                                            <label class="col-md-3 col-sm-3  label-align">Nama<span > : </span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="name" placeholder="Nama Lengkap" required="required" value="{{old('name')}}"/>
+                                                <p>{{$data->name}}</p>
                                             </div>
                                         </div>
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Email<span class="required">*</span></label>
+                                            <label class="col-md-3 col-sm-3  label-align">Email<span > : </span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="email" class='email' required="required" type="email" /></div>
+                                                <p> {{$data->email}} </p></div>
                                         </div>
                                         <!-- <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Confirm email address<span class="required">*</span></label>
@@ -209,28 +205,29 @@
                                                 <input class="form-control" type="number" class='number' name="number" data-validate-minmax="10,100" required='required'></div>
                                         </div> -->
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Jenis Kelamin<span class="required">*</span></label>
+                                            <label class=" col-md-3 col-sm-3  label-align">Jenis Kelamin<span > : </span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control"  name="jenis_kelamin" placeholder="laki-laki/perempuan" required="required" />
+                                                <p>{{$data->jenis_kelamin}}</p>
                                             </div>
                                         </div>
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Tempat Lahir<span class="required">*</span></label>
+                                            <label class="col-md-3 col-sm-3  label-align">Tempat Lahir<span > : </span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control"  name="tempat_lahir" placeholder="Kota/kabupaten" required="required" />
+                                                <p>{{$data->tempat_lahir}}</p>
                                             </div>
                                         </div>
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Tanggal Lahir<span class="required">*</span></label>
+                                            <label class="col-md-3 col-sm-3  label-align">Tanggal Lahir<span > : </span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="date" name="tanggal_lahir" required='required'></div>
+                                                <p>{{$data->tanggal_lahir}}</p>
+                                            </div>
                                         </div>
                                         <!-- <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Time<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <input class="form-control" class='time' type="time" name="time" required='required'></div>
                                         </div> -->
-                                        
+<!--                                         
                                         <div class="field item form-group">
 											<label class="col-form-label col-md-3 col-sm-3  label-align">Password<span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6">
@@ -241,7 +238,7 @@
 													<i id="eye" class="fa fa-eye"></i>
 												</span>
 											</div>
-										</div>
+										</div> -->
                                         
                                         <!-- <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Ulangi password<span class="required">*</span></label>
@@ -249,27 +246,38 @@
                                                 <input class="form-control" type="password" name="password2" data-validate-linked='password' required='required' /></div>
                                         </div> -->
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">No. HP<span class="required">*</span></label>
+                                            <label class="col-md-3 col-sm-3  label-align">No. HP<span > : </span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" type="tel" class='tel' name="no_hp" required='required' data-validate-length-range="10,13" /></div>
+                                                <p>{{$data->no_hp}}</p></div>
                                         </div>
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">alamat<span class="required">*</span></label>
+                                            <label class="col-md-3 col-sm-3  label-align">alamat<span > : </span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <textarea required="required" name='alamat'></textarea></div>
+                                                <p>{{$data->alamat}}</p>
+                                            </div>
                                         </div>
                                         <div class="ln_solid">
                                             <div class="form-group">
                                                 <div class="col-md-6 offset-md-3">
-                                                    <a class="btn btn-danger" href = "
-                                                    @if($role == 3)
+                                                    <a class="btn btn-info" href = "
+                                                    @if(Auth::user()->id == $data->id)
+                                                    {{url('home')}}
+                                                    @elseif($data->id_role == 3)
                                                     {{url('akun/pemimpin')}}
-                                                    @else
+                                                    @elseif($data->id_role == 2)
                                                     {{url('akun/pengawas')}}
+                                                    @elseif($data->id_role == 1)
+                                                    {{url('akun/admin')}}
                                                     @endif
-                                                    "
-                                                    >Batal</a>
-                                                    <button type='submit' class="btn btn-success">Daftar</button>
+                                                    ">Kembali</a>
+                                                    @if(Auth::user()->id_role == 1 && Auth::user()->id == $data->id)
+                                                        <a type='submit' class="btn btn-warning" href = "{{url('profil/'.$data->id)}}/edit">Ubah</a>
+                                                    @elseif (Auth::user()->id == $data->id)
+                                                        <a type='submit' class="btn btn-warning" href = "{{url('profil/'.$data->id)}}/edit">Ubah</a>
+                                                    @elseif(Auth::user()->id_role == 1)
+                                                        <a type='submit' class="btn btn-warning" href = "{{url('profil/'.$data->id)}}/edit">Ubah</a>
+                                                        <a href="#" data-toggle="modal" data-target="#exampleModal" data-id="{{$data->id}}" data-nama="{{$data->name}}" class="btn btn-danger">Hapus</a>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -281,6 +289,32 @@
                 </div>
             </div>
             <!-- /page content -->
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <form id="delete-form" action="" method="POST">
+                @csrf
+                @method('delete')
+                <input type="hidden" name="role" value="{{$data->id_role}}">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Hapus</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Apakah anda yakin ingin hapus?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </div>
+                </form>
+                </div>
+            </div>
+            </div>
 
             <!-- footer content -->
             <footer>
@@ -358,6 +392,18 @@
 
     <!-- Custom Theme Scripts -->
     <script src="{{url('js/custom.min.js')}}"></script>
+    <script>
+        $('#exampleModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var id = button.data('id')
+        var nama = button.data('nama') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        modal.find('#delete-form').attr('action', "{{url('profil')}}/" +id)
+        modal.find('.modal-title').text('Menghapus akun ' + nama)
+      })
+    </script>
 
 </body>
 

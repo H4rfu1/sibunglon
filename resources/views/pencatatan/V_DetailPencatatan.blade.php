@@ -39,7 +39,7 @@
                     <!-- menu profile quick info -->
                     <div class="profile clearfix">
                         <div class="profile_pic">
-                            <img src="{{url('images/img.jpg')}}" alt="..." class="img-circle profile_img">
+                            <img src="{{url('images/img.png')}}" alt="..." class="img-circle profile_img">
                         </div>
                         <div class="profile_info">
                             <span>Welcome,</span>
@@ -70,16 +70,7 @@
               <div class="menu_section">
                 <h3>Pencatatan</h3>
                 <ul class="nav side-menu">
-                <li><a><i class="fa fa-edit"></i> Catat Harian <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="form.html">General Form</a></li>
-                      <li><a href="form_advanced.html">Advanced Components</a></li>
-                      <li><a href="form_validation.html">Form Validation</a></li>
-                      <li><a href="form_wizards.html">Form Wizard</a></li>
-                      <li><a href="form_upload.html">Form Upload</a></li>
-                      <li><a href="form_buttons.html">Form Buttons</a></li>
-                    </ul>
-                  </li>               
+                  <li><a href="{{url('pencatatan')}}"><i class="fa fa-edit"></i> Pencatatan </a></li>     
                 </ul>
               </div>
               @endif
@@ -93,19 +84,13 @@
                         <li><a href="{{url('akun/pengawas')}}">Akun Pengawas</a>
                         </li>
                     </ul>
-                  </li>                  
+                  </li>
                 </ul>
               </div>
               <div class="menu_section">
                 <h3>Laporan</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-bar-chart-o"></i> Laporan <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                        <li><a href="#level1_1">Akun Administrator</a>
-                        <li><a href="#level1_2">Akun Pemimpin</a>
-                        </li>
-                    </ul>
-                  </li>                  
+                    <li><a href="{{url('pencatatan')}}"><i class="fa fa-edit"></i> Pencatatan </a></li>                                       
                 </ul>
               </div>
               @endif
@@ -114,21 +99,25 @@
             <!-- /sidebar menu -->
 
                     <!-- /menu footer buttons -->
-                    <div class="sidebar-footer hidden-small">
-                        <a data-toggle="tooltip" data-placement="top" title="Settings">
-                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                        </a>
-                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-                        </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Lock">
-                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-                        </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
-                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-                        </a>
-                    </div>
-                    <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <!-- <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a> -->
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="{{ route('logout') }}"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+              </form>
+            </div>
+            <!-- /menu footer buttons -->
                 </div>
             </div>
 
@@ -142,7 +131,7 @@
                         <ul class=" navbar-right">
                             <li class="nav-item dropdown open" style="padding-left: 15px;">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="{{asset('images/img.jpg')}}" alt="">{{ Auth::user()->name }}
+                                    <img src="{{asset('images/img.png')}}" alt="">{{ Auth::user()->name }}
                                 </a>
                                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{url('profil/'.Auth::user()->id)}}"> Profile</a>

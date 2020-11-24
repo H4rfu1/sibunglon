@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
-class AkunController extends Controller
+class C_Login extends Controller
 {
     /**
      * Create a new controller instance.
@@ -21,20 +22,21 @@ class AkunController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function pemimpin()
+    public function setHome()
     {
-        return view('akun/pemimpin');
+        if(Auth::check()){
+            return view('V_Home');
+        }else{
+            return redirect('/login');
+        }
     }
-    public function pengawas()
+    public function setFormLogin()
     {
-        return view('akun/pengawas');
+        if(Auth::check()){
+            return redirect('/home');
+        }else{
+            return view('auth.login');
+        }
     }
-    public function admin()
-    {
-        return view('akun/admin');
-    }
-    public function buatakun()
-    {
-        return view('akun/buatakun');
-    }
+
 }

@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+// Route::get('/', function () {
+//     return view('auth.login');
+// });
 // Route::get('/login', function () {
 //     return view('login');
 // });
@@ -29,25 +29,27 @@ Route::get('/profil/{id}/edit', 'AkunController@edit');
 
 Route::post('/daftarakun', 'AkunController@store');
 
-Route::get('/buatakun/{role}', 'AkunController@buatakun');
+Route::get('/buatakun/{role}', 'AkunController@setFormInputDaftar');
 
 Route::get('/akun/{role}', 'AkunController@akun');
 
+
 //kelola pencatatan
-Route::get('/pencatatan', 'C_DataPencatatan@index');
+Route::get('/pencatatan', 'C_DataPencatatan@setListTableDataPencatatan');
 
-Route::get('/inputpencatatan', 'C_DataPencatatan@buatPencatatan');
+Route::get('/inputpencatatan', 'C_DataPencatatan@setFormInputPencatatan');
 
-Route::post('/simpanpencatatan', 'C_DataPencatatan@store');
+Route::post('/simpanpencatatan', 'C_DataPencatatan@InputDataPencatatan');
 
-Route::get('/editpencatatan/{id}', 'C_DataPencatatan@edit');
+Route::get('/editpencatatan/{id}', 'C_DataPencatatan@setFormInputEditPencatatan');
 
-Route::get('/pencatatan/{id}', 'C_DataPencatatan@show');
+Route::get('/pencatatan/{id}', 'C_DataPencatatan@setTableDataPencatatan');
 
-Route::patch('/pencatatan/{id}', 'C_DataPencatatan@update');
+Route::patch('/pencatatan/{id}', 'C_DataPencatatan@UpdateDataPencatatan');
 
-Route::delete('/pencatatan/{id}', 'C_DataPencatatan@destroy');
+// Route::delete('/pencatatan/{id}', 'C_DataPencatatan@destroy');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'C_Login@setHome')->name('home');
+Route::get('/', 'C_Login@setFormLogin');

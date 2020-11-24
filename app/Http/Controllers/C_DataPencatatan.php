@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
-use App\M_DataPencatatan;
+use App\M_DataPerawatan;
 
 class C_DataPencatatan extends Controller
 {
@@ -26,9 +26,9 @@ class C_DataPencatatan extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index()
+    public function setListTableDataPencatatan()
     {
-        $datapencatatan = M_DataPencatatan::join('jenis_melon', 'data_perawatan.id_jenismelon', '=', 'jenis_melon.id_jenismelon')
+        $datapencatatan = M_DataPerawatan::join('jenis_melon', 'data_perawatan.id_jenismelon', '=', 'jenis_melon.id_jenismelon')
                                         ->join('no_greenhouse', 'data_perawatan.id_greenhouse', '=', 'no_greenhouse.id_greenhouse')
                                         ->join('users', 'data_perawatan.id_akun', '=', 'users.id')
                                         ->get();
@@ -37,7 +37,7 @@ class C_DataPencatatan extends Controller
         return view('pencatatan.V_DataPencatatan', ['datapencatatan' => $datapencatatan]);
     }
 
-    public function buatPencatatan()
+    public function setFormInputPencatatan()
     {
         $jenismelon = DB::table('jenis_melon')->orderBy('jenismelon')->get();
         $nogrenhouse = DB::table('no_greenhouse')->orderBy('no_greenhouse')->get();
@@ -51,7 +51,7 @@ class C_DataPencatatan extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function InputDataPencatatan(Request $request)
     {
         //metode sistem pakar
         $data = DB::table('jenis_melon')
@@ -62,7 +62,7 @@ class C_DataPencatatan extends Controller
         $tanampupuk = strtotime($request->tanggal_tanam . " +". $data->masa_pupuk ." days");
         $tanampupuk = date('Y-m-d',$tanampupuk);
 
-        M_DataPencatatan::create([
+        M_DataPerawatan::create([
             'id_jenismelon' => $request->jenis_melon,
             'id_greenhouse' => $request->no_greenhouse,
             'tanggal_tanam' => $request->tanggal_tanam,
@@ -81,11 +81,11 @@ class C_DataPencatatan extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function setTableDataPencatatan($id)
     {
         
 
-        $data = M_DataPencatatan::join('jenis_melon', 'data_perawatan.id_jenismelon', '=', 'jenis_melon.id_jenismelon')
+        $data = M_DataPerawatan::join('jenis_melon', 'data_perawatan.id_jenismelon', '=', 'jenis_melon.id_jenismelon')
         ->join('no_greenhouse', 'data_perawatan.id_greenhouse', '=', 'no_greenhouse.id_greenhouse')
         ->join('users', 'data_perawatan.id_akun', '=', 'users.id')
         ->where('id_dataperawatan', $id)->first();
@@ -104,12 +104,12 @@ class C_DataPencatatan extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function setFormInputEditPencatatan($id)
     {
         $jenismelon = DB::table('jenis_melon')->orderBy('jenismelon')->get();
         $nogrenhouse = DB::table('no_greenhouse')->orderBy('no_greenhouse')->get();
 
-        $data = M_DataPencatatan::where('id_dataperawatan', $id)->first();
+        $data = M_DataPerawatan::where('id_dataperawatan', $id)->first();
 
         $data->tanggal_tanam = strtotime($data->tanggal_tanam);
         $data->tanggal_tanam = date('Y-m-d',$data->tanggal_tanam);
@@ -131,7 +131,7 @@ class C_DataPencatatan extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function UpdateDataPencatatan(Request $request, $id)
     {
         //metode sistem pakar
         $data = DB::table('jenis_melon')
@@ -142,7 +142,7 @@ class C_DataPencatatan extends Controller
         $tanampupuk = strtotime($request->tanggal_tanam . " +". $data->masa_pupuk ." days");
         $tanampupuk = date('Y-m-d',$tanampupuk);
         
-        M_DataPencatatan::where('id_dataperawatan', $id)
+        M_DataPerawatan::where('id_dataperawatan', $id)
             ->update([
                 'id_jenismelon' => $request->jenis_melon,
                 'id_greenhouse' => $request->no_greenhouse,
@@ -162,7 +162,7 @@ class C_DataPencatatan extends Controller
      */
     public function destroy($id)
     {
-        M_DataPencatatan::destroy($id);
+        M_DataPerawatan::destroy($id);
         return redirect('pencatatan')->with('status', 'Data Pencatatan Perkembangan Melon Berhasil Dihapus');
     }
 }

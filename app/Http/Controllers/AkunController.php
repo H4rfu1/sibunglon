@@ -30,29 +30,29 @@ class AkunController extends Controller
     {
         if($role == 'pemimpin'){
             $pemimpin = User::where('id_role', 3)->get();
-            return view('akun.pemimpin', compact('pemimpin'));
+            return view('akun.V_AkunPimpinan', compact('pemimpin'));
         }elseif($role == 'pengawas'){
             $pengawas = User::where('id_role', 2)->get();
             // dd($pengawas);
-            return view('akun.pengawas', compact('pengawas'));
+            return view('akun.V_AkunPengawas', compact('pengawas'));
         }elseif($role == 'admin'){
             $admin = User::where('id_role', 1)->get();
-            return view('akun.admin', compact('admin'));
+            return view('akun.V_AkunStaffAdministrasi', compact('admin'));
         }else{
             $pemimpin = User::where('id_role', 2)->get();
-            return view('akun.pengawas', ['pemimpin' => $pemimpin]);
+            return view('akun.V_AkunPengawas', ['pemimpin' => $pemimpin]);
         }
     }
-    public function buatakun($role)
+    public function setFormInputDaftar($role)
     {
-        return view('akun.buatakun', compact('role'));
+        return view('akun.V_InputAkun', compact('role'));
     }
 
     public function index($id)
     {
         $data = User::where('id', $id)->first();
         // dd($data);
-        return view('akun.profil', compact('data'));
+        return view('akun.V_Profil', compact('data'));
     }
 
     /**
@@ -130,7 +130,7 @@ class AkunController extends Controller
     public function show($id)
     {
         // $user = User::where('id', $id)->get();
-        // return view('akun.pengawas', ['user' => $user]);
+        // return view('akun.V_AkunPengawas', ['user' => $user]);
     }
 
     /**
