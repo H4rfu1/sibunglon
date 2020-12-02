@@ -24,12 +24,13 @@
                       <table class="table table-striped jambo_table bulk_action">
                         <thead>
                           <tr class="headings">
-                            <th class="column-title">ID. Gagal Panen</th>
+                            <th class="column-title">ID.</th>
                             <th class="column-title">Pengawas</th>
                             <th class="column-title">No. Greenhouse</th>
                             <th class="column-title">Jenis melon</th>
                             <th class="column-title">Jumlah gagal</th>
                             <th class="column-title">Tanggal gagal panen</th>
+                            <th class="column-title">Penyebab</th>
                             @if( Auth::user()->id_role == 2)
                             <th class="column-title no-link last"><span class="nobr">Action</span>
                             </th>
@@ -51,11 +52,11 @@
                             <td class=" ">{{ $p->jenismelon }}</td>
                             <td class=" ">{{ $p->jumlah_gagalpanen }}</td>
                             <td class=" ">{{ $p->tanggal_gagalpanen }}</td>
+                            <td class=" ">{{ $p->penyebab_gagalpanen }}</td>
                             @if( Auth::user()->id_role == 2)
                             <td class=" last">
                               <!-- <a href="#" data-toggle="modal" data-target="#exampleModal" data-id="{{$p->id_dataperawatan}}" class="text-decoration-none"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a> -->
-                              <a href="{{url('editpencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
-                              <a href="{{url('pencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-info" style="font-size: 1em;">Detail</span></a>
+                              <a href="{{url('editgagalpanen/'.$p->id_gagalpanen)}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
                             </td>
                             @endif
                           </tr>
@@ -71,11 +72,11 @@
                             <td class=" ">{{ $p->jenismelon }}</td>
                             <td class=" ">{{ $p->jumlah_gagalpanen }}</td>
                             <td class=" ">{{ $p->tanggal_gagalpanen }}</td>
+                            <td class=" ">{{ $p->penyebab_gagalpanen }}</td>
                             @if( Auth::user()->id_role == 2)
                             <td class=" last">
                               <!-- <a href="#" data-toggle="modal" data-target="#exampleModal" data-id="{{$p->id_dataperawatan}}" class="text-decoration-none"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a> -->
-                              <a href="{{url('editpencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
-                              <a href="{{url('pencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-info" style="font-size: 1em;">Detail</span></a>           
+                              <a href="{{url('editgagalpanen/'.$p->id_gagalpanen)}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
                             </td>           
                             @endif                 
                           </tr>

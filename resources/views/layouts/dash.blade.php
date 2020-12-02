@@ -78,7 +78,7 @@
               <div class="menu_section">
                 <h3>Akun</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-sitemap"></i> Kelola Akun <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-sitemap"></i> Akun Pegawai<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                         <li><a href="{{url('akun/admin')}}">Akun Administrator</a>
                         <li><a href="{{url('akun/pengawas')}}">Akun Pengawas</a>
@@ -91,6 +91,7 @@
                 <h3>Laporan</h3>
                 <ul class="nav side-menu">
                     <li><a href="{{url('pencatatan')}}"><i class="fa fa-edit"></i> Pencatatan </a></li>                                       
+                    <li><a href="{{url('gagalpanen')}}"><i class="fa fa-ban"></i> Gagal Panen </a></li>     
                 </ul>
               </div>
               @endif

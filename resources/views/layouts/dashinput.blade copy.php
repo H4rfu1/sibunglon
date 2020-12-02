@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>@yield('judul1')</title>
+    <title>@yield('judul1') </title>
 
     <!-- favicon -->
     <link rel="shortcut icon" href="{{url('favicon.ico')}}" type="image/x-icon">
@@ -93,20 +93,25 @@
               <div class="menu_section">
                 <h3>Akun</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-sitemap"></i> Akun Pegawai<span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-sitemap"></i> Kelola Akun <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                         <li><a href="{{url('akun/admin')}}">Akun Administrator</a>
                         <li><a href="{{url('akun/pengawas')}}">Akun Pengawas</a>
                         </li>
                     </ul>
-                  </li>
+                  </li>                  
                 </ul>
               </div>
               <div class="menu_section">
                 <h3>Laporan</h3>
                 <ul class="nav side-menu">
-                    <li><a href="{{url('pencatatan')}}"><i class="fa fa-edit"></i> Pencatatan </a></li>                                       
-                    <li><a href="{{url('gagalpanen')}}"><i class="fa fa-ban"></i> Gagal Panen </a></li>     
+                  <li><a><i class="fa fa-bar-chart-o"></i> Laporan <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="#level1_1">Akun Administrator</a>
+                        <li><a href="#level1_2">Akun Pemimpin</a>
+                        </li>
+                    </ul>
+                  </li>                  
                 </ul>
               </div>
               @endif
@@ -115,22 +120,25 @@
             <!-- /sidebar menu -->
 
                     <!-- /menu footer buttons -->
-                    <div class="sidebar-footer hidden-small">
-                        <!-- <a data-toggle="tooltip" data-placement="top" title="Settings">
-                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                        </a>
-                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-                        </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Lock">
-                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-                        </a> -->
-                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="{{ route('logout') }}"
+            <div class="sidebar-footer hidden-small">
+              <!-- <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a> -->
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="{{ route('logout') }}"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
-                    </div>
-                    <!-- /menu footer buttons -->
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+              </form>
+            </div>
+            <!-- /menu footer buttons -->
                 </div>
             </div>
 
@@ -161,6 +169,7 @@
 
             @yield('content')
 
+
             <!-- footer content -->
             <footer>
                 <div class="pull-right">
@@ -171,12 +180,9 @@
             <!-- /footer content -->
         </div>
     </div>
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                  @csrf
-              </form>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')}}"></script>
     <script src="{{url('vendors/validator/multifield.js')}}"></script>
     <script src="{{url('vendors/validator/validator.js')}}"></script>
     

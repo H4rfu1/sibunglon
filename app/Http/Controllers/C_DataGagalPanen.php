@@ -28,6 +28,14 @@ class C_DataGagalPanen extends Controller
 
     public function setTableDataGagalPanen()
     {
+        // $query = DB::table('data_perawatan')->select('id_jenismelon')->get()->toArray();
+        // $query = DB::table("jenis_melon")->select('*')->whereNotIn('id_jenismelon',function($query) {
+
+        //     $query->select('id_jenismelon')->from('data_perawatan');
+         
+        //  })->get();
+        // dd($query);
+
         $data = M_DataGagalPanen::join('jenis_melon', 'gagal_panen.id_jenismelon', '=', 'jenis_melon.id_jenismelon')
                                         ->join('no_greenhouse', 'gagal_panen.id_greenhouse', '=', 'no_greenhouse.id_greenhouse')
                                         ->join('users', 'gagal_panen.id_akun', '=', 'users.id')
@@ -40,7 +48,13 @@ class C_DataGagalPanen extends Controller
     public function setFormInputGagalPanen()
     {
         $jenismelon = DB::table('jenis_melon')->orderBy('jenismelon')->get();
+        // $jenismelon = DB::table("jenis_melon")->select('*')->whereNotIn('id_jenismelon',function($query) {
+        //     $query->select('id_jenismelon')->from('data_perawatan');
+        //  })->get();
         $nogrenhouse = DB::table('no_greenhouse')->orderBy('no_greenhouse')->get();
+        $nogrenhouse = DB::table("no_greenhouse")->select('*')->whereIn('id_greenhouse',function($query) {
+            $query->select('id_greenhouse')->from('data_perawatan');
+         })->get();
         return view('gagalpanen.V_InputGagalPanen', ['jenismelon' => $jenismelon, 'nogrenhouse' => $nogrenhouse]);
     }
 
@@ -51,7 +65,7 @@ class C_DataGagalPanen extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function InputDataPencatatan(Request $request)
+    public function InputDataGagalPanen(Request $request)
     {
         //metode sistem pakar
         $data = DB::table('jenis_melon')
@@ -62,16 +76,16 @@ class C_DataGagalPanen extends Controller
         $tanampupuk = strtotime($request->tanggal_tanam . " +". $data->masa_pupuk ." days");
         $tanampupuk = date('Y-m-d',$tanampupuk);
 
-        M_DataPerawatan::create([
+        M_DataGagalPanen::create([
             'id_jenismelon' => $request->jenis_melon,
             'id_greenhouse' => $request->no_greenhouse,
-            'tanggal_tanam' => $request->tanggal_tanam,
+            'tanggal_gagalpanen' => $request->tanggal_gagalpanen,
             'id_akun' => $request->pencatat,
-            'tanggal_pemberianpupuk' => $tanampupuk,
-            'prediksi_tanggalpanen' => $tanampanen
+            'jumlah_gagalpanen' => $request->jumlah_gagalpanen,
+            'penyebab_gagalpanen' => $request->penyebab_gagalpanen
         ]);
 
-            return redirect('pencatatan')->with('status', 'Berhasil Menambahkan Data Pencatatan Perkembangan Melon');
+            return redirect('gagalpanen')->with('status', 'Berhasil Menambahkan Data Gagal Panen');
         
     }
 
@@ -81,22 +95,6 @@ class C_DataGagalPanen extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function setTableDataPencatatan($id)
-    {
-        
-
-        $data = M_DataPerawatan::join('jenis_melon', 'data_perawatan.id_jenismelon', '=', 'jenis_melon.id_jenismelon')
-        ->join('no_greenhouse', 'data_perawatan.id_greenhouse', '=', 'no_greenhouse.id_greenhouse')
-        ->join('users', 'data_perawatan.id_akun', '=', 'users.id')
-        ->where('id_dataperawatan', $id)->first();
-
-        //sistem pakar rekoendasi
-        $keterangan = DB::table('jenis_melon')
-            ->where('id_jenismelon', '=', $data->id_jenismelon)
-            ->first();
-        
-        return view('pencatatan.V_DetailPencatatan', ['data' => $data, 'keterangan' => $keterangan]);
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -104,24 +102,18 @@ class C_DataGagalPanen extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function setFormInputEditPencatatan($id)
+    public function setFormInputEditGagalPanen($id)
     {
         $jenismelon = DB::table('jenis_melon')->orderBy('jenismelon')->get();
         $nogrenhouse = DB::table('no_greenhouse')->orderBy('no_greenhouse')->get();
 
-        $data = M_DataPerawatan::where('id_dataperawatan', $id)->first();
+        $data = M_DataGagalPanen::where('id_gagalpanen', $id)->first();
 
-        $data->tanggal_tanam = strtotime($data->tanggal_tanam);
-        $data->tanggal_tanam = date('Y-m-d',$data->tanggal_tanam);
-
-        $data->tanggal_pemberianpupuk = strtotime($data->tanggal_pemberianpupuk);
-        $data->tanggal_pemberianpupuk = date('Y-m-d',$data->tanggal_pemberianpupuk);
-
-        $data->prediksi_tanggalpanen = strtotime($data->prediksi_tanggalpanen);
-        $data->prediksi_tanggalpanen = date('Y-m-d',$data->prediksi_tanggalpanen);
+        $data->tanggal_gagalpanen = strtotime($data->tanggal_gagalpanen);
+        $data->tanggal_gagalpanen = date('Y-m-d',$data->tanggal_gagalpanen);
 
         // dd($data);
-        return view('pencatatan.V_EditPencatatan', ['data' => $data, 'jenismelon' => $jenismelon, 'nogrenhouse' => $nogrenhouse]);
+        return view('gagalpanen.V_EditGagalPanen', ['data' => $data, 'jenismelon' => $jenismelon, 'nogrenhouse' => $nogrenhouse]);
     }
 
     /**
@@ -131,27 +123,23 @@ class C_DataGagalPanen extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function UpdateDataPencatatan(Request $request, $id)
+    public function UpdateDataGagalPanen(Request $request, $id)
     {
         //metode sistem pakar
         $data = DB::table('jenis_melon')
             ->where('id_jenismelon', '=', $request->jenis_melon)
             ->first();
-        $tanampanen = strtotime($request->tanggal_tanam . " +". $data->masa_panen ." days");
-        $tanampanen = date('Y-m-d',$tanampanen);
-        $tanampupuk = strtotime($request->tanggal_tanam . " +". $data->masa_pupuk ." days");
-        $tanampupuk = date('Y-m-d',$tanampupuk);
         
-        M_DataPerawatan::where('id_dataperawatan', $id)
+            M_DataGagalPanen::where('id_gagalpanen', $id)
             ->update([
                 'id_jenismelon' => $request->jenis_melon,
                 'id_greenhouse' => $request->no_greenhouse,
-                'tanggal_tanam' => $request->tanggal_tanam,
+                'tanggal_gagalpanen' => $request->tanggal_gagalpanen,
                 'id_akun' => $request->pencatat,
-                'tanggal_pemberianpupuk' => $tanampupuk,
-                'prediksi_tanggalpanen' => $tanampanen
+                'jumlah_gagalpanen' => $request->jumlah_gagalpanen,
+                'penyebab_gagalpanen' => $request->penyebab_gagalpanen
             ]);
-            return redirect('pencatatan')->with('status', 'Data Pencatatan Perkembangan Melon Berhasil Disimpan');
+            return redirect('gagalpanen')->with('status', 'Data Gagal Panen Berhasil Disimpan');
     }
 
     /**
@@ -163,6 +151,6 @@ class C_DataGagalPanen extends Controller
     public function destroy($id)
     {
         M_DataPerawatan::destroy($id);
-        return redirect('pencatatan')->with('status', 'Data Pencatatan Perkembangan Melon Berhasil Dihapus');
+        return redirect('gagalpanen')->with('status', 'Data Pencatatan Perkembangan Melon Berhasil Dihapus');
     }
 }

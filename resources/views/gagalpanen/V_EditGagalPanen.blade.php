@@ -22,7 +22,7 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <form class="" action="{{url('pencatatan/'.$data->id_dataperawatan )}}" method="post" novalidate>
+                        <form class="" action="{{url('gagalpanen/'.$data->id_gagalpanen )}}" method="post" novalidate>
                             @csrf
                             @method('patch')
                             <input type="hidden" name="pencatat" value="{{Auth::user()->id}}">
@@ -43,22 +43,32 @@
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">No Greenhouse<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                <select name="no_greenhouse" id="no_greenhouse" class="form-control">
-                                    @foreach($nogrenhouse as $item)
-                                        <option class="form-control" value="{{ $item->id_greenhouse }}"
-                                        @if($item->id_greenhouse == $data->id_greenhouse)
-                                            {{"selected"}}
-                                        @endif
-                                            >{{ $item->no_greenhouse }}</option>
-                                    @endforeach
+                                    <select name="no_greenhouse" id="no_greenhouse" class="form-control">
+                                        @foreach($nogrenhouse as $item)
+                                            <option class="form-control" value="{{ $item->id_greenhouse }}"
+                                            @if($item->id_greenhouse == $data->id_greenhouse)
+                                                {{"selected"}}
+                                            @endif
+                                                >{{ $item->no_greenhouse }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
-
                             <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Tanggal Tanam<span class="required">*</span></label>
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Tanggal Gagal Panen<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" class='date' type="date" name="tanggal_tanam" required='required' value="{{$data->tanggal_tanam}}"></div>
+                                    <input class="form-control" class='date' type="date" name="tanggal_gagalpanen" required='required' value="{{$data->tanggal_gagalpanen}}"></div>                                            
+                            </div>
+                            <div class="field item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Jumlah Gagal Panen<span class="required">*</span></label>
+                                <div class="col-md-6 col-sm-6">
+                                    <input class="form-control" type="number" name="jumlah_gagalpanen"  required="required" value="{{$data->jumlah_gagalpanen}}"/>
+                                </div>
+                            </div>
+                            <div class="field item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Penyebab Gagal Panen<span class="required" >*</span></label>
+                                <div class="col-md-6 col-sm-6">
+                                    <textarea class="boxsizingBorder" required="required" name='penyebab_gagalpanen'>{{$data->penyebab_gagalpanen}}</textarea></div>
                             </div>
                             <div class="ln_solid">
                                 <div class="form-group">

@@ -54,13 +54,13 @@ Route::get('/gagalpanen', 'C_DataGagalPanen@setTableDataGagalPanen');
 
 Route::get('/inputgagalpanen', 'C_DataGagalPanen@setFormInputGagalPanen');
 
-Route::post('/simpanpencatatan', 'C_DataGagalPanen@InputDataPencatatan');
+Route::post('/simpangagalpanen', 'C_DataGagalPanen@InputDataGagalPanen');
 
-Route::get('/editpencatatan/{id}', 'C_DataGagalPanen@setFormInputEditPencatatan');
+Route::get('/editgagalpanen/{id}', 'C_DataGagalPanen@setFormInputEditGagalPanen');
 
-Route::get('/pencatatan/{id}', 'C_DataGagalPanen@setTableDataPencatatan');
+// Route::get('/pencatatan/{id}', 'C_DataGagalPanen@setTableDataPencatatan');
 
-Route::patch('/pencatatan/{id}', 'C_DataGagalPanen@UpdateDataPencatatan');
+Route::patch('/gagalpanen/{id}', 'C_DataGagalPanen@UpdateDataGagalPanen');
 
 
 Auth::routes();

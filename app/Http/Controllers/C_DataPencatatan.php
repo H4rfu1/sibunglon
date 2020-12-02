@@ -40,7 +40,10 @@ class C_DataPencatatan extends Controller
     public function setFormInputPencatatan()
     {
         $jenismelon = DB::table('jenis_melon')->orderBy('jenismelon')->get();
-        $nogrenhouse = DB::table('no_greenhouse')->orderBy('no_greenhouse')->get();
+        // $nogrenhouse = DB::table('no_greenhouse')->orderBy('no_greenhouse')->get();
+        $nogrenhouse = DB::table("no_greenhouse")->select('*')->whereNotIn('id_greenhouse',function($query) {
+            $query->select('id_greenhouse')->from('data_perawatan');
+         })->get();
         return view('pencatatan.V_InputPencatatan', ['jenismelon' => $jenismelon, 'nogrenhouse' => $nogrenhouse]);
     }
 
@@ -108,6 +111,7 @@ class C_DataPencatatan extends Controller
     {
         $jenismelon = DB::table('jenis_melon')->orderBy('jenismelon')->get();
         $nogrenhouse = DB::table('no_greenhouse')->orderBy('no_greenhouse')->get();
+        
 
         $data = M_DataPerawatan::where('id_dataperawatan', $id)->first();
 

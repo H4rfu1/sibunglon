@@ -21,7 +21,7 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <form class="" action="{{url('simpanpencatatan')}}" method="post" novalidate>
+                        <form class="" action="{{url('simpangagalpanen')}}" method="post" novalidate>
                             @csrf
                             <input type="hidden" name="pencatat" value="{{Auth::user()->id}}">
                             <div class="field item form-group">
@@ -49,12 +49,12 @@
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Tanggal Gagal Panen<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" class='date' type="date" name="tanggal_tanam" required='required'></div>                                            
+                                    <input class="form-control" class='date' type="date" name="tanggal_gagalpanen" required='required'></div>                                            
                             </div>
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Jumlah Gagal Panen<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" name="jumlah_gagalpanen" placeholder="jumlah" required="required" value="{{old('jumlah')}}"/>
+                                    <input class="form-control" type="number" name="jumlah_gagalpanen"  required="required" value="{{old('jumlah')}}"/>
                                 </div>
                             </div>
                             <div class="field item form-group">
@@ -66,7 +66,7 @@
                             <div class="ln_solid">
                                 <div class="form-group">
                                     <div class="col-md-6 offset-md-3 mt-2">
-                                        <a class="btn btn-danger" href = "{{url('pencatatan')}}">Batal</a>
+                                        <a class="btn btn-danger" href = "{{url('gagalpanen')}}">Batal</a>
                                         <button type='submit' class="btn btn-success">Simpan</button>
                                     </div>
                                 </div>
