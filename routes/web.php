@@ -49,6 +49,20 @@ Route::patch('/pencatatan/{id}', 'C_DataPencatatan@UpdateDataPencatatan');
 
 // Route::delete('/pencatatan/{id}', 'C_DataPencatatan@destroy');
 
+//kelola Gagal Panen
+Route::get('/gagalpanen', 'C_DataGagalPanen@setTableDataGagalPanen');
+
+Route::get('/inputgagalpanen', 'C_DataGagalPanen@setFormInputGagalPanen');
+
+Route::post('/simpanpencatatan', 'C_DataGagalPanen@InputDataPencatatan');
+
+Route::get('/editpencatatan/{id}', 'C_DataGagalPanen@setFormInputEditPencatatan');
+
+Route::get('/pencatatan/{id}', 'C_DataGagalPanen@setTableDataPencatatan');
+
+Route::patch('/pencatatan/{id}', 'C_DataGagalPanen@UpdateDataPencatatan');
+
+
 Auth::routes();
 
 Route::get('/home', 'C_Login@setHome')->name('home');

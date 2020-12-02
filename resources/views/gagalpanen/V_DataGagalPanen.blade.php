@@ -11,7 +11,7 @@
                 <div class="x_panel">
                   <div class="x_content">
                   @if(Auth::user()->id_role == 2)
-                  <a class="btn btn-primary" href="{{url('inputpencatatan')}}">Tambah Gagal Panen</a>
+                  <a class="btn btn-primary" href="{{url('inputgagalpanen')}}">Tambah Gagal Panen</a>
                   @endif
                     @if (session('status'))
                       <div class="alert alert-success alert-dismissible " role="alert">
@@ -24,10 +24,12 @@
                       <table class="table table-striped jambo_table bulk_action">
                         <thead>
                           <tr class="headings">
-                            <th class="column-title">ID. Pencatatan</th>
-                            <th class="column-title">No. Greenhouse</th>
+                            <th class="column-title">ID. Gagal Panen</th>
                             <th class="column-title">Pengawas</th>
-                            <th class="column-title">Tanggal tanam</th>
+                            <th class="column-title">No. Greenhouse</th>
+                            <th class="column-title">Jenis melon</th>
+                            <th class="column-title">Jumlah gagal</th>
+                            <th class="column-title">Tanggal gagal panen</th>
                             @if( Auth::user()->id_role == 2)
                             <th class="column-title no-link last"><span class="nobr">Action</span>
                             </th>
@@ -36,17 +38,19 @@
                         </thead>
 
                         <tbody>
-                          @foreach($datapencatatan as $p)
+                          @foreach($data as $p)
                           @if($loop->iteration % 2 == 1)
                           @if( Auth::user()->id_role == 2)
                           <tr class="even pointer">
                           @else
                           <tr class="even pointer" onclick="window.location='{{url('pencatatan/'.$p->id_dataperawatan)}}';" style="cursor: pointer;">
                           @endif
-                            <td>{{ $p->id_dataperawatan }}</td>
-                            <td class=" ">{{ $p->no_greenhouse }}</td>
+                            <td>{{ $p->id_gagalpanen }}</td>
                             <td class=" ">{{ $p->name }}</td>
-                            <td class=" ">{{ $p->tanggal_tanam }}</td>
+                            <td class=" ">{{ $p->no_greenhouse }}</td>
+                            <td class=" ">{{ $p->jenismelon }}</td>
+                            <td class=" ">{{ $p->jumlah_gagalpanen }}</td>
+                            <td class=" ">{{ $p->tanggal_gagalpanen }}</td>
                             @if( Auth::user()->id_role == 2)
                             <td class=" last">
                               <!-- <a href="#" data-toggle="modal" data-target="#exampleModal" data-id="{{$p->id_dataperawatan}}" class="text-decoration-none"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a> -->
@@ -61,10 +65,12 @@
                           @else
                           <tr class="odd pointer" onclick="window.location='{{url('pencatatan/'.$p->id_dataperawatan)}}';" style="cursor: pointer;">
                           @endif                            
-                          <td>{{ $p->id_dataperawatan }}</td>
-                            <td class=" ">{{ $p->no_greenhouse }}</td>
+                          <td>{{ $p->id_gagalpanen }}</td>
                             <td class=" ">{{ $p->name }}</td>
-                            <td class=" ">{{ $p->tanggal_tanam }}</td>
+                            <td class=" ">{{ $p->no_greenhouse }}</td>
+                            <td class=" ">{{ $p->jenismelon }}</td>
+                            <td class=" ">{{ $p->jumlah_gagalpanen }}</td>
+                            <td class=" ">{{ $p->tanggal_gagalpanen }}</td>
                             @if( Auth::user()->id_role == 2)
                             <td class=" last">
                               <!-- <a href="#" data-toggle="modal" data-target="#exampleModal" data-id="{{$p->id_dataperawatan}}" class="text-decoration-none"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a> -->
