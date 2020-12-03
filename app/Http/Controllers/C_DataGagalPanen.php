@@ -47,11 +47,11 @@ class C_DataGagalPanen extends Controller
 
     public function setFormInputGagalPanen()
     {
-        $jenismelon = DB::table('jenis_melon')->orderBy('jenismelon')->get();
-        // $jenismelon = DB::table("jenis_melon")->select('*')->whereNotIn('id_jenismelon',function($query) {
-        //     $query->select('id_jenismelon')->from('data_perawatan');
-        //  })->get();
-        $nogrenhouse = DB::table('no_greenhouse')->orderBy('no_greenhouse')->get();
+        // $jenismelon = DB::table('jenis_melon')->orderBy('jenismelon')->get();
+        $jenismelon = DB::table("jenis_melon")->select('*')->whereIn('id_jenismelon',function($query) {
+            $query->select('id_jenismelon')->from('data_perawatan');
+         })->get();
+        // $nogrenhouse = DB::table('no_greenhouse')->orderBy('no_greenhouse')->get();
         $nogrenhouse = DB::table("no_greenhouse")->select('*')->whereIn('id_greenhouse',function($query) {
             $query->select('id_greenhouse')->from('data_perawatan');
          })->get();
