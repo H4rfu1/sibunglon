@@ -1,13 +1,13 @@
 @extends('layouts.dashinput')
 
-@section('judul1', 'Input Gagal Panen | ')
+@section('judul1', 'Input Hasil Panen | ')
 @section('content')
 <!-- page content -->
 <div class="right_col" role="main">
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3> Pencatatan Gagal Panen</h3>
+                <h3> Pencatatan Hasil Panen</h3>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -21,7 +21,7 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <form class="" action="{{url('simpangagalpanen')}}" method="post" novalidate>
+                        <form class="" action="{{url('simpanhasilpanen')}}" method="post" novalidate>
                             @csrf
                             <input type="hidden" name="pencatat" value="{{Auth::user()->id}}">
                             <div class="field item form-group">
@@ -47,26 +47,21 @@
                                 </div>
                             </div>
                             <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Tanggal Gagal Panen<span class="required">*</span></label>
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Tanggal Hasil Panen<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" class='date' type="date" name="tanggal_gagalpanen" required='required'></div>                                            
+                                    <input class="form-control" class='date' type="date" name="tanggal_hasilpanen" required='required'></div>                                            
                             </div>
                             <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Jumlah Gagal Panen<span class="required">*</span></label>
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Jumlah Hasil Panen<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" type="number" name="jumlah_gagalpanen"  required="required" value="{{old('jumlah')}}"/>
+                                    <input class="form-control" type="number" name="jumlah_hasilpanen"  required="required" value="{{old('jumlah')}}"/>
                                 </div>
-                            </div>
-                            <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Penyebab Gagal Panen<span class="required">*</span></label>
-                                <div class="col-md-6 col-sm-6">
-                                    <textarea class="boxsizingBorder" required="required" name='penyebab_gagalpanen'></textarea></div>
                             </div>
 
                             <div class="ln_solid">
                                 <div class="form-group">
                                     <div class="col-md-6 offset-md-3 mt-2">
-                                        <a class="btn btn-danger" href = "{{url('gagalpanen')}}">Batal</a>
+                                        <a class="btn btn-danger" href = "{{url('hasilpanen')}}">Batal</a>
                                         <button type='submit' class="btn btn-success">Simpan</button>
                                     </div>
                                 </div>

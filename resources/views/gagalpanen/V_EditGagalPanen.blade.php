@@ -73,7 +73,7 @@
                             <div class="ln_solid">
                                 <div class="form-group">
                                     <div class="col-md-6 offset-md-3 mt-2">
-                                        <a class="btn btn-danger" href = "{{url('pencatatan')}}">Batal</a>
+                                        <a class="btn btn-danger" href = "{{url('gagalpanen')}}">Batal</a>
                                         <button type='submit' class="btn btn-success">Simpan</button>
                                     </div>
                                 </div>

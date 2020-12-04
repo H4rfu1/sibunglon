@@ -42,9 +42,9 @@
                           @foreach($data as $p)
                           @if($loop->iteration % 2 == 1)
                           @if( Auth::user()->id_role == 2)
-                          <tr class="even pointer">
+                          <tr class="even pointer" onclick="window.location='{{url('editgagalpanen/'.$p->id_gagalpanen)}}';" style="cursor: pointer;">
                           @else
-                          <tr class="even pointer" onclick="window.location='{{url('pencatatan/'.$p->id_dataperawatan)}}';" style="cursor: pointer;">
+                          <tr class="even pointer">
                           @endif
                             <td>{{ $p->id_gagalpanen }}</td>
                             <td class=" ">{{ $p->name }}</td>
@@ -62,9 +62,9 @@
                           </tr>
                           @else
                           @if( Auth::user()->id_role == 2)
-                          <tr class="odd pointer">
+                          <tr class="even pointer" onclick="window.location='{{url('editgagalpanen/'.$p->id_gagalpanen)}}';" style="cursor: pointer;">
                           @else
-                          <tr class="odd pointer" onclick="window.location='{{url('pencatatan/'.$p->id_dataperawatan)}}';" style="cursor: pointer;">
+                          <tr class="odd pointer">
                           @endif                            
                           <td>{{ $p->id_gagalpanen }}</td>
                             <td class=" ">{{ $p->name }}</td>

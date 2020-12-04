@@ -62,7 +62,20 @@ Route::get('/editgagalpanen/{id}', 'C_DataGagalPanen@setFormInputEditGagalPanen'
 
 Route::patch('/gagalpanen/{id}', 'C_DataGagalPanen@UpdateDataGagalPanen');
 
+//kelola Hasil Panen
+Route::get('/hasilpanen', 'C_DataHasilPanen@setTableDataHasilPanen');
 
+Route::get('/inputhasilpanen', 'C_DataHasilPanen@setFormInputHasilPanen');
+
+Route::post('/simpanhasilpanen', 'C_DataHasilPanen@InputDataHasilPanen');
+
+Route::get('/edithasilpanen/{id}', 'C_DataHasilPanen@setFormInputEditHasilPanen');
+
+// Route::get('/pencatatan/{id}', 'C_DataHasilPanen@setTableDataPencatatan');
+
+Route::patch('/hasilpanen/{id}', 'C_DataHasilPanen@UpdateDataHasilPanen');
+
+//auth
 Auth::routes();
 
 Route::get('/home', 'C_Login@setHome')->name('home');

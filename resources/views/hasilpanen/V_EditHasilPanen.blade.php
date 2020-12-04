@@ -1,6 +1,6 @@
 @extends('layouts.dashinput')
 
-@section('judul1', 'Ubah Gagal Panen | ')
+@section('judul1', 'Ubah Hasil Panen | ')
 
 @section('content')
 <!-- page content -->
@@ -8,7 +8,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Ubah Pencatatan perkembangan melon</h3>
+                <h3>Ubah Pencatatan Hasil Panen</h3>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -17,12 +17,12 @@
             <div class="col-md-12 col-sm-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Pencatatan perkembangan melon
+                        <h2>Pencatatan hasil panen
                         </h2>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <form class="" action="{{url('gagalpanen/'.$data->id_gagalpanen )}}" method="post" novalidate>
+                        <form class="" action="{{url('hasilpanen/'.$data->id_hasilpanen )}}" method="post" novalidate>
                             @csrf
                             @method('patch')
                             <input type="hidden" name="pencatat" value="{{Auth::user()->id}}">
@@ -55,25 +55,20 @@
                                 </div>
                             </div>
                             <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Tanggal Gagal Panen<span class="required">*</span></label>
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Tanggal Hasil Panen<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" class='date' type="date" name="tanggal_gagalpanen" required='required' value="{{$data->tanggal_gagalpanen}}"></div>                                            
+                                    <input class="form-control" class='date' type="date" name="tanggal_hasilpanen" required='required' value="{{$data->tanggal_hasilpanen}}"></div>                                            
                             </div>
                             <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Jumlah Gagal Panen<span class="required">*</span></label>
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Jumlah Hasil Panen<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" type="number" name="jumlah_gagalpanen"  required="required" value="{{$data->jumlah_gagalpanen}}"/>
+                                    <input class="form-control" type="number" name="jumlah_hasilpanen"  required="required" value="{{$data->jumlah_hasilpanen}}"/>
                                 </div>
-                            </div>
-                            <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Penyebab Gagal Panen<span class="required" >*</span></label>
-                                <div class="col-md-6 col-sm-6">
-                                    <textarea class="boxsizingBorder" required="required" name='penyebab_gagalpanen'>{{$data->penyebab_gagalpanen}}</textarea></div>
                             </div>
                             <div class="ln_solid">
                                 <div class="form-group">
                                     <div class="col-md-6 offset-md-3 mt-2">
-                                        <a class="btn btn-danger" href = "{{url('pencatatan')}}">Batal</a>
+                                        <a class="btn btn-danger" href = "{{url('hasilpanen')}}">Batal</a>
                                         <button type='submit' class="btn btn-success">Simpan</button>
                                     </div>
                                 </div>
