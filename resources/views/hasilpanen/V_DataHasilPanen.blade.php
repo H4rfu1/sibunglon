@@ -45,7 +45,7 @@
                           @else
                           <tr class="even pointer">
                           @endif
-                            <td>{{ $p->id_gagalpanen }}</td>
+                            <td>{{ $p->id_hasilpanen }}</td>
                             <td class=" ">{{ $p->name }}</td>
                             <td class=" ">{{ $p->no_greenhouse }}</td>
                             <td class=" ">{{ $p->jenismelon }}</td>
@@ -64,7 +64,7 @@
                           @else
                           <tr class="odd pointer">
                           @endif                            
-                          <td>{{ $p->id_gagalpanen }}</td>
+                          <td>{{ $p->id_hasilpanen }}</td>
                             <td class=" ">{{ $p->name }}</td>
                             <td class=" ">{{ $p->no_greenhouse }}</td>
                             <td class=" ">{{ $p->jenismelon }}</td>

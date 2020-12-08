@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Auth;
 
 class C_Login extends Controller
@@ -25,7 +26,11 @@ class C_Login extends Controller
     public function setHome()
     {
         if(Auth::check()){
-            return view('V_Home');
+            $count = DB::table('users')->count();
+            $catat = DB::table('data_perawatan')->count();
+            $gagal = DB::table('gagal_panen')->get()->sum("jumlah_gagalpanen");
+            $hasil = DB::table('hasil_panen')->get()->sum("jumlah_hasilpanen");
+            return view('V_Home', compact('count', 'catat', 'gagal', 'hasil'));
         }else{
             return redirect('/login');
         }

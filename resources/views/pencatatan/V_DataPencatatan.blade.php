@@ -27,6 +27,7 @@
                             <th class="column-title">ID. Pencatatan</th>
                             <th class="column-title">No. Greenhouse</th>
                             <th class="column-title">Pengawas</th>
+                            <th class="column-title">Jenis Melon</th>
                             <th class="column-title">Tanggal tanam</th>
                             <th class="column-title no-link last"><span class="nobr">Action</span>
                             </th>
@@ -44,6 +45,7 @@
                             <td>{{ $p->id_dataperawatan }}</td>
                             <td class=" ">{{ $p->no_greenhouse }}</td>
                             <td class=" ">{{ $p->name }}</td>
+                            <td class=" ">{{ $p->jenismelon }}</td>
                             <td class=" ">{{ $p->tanggal_tanam }}</td>
                             @if( Auth::user()->id_role == 2)
                             <td class=" last">
@@ -67,6 +69,7 @@
                           <td>{{ $p->id_dataperawatan }}</td>
                             <td class=" ">{{ $p->no_greenhouse }}</td>
                             <td class=" ">{{ $p->name }}</td>
+                            <td class=" ">{{ $p->jenismelon }}</td>
                             <td class=" ">{{ $p->tanggal_tanam }}</td>
                             @if( Auth::user()->id_role == 2)
                             <td class=" last">
