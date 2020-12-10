@@ -12,11 +12,13 @@
 */
 
 // Route::get('/', function () {
-//     return view('auth.login');
-// });
-// Route::get('/login', function () {
-//     return view('login');
-// });
+    //     return view('auth.login');
+    // });
+    // Route::get('/login', function () {
+        //     return view('login');
+        // });
+        
+Route::get('/', 'C_Home@index');
 
 //kelola akun
 Route::get('/profil/{id}', 'AkunController@index');
@@ -78,5 +80,5 @@ Route::patch('/hasilpanen/{id}', 'C_DataHasilPanen@UpdateDataHasilPanen');
 //auth
 Auth::routes();
 
+Route::get('/masuk', 'C_Login@setFormLogin');
 Route::get('/home', 'C_Login@setHome')->name('home');
-Route::get('/', 'C_Login@setFormLogin');

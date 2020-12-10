@@ -23,6 +23,10 @@ class C_Login extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    public function index()
+    {
+        return view('index');
+    }
     public function setHome()
     {
         if(Auth::check()){

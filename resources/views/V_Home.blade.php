@@ -33,11 +33,11 @@
             </div>
             <div class="col-lg-3  tile_stats_count">
               <p class="count_top"><i class="fa fa-ban"></i> Gagal Panen</p>
-              <div class="count red">{{$gagal}}</div>
+              <div class="count red">{{$gagal}} Kg</div>
             </div>
             <div class="col-lg-3  tile_stats_count">
               <p class="count_top"><i class="fa fa-pencil"></i> Hasil Panen</p>
-              <div class="count green">{{$hasil}}</div>
+              <div class="count green">{{$hasil}} Kg</div>
             </div>
           </div>
         </div>
