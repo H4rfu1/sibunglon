@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use App\M_DataPerawatan;
+use App\M_DetailPerawatan;
 
 class C_DataPencatatan extends Controller
 {
@@ -62,17 +63,29 @@ class C_DataPencatatan extends Controller
             ->first();
         $tanampanen = strtotime($request->tanggal_tanam . " +". $data->masa_panen ." days");
         $tanampanen = date('Y-m-d',$tanampanen);
-        $tanampupuk = strtotime($request->tanggal_tanam . " +". $data->masa_pupuk ." days");
-        $tanampupuk = date('Y-m-d',$tanampupuk);
 
-        M_DataPerawatan::create([
+        $result = M_DataPerawatan::create([
             'id_jenismelon' => $request->jenis_melon,
             'id_greenhouse' => $request->no_greenhouse,
             'tanggal_tanam' => $request->tanggal_tanam,
             'id_akun' => $request->pencatat,
-            'tanggal_pemberianpupuk' => $tanampupuk,
             'prediksi_tanggalpanen' => $tanampanen
         ]);
+
+        if($data->masa_panen % $data->masa_pupuk == 0){
+            $data->masa_panen -= 1;
+        }
+        $jumlah_pupuk = intdiv($data->masa_panen, $data->masa_pupuk);
+        for($x = 1; $x <= $jumlah_pupuk; $x++) {
+            $tanampupuk = strtotime($request->tanggal_tanam . " +". $data->masa_pupuk*$x ." days");
+            $tanampupuk = date('Y-m-d',$tanampupuk);
+            M_DetailPerawatan::create([
+                'id_data_perawatan' => $result->id_dataperawatan,
+                'perawatan' => "pemupukan",
+                'tanggal_perawatan' => $tanampupuk,
+                'status' => "Belum ada aksi"
+            ]);
+          }
 
             return redirect('pencatatan')->with('status', 'Berhasil Menambahkan Data Pencatatan Perkembangan Melon');
         

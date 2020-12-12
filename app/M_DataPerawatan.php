@@ -10,5 +10,5 @@ class M_DataPerawatan extends Model
     protected $table = 'data_perawatan';
     protected $primaryKey = 'id_dataperawatan';
     public $timestamps = false;
-    protected $fillable = ['id_jenismelon', 'id_greenhouse', 'tanggal_tanam', 'id_akun', 'tanggal_pemberianpupuk', 'prediksi_tanggalpanen'];
+    protected $fillable = ['id_jenismelon', 'id_greenhouse', 'tanggal_tanam', 'id_akun', 'prediksi_tanggalpanen'];
 }

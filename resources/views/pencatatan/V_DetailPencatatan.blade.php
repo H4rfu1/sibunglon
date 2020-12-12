@@ -201,12 +201,6 @@
                                             </div>
                                         </div>
                                         <div class="field item form-group">
-                                            <label class="col-md-3 col-sm-3  label-align">Tanggal pemberian pupuk<span > : </span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <p>{{$data->tanggal_pemberianpupuk}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="field item form-group">
                                             <label class="col-md-3 col-sm-3  label-align">Tanggal prediksi panen<span > : </span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <p>{{$data->prediksi_tanggalpanen}}</p>

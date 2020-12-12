@@ -32,7 +32,8 @@ class C_Login extends Controller
         if(Auth::check()){
             $count = DB::table('users')->count();
             $catat = DB::table('data_perawatan')->count();
-            $gagal = DB::table('gagal_panen')->get()->sum("jumlah_gagalpanen");
+            // $gagal = DB::table('gagal_panen')->get()->sum("jumlah_gagalpanen");
+            $gagal = DB::table('hasil_panen')->get()->sum("jumlah_gagalpanen");
             $hasil = DB::table('hasil_panen')->get()->sum("jumlah_hasilpanen");
             return view('V_Home', compact('count', 'catat', 'gagal', 'hasil'));
         }else{
