@@ -25,34 +25,37 @@
                             @csrf
                             <input type="hidden" name="pencatat" value="{{Auth::user()->id}}">
                             <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Jenis Melon<span class="required">*</span></label>
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">ID Data Perawatan<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <select name="jenis_melon" id="jenis_melon" class="form-control" required='required'>
-                                        <option value="" disabled selected></option>
-                                    @foreach($jenismelon as $item)
-                                        <option class="form-control" value="{{ $item->id_jenismelon }}" >{{ $item->jenismelon }}</option>
+                                <select name="id_data_perawatan" id="id_data_perawatan" class="form-control" required='required'>
+                                <option value="" disabled selected> Pilih Id Perawatan</option>
+                                    @foreach($data_perawatan as $item)
+                                        <option class="form-control" value="{{ $item->id_dataperawatan }}" >{{ $item->id_dataperawatan  }}</option>
                                     @endforeach
                                     </select>
                                 </div>
                             </div>
                             <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">No Greenhouse<span class="required">*</span></label>
-                                <div class="col-md-6 col-sm-6">
-                                <select name="no_greenhouse" id="no_greenhouse" class="form-control" required='required'>
-                                    <option value="" disabled selected></option>
-                                    @foreach($nogrenhouse as $item)
-                                        <option class="form-control" value="{{ $item->id_greenhouse }}" >{{ $item->no_greenhouse }}</option>
-                                    @endforeach
-                                    </select>
-                                </div>
+                                <label class="col-md-3 col-sm-3  label-align">No. Greenhouse<span > : </span></label>
+                                <div class="col-md-6 col-sm-6" id="greenhouse"><p>pilih id data perawatan</p></div>
                             </div>
                             <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Tanggal Hasil Panen<span class="required">*</span></label>
+                                <label class="col-md-3 col-sm-3  label-align">Jenis Melon<span > : </span></label>
+                                <div class="col-md-6 col-sm-6" id="jenismelon"><p>pilih id data perawatan</p></div>
+                            </div>
+                            <div class="field item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Tanggal Penen<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
                                     <input class="form-control" class='date' type="date" name="tanggal_hasilpanen" required='required'></div>                                            
                             </div>
                             <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Jumlah Hasil Panen<span class="required">*</span></label>
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Persentase Hasil Panen (%)<span class="required">*</span></label>
+                                <div class="col-md-6 col-sm-6">
+                                    <input class="form-control" type="number" name="persentase_panen"  required="required" value="{{old('persentase_panen')}}" placeholder="contoh 20"/>
+                                </div>
+                            </div>
+                            <div class="field item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Jumlah Hasil Panen (Kg)<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
                                     <input class="form-control" type="number" name="jumlah_hasilpanen"  required="required" value="{{old('jumlah')}}"/>
                                 </div>

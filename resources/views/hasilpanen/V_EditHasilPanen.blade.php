@@ -30,29 +30,23 @@
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Jenis Melon<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
                                     <select name="jenis_melon" id="jenis_melon" class="form-control">
-                                    @foreach($jenismelon as $item)
+                                    @foreach($data_perawatan as $item)
                                         <option class="form-control" value="{{ $item->id_jenismelon }}" 
-                                        @if($item->id_jenismelon == $data->id_jenismelon)
+                                        @if($item->id_dataperawatan == $data->id_data_perawatan)
                                             {{"selected"}}
                                         @endif
-                                        >{{ $item->jenismelon }}</option>
+                                        >{{ $item->id_dataperawatan }}</option>
                                     @endforeach
                                     </select>
                                 </div>
                             </div>
                             <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">No Greenhouse<span class="required">*</span></label>
-                                <div class="col-md-6 col-sm-6">
-                                    <select name="no_greenhouse" id="no_greenhouse" class="form-control">
-                                        @foreach($nogrenhouse as $item)
-                                            <option class="form-control" value="{{ $item->id_greenhouse }}"
-                                            @if($item->id_greenhouse == $data->id_greenhouse)
-                                                {{"selected"}}
-                                            @endif
-                                                >{{ $item->no_greenhouse }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                                <label class="col-md-3 col-sm-3  label-align">No. Greenhouse<span > : </span></label>
+                                <div class="col-md-6 col-sm-6" id="greenhouse"><p>{{$data->no_greenhouse}}</p></div>
+                            </div>
+                            <div class="field item form-group">
+                                <label class="col-md-3 col-sm-3  label-align">Jenis Melon<span > : </span></label>
+                                <div class="col-md-6 col-sm-6" id="jenismelon"><p>{{$data->jenismelon}}</p></div>
                             </div>
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Tanggal Hasil Panen<span class="required">*</span></label>
@@ -60,7 +54,13 @@
                                     <input class="form-control" class='date' type="date" name="tanggal_hasilpanen" required='required' value="{{$data->tanggal_hasilpanen}}"></div>                                            
                             </div>
                             <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Jumlah Hasil Panen<span class="required">*</span></label>
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Persentase Hasil Panen (%)<span class="required">*</span></label>
+                                <div class="col-md-6 col-sm-6">
+                                    <input class="form-control" type="number" name="persentase_panen"  required="required" value="{{$data->persentase_panen}}"/>
+                                </div>
+                            </div>
+                            <div class="field item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Jumlah Hasil Panen (Kg)<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
                                     <input class="form-control" type="number" name="jumlah_hasilpanen"  required="required" value="{{$data->jumlah_hasilpanen}}"/>
                                 </div>

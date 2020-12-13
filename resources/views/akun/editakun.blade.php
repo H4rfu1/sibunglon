@@ -62,7 +62,8 @@
                         <li><a href="{{url('akun/pemimpin')}}">Akun Pemimpin</a>
                         </li>
                     </ul>
-                  </li>                  
+                  </li>   
+                  <li><a href="{{url('pencatatan')}}"><i class="fa fa-edit"></i> Pencatatan </a></li>     
                 </ul>
               </div>
               @endif
@@ -70,16 +71,7 @@
               <div class="menu_section">
                 <h3>Pencatatan</h3>
                 <ul class="nav side-menu">
-                <li><a><i class="fa fa-edit"></i> Catat Harian <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="form.html">General Form</a></li>
-                      <li><a href="form_advanced.html">Advanced Components</a></li>
-                      <li><a href="form_validation.html">Form Validation</a></li>
-                      <li><a href="form_wizards.html">Form Wizard</a></li>
-                      <li><a href="form_upload.html">Form Upload</a></li>
-                      <li><a href="form_buttons.html">Form Buttons</a></li>
-                    </ul>
-                  </li>               
+                  <li><a href="{{url('hasilpanen')}}"><i class="fa fa-pencil"></i> Hasil Panen </a></li>                       
                 </ul>
               </div>
               @endif
@@ -87,25 +79,20 @@
               <div class="menu_section">
                 <h3>Akun</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-sitemap"></i> Kelola Akun <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-sitemap"></i> Akun Pegawai<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                         <li><a href="{{url('akun/admin')}}">Akun Administrator</a>
                         <li><a href="{{url('akun/pengawas')}}">Akun Pengawas</a>
                         </li>
                     </ul>
-                  </li>                  
+                  </li>
                 </ul>
               </div>
               <div class="menu_section">
                 <h3>Laporan</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-bar-chart-o"></i> Laporan <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                        <li><a href="#level1_1">Akun Administrator</a>
-                        <li><a href="#level1_2">Akun Pemimpin</a>
-                        </li>
-                    </ul>
-                  </li>                  
+                    <li><a href="{{url('pencatatan')}}"><i class="fa fa-edit"></i> Pencatatan </a></li>                                       
+                    <li><a href="{{url('hasilpanen')}}"><i class="fa fa-pencil"></i> Hasil Panen </a></li>                       
                 </ul>
               </div>
               @endif

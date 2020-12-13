@@ -76,17 +76,16 @@
                         <li><a href="{{url('akun/pemimpin')}}">Akun Pemimpin</a>
                         </li>
                     </ul>
-                  </li>                  
-                  <li><a href="{{url('hasilpanen')}}"><i class="fa fa-pencil"></i> Hasil Panen </a></li>     
-               </ul>
+                  </li>   
+                  <li><a href="{{url('pencatatan')}}"><i class="fa fa-edit"></i> Pencatatan </a></li>     
+                </ul>
               </div>
               @endif
               @if( Auth::user()->id_role == 2)
               <div class="menu_section">
                 <h3>Pencatatan</h3>
                 <ul class="nav side-menu">
-                  <li><a href="{{url('pencatatan')}}"><i class="fa fa-edit"></i> Pencatatan </a></li>     
-                  <li><a href="{{url('gagalpanen')}}"><i class="fa fa-ban"></i> Gagal Panen </a></li> 
+                  <li><a href="{{url('hasilpanen')}}"><i class="fa fa-pencil"></i> Hasil Panen </a></li>                       
                 </ul>
               </div>
               @endif
@@ -107,8 +106,7 @@
                 <h3>Laporan</h3>
                 <ul class="nav side-menu">
                     <li><a href="{{url('pencatatan')}}"><i class="fa fa-edit"></i> Pencatatan </a></li>                                       
-                    <li><a href="{{url('gagalpanen')}}"><i class="fa fa-ban"></i> Gagal Panen </a></li>     
-                    <li><a href="{{url('hasilpanen')}}"><i class="fa fa-pencil"></i> Hasil Panen </a></li>        
+                    <li><a href="{{url('hasilpanen')}}"><i class="fa fa-pencil"></i> Hasil Panen </a></li>                       
                 </ul>
               </div>
               @endif
@@ -179,6 +177,30 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script>
+                $(document).ready(function () {
+                $('#id_data_perawatan').on('change', function () {
+                    console.log('klik');
+                let id = $(this).val();
+        
+                $.ajax({
+                type: 'GET',
+                url: 'GetDataPerawatan/' + id,
+                success: function (response) {
+                var response = JSON.parse(response);
+                console.log(id);
+                console.log(response);
+                $('#greenhouse').empty();
+                $('#greenhouse').append('<p>'+response['no_greenhouse']+'</p>');
+                $('#jenismelon').empty();
+                $('#jenismelon').append('<p>'+response['jenismelon']+'</p>');
+                }
+            });
+        });
+    });
+    </script>
+
     <script src="{{url('vendors/validator/multifield.js')}}"></script>
     <script src="{{url('vendors/validator/validator.js')}}"></script>
     
@@ -242,6 +264,7 @@
 
     <!-- Custom Theme Scripts -->
     <script src="{{url('js/custom.min.js')}}"></script>
+    
 
 </body>
 

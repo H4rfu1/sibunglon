@@ -6,7 +6,7 @@
   <div class="">
     <div class="page-title">
       <div class="">
-        <h3>Kelola Akun Pencatatan</h3>
+        <h3>Daftar Kegiatan Pencatatan</h3>
         <div class="col-md-12 col-sm-12  ">
                 <div class="x_panel">
                   <div class="x_content">

@@ -28,7 +28,10 @@
                             <th class="column-title">Pengawas</th>
                             <th class="column-title">No. Greenhouse</th>
                             <th class="column-title">Jenis melon</th>
-                            <th class="column-title">Jumlah panen</th>
+                            <th class="column-title">Status panen</th>
+                            <th class="column-title">Persentase panen</th>
+                            <th class="column-title"> Hasil panen</th>
+                            <th class="column-title"> Gagal panen</th>
                             <th class="column-title">Tanggal Hasil panen</th>
                             @if( Auth::user()->id_role == 1)
                             <th class="column-title no-link last"><span class="nobr">Action</span>
@@ -49,7 +52,10 @@
                             <td class=" ">{{ $p->name }}</td>
                             <td class=" ">{{ $p->no_greenhouse }}</td>
                             <td class=" ">{{ $p->jenismelon }}</td>
-                            <td class=" ">{{ $p->jumlah_hasilpanen }}</td>
+                            <td class=" ">{{ $p->status }}</td>
+                            <td class=" ">{{ $p->persentase_panen }}</td>
+                            <td class=" ">{{ $p->jumlah_hasilpanen }} Kg</td>
+                            <td class=" ">{{ $p->jumlah_gagalpanen }} Kg</td>
                             <td class=" ">{{ $p->tanggal_hasilpanen }}</td>
                             @if( Auth::user()->id_role == 1)
                             <td class=" last">
@@ -68,7 +74,10 @@
                             <td class=" ">{{ $p->name }}</td>
                             <td class=" ">{{ $p->no_greenhouse }}</td>
                             <td class=" ">{{ $p->jenismelon }}</td>
-                            <td class=" ">{{ $p->jumlah_hasilpanen }}</td>
+                            <td class=" ">{{ $p->status }}</td>
+                            <td class=" ">{{ $p->persentase_panen }}</td>
+                            <td class=" ">{{ $p->jumlah_hasilpanen }} Kg</td>
+                            <td class=" ">{{ $p->jumlah_gagallpanen }} Kg</td>
                             <td class=" ">{{ $p->tanggal_hasilpanen }}</td>
                             @if( Auth::user()->id_role == 1)
                             <td class=" last">

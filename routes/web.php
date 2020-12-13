@@ -52,17 +52,17 @@ Route::patch('/pencatatan/{id}', 'C_DataPencatatan@UpdateDataPencatatan');
 // Route::delete('/pencatatan/{id}', 'C_DataPencatatan@destroy');
 
 //kelola Gagal Panen
-Route::get('/gagalpanen', 'C_DataGagalPanen@setTableDataGagalPanen');
+// Route::get('/gagalpanen', 'C_DataGagalPanen@setTableDataGagalPanen');
 
-Route::get('/inputgagalpanen', 'C_DataGagalPanen@setFormInputGagalPanen');
+// Route::get('/inputgagalpanen', 'C_DataGagalPanen@setFormInputGagalPanen');
 
-Route::post('/simpangagalpanen', 'C_DataGagalPanen@InputDataGagalPanen');
+// Route::post('/simpangagalpanen', 'C_DataGagalPanen@InputDataGagalPanen');
 
-Route::get('/editgagalpanen/{id}', 'C_DataGagalPanen@setFormInputEditGagalPanen');
+// Route::get('/editgagalpanen/{id}', 'C_DataGagalPanen@setFormInputEditGagalPanen');
 
 // Route::get('/pencatatan/{id}', 'C_DataGagalPanen@setTableDataPencatatan');
 
-Route::patch('/gagalpanen/{id}', 'C_DataGagalPanen@UpdateDataGagalPanen');
+// Route::patch('/gagalpanen/{id}', 'C_DataGagalPanen@UpdateDataGagalPanen');
 
 //kelola Hasil Panen
 Route::get('/hasilpanen', 'C_DataHasilPanen@setTableDataHasilPanen');
@@ -72,6 +72,8 @@ Route::get('/inputhasilpanen', 'C_DataHasilPanen@setFormInputHasilPanen');
 Route::post('/simpanhasilpanen', 'C_DataHasilPanen@InputDataHasilPanen');
 
 Route::get('/edithasilpanen/{id}', 'C_DataHasilPanen@setFormInputEditHasilPanen');
+
+Route::get('/GetDataPerawatan/{id}', 'C_DataHasilPanen@getDataPerawatan');
 
 // Route::get('/pencatatan/{id}', 'C_DataHasilPanen@setTableDataPencatatan');
 

@@ -36,26 +36,29 @@ class C_DataHasilPanen extends Controller
         //  })->get();
         // dd($query);
 
-        $data = M_DataHasilPanen::join('jenis_melon', 'hasil_panen.id_jenismelon', '=', 'jenis_melon.id_jenismelon')
-                                        ->join('no_greenhouse', 'hasil_panen.id_greenhouse', '=', 'no_greenhouse.id_greenhouse')
+        $data = M_DataHasilPanen::join('data_perawatan', 'hasil_panen.id_data_perawatan', '=', 'data_perawatan.id_dataperawatan')
+                                        ->join('jenis_melon', 'data_perawatan.id_jenismelon', '=', 'jenis_melon.id_jenismelon')
+                                        ->join('no_greenhouse', 'data_perawatan.id_greenhouse', '=', 'no_greenhouse.id_greenhouse')
                                         ->join('users', 'hasil_panen.id_akun', '=', 'users.id')
                                         ->get();
-        // dd($datapencatatan);
+        // dd($data);
         
         return view('hasilpanen.V_DataHasilPanen', compact('data'));
     }
 
     public function setFormInputHasilPanen()
     {
-        $jenismelon = DB::table('jenis_melon')->orderBy('jenismelon')->get();
+        // $jenismelon = DB::table('jenis_melon')->orderBy('jenismelon')->get();
         // $jenismelon = DB::table("jenis_melon")->select('*')->whereIn('id_jenismelon',function($query) {
         //     $query->select('id_jenismelon')->from('data_perawatan');
         //  })->get();
-        $nogrenhouse = DB::table('no_greenhouse')->orderBy('no_greenhouse')->get();
+        // $nogrenhouse = DB::table('no_greenhouse')->orderBy('no_greenhouse')->get();
         // $nogrenhouse = DB::table("no_greenhouse")->select('*')->whereIn('id_greenhouse',function($query) {
         //     $query->select('id_greenhouse')->from('data_perawatan');
         //  })->get();
-        return view('hasilpanen.V_InputHasilPanen', ['jenismelon' => $jenismelon, 'nogrenhouse' => $nogrenhouse]);
+        $data_perawatan = DB::table('data_perawatan')->orderBy('id_dataperawatan')->get();
+
+        return view('hasilpanen.V_InputHasilPanen', compact('data_perawatan'));
     }
 
 
@@ -67,13 +70,21 @@ class C_DataHasilPanen extends Controller
      */
     public function InputDataHasilPanen(Request $request)
     {
+        if($request->persentase_panen >= 80){
+            $status = 'berhasil';
+        }else{
+            $status = 'gagal';
+        }
+        $jumlah_gagalpanen = (100 - $request->persentase_panen) / $request->persentase_panen * $request->jumlah_hasilpanen;
 
         M_DataHasilPanen::create([
-            'id_jenismelon' => $request->jenis_melon,
-            'id_greenhouse' => $request->no_greenhouse,
+            'id_data_perawatan' => $request->id_data_perawatan,
+            'persentase_panen' => $request->persentase_panen,
             'tanggal_hasilpanen' => $request->tanggal_hasilpanen,
             'id_akun' => $request->pencatat,
-            'jumlah_hasilpanen' => $request->jumlah_hasilpanen
+            'jumlah_hasilpanen' => $request->jumlah_hasilpanen,
+            'jumlah_gagalpanen' => $jumlah_gagalpanen,
+            'status' => $status
         ]);
 
             return redirect('hasilpanen')->with('status', 'Berhasil Menambahkan Data Hasil Panen');
@@ -95,16 +106,31 @@ class C_DataHasilPanen extends Controller
      */
     public function setFormInputEditHasilPanen($id)
     {
-        $jenismelon = DB::table('jenis_melon')->orderBy('jenismelon')->get();
-        $nogrenhouse = DB::table('no_greenhouse')->orderBy('no_greenhouse')->get();
+        // $jenismelon = DB::table('jenis_melon')->orderBy('jenismelon')->get();
+        // $nogrenhouse = DB::table('no_greenhouse')->orderBy('no_greenhouse')->get();
 
-        $data = M_DataHasilPanen::where('id_hasilpanen', $id)->first();
+        $data = M_DataHasilPanen::join('data_perawatan', 'hasil_panen.id_data_perawatan', '=', 'data_perawatan.id_dataperawatan')
+                                ->join('jenis_melon', 'data_perawatan.id_jenismelon', '=', 'jenis_melon.id_jenismelon')
+                                ->join('no_greenhouse', 'data_perawatan.id_greenhouse', '=', 'no_greenhouse.id_greenhouse')
+                                ->where('id_hasilpanen', $id)->first();
+        $data_perawatan = DB::table('data_perawatan')->orderBy('id_dataperawatan')->get();
 
         $data->tanggal_hasilpanen = strtotime($data->tanggal_hasilpanen);
         $data->tanggal_hasilpanen = date('Y-m-d',$data->tanggal_hasilpanen);
 
         // dd($data);
-        return view('hasilpanen.V_EditHasilPanen', ['data' => $data, 'jenismelon' => $jenismelon, 'nogrenhouse' => $nogrenhouse]);
+        return view('hasilpanen.V_EditHasilPanen', compact('data_perawatan', 'data'));
+    }
+
+    public function getDataPerawatan($id)
+    {
+        $data_perawatan = DB::table('data_perawatan')        
+            ->join('no_greenhouse', 'data_perawatan.id_greenhouse', '=', 'no_greenhouse.id_greenhouse')
+            ->join('jenis_melon', 'data_perawatan.id_jenismelon', '=', 'jenis_melon.id_jenismelon')
+            ->where('data_perawatan.id_dataperawatan', $id)
+            ->first();
+            // dd($nogreenhouse);
+            echo json_encode($data_perawatan);
     }
 
     /**

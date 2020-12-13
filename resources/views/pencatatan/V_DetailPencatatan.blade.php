@@ -62,17 +62,16 @@
                         <li><a href="{{url('akun/pemimpin')}}">Akun Pemimpin</a>
                         </li>
                     </ul>
-                  </li>                  
-                  <li><a href="{{url('hasilpanen')}}"><i class="fa fa-pencil"></i> Hasil Panen </a></li>     
-               </ul>
+                  </li>   
+                  <li><a href="{{url('pencatatan')}}"><i class="fa fa-edit"></i> Pencatatan </a></li>     
+                </ul>
               </div>
               @endif
               @if( Auth::user()->id_role == 2)
               <div class="menu_section">
                 <h3>Pencatatan</h3>
                 <ul class="nav side-menu">
-                  <li><a href="{{url('pencatatan')}}"><i class="fa fa-edit"></i> Pencatatan </a></li>     
-                  <li><a href="{{url('gagalpanen')}}"><i class="fa fa-ban"></i> Gagal Panen </a></li> 
+                  <li><a href="{{url('hasilpanen')}}"><i class="fa fa-pencil"></i> Hasil Panen </a></li>                       
                 </ul>
               </div>
               @endif
@@ -93,8 +92,7 @@
                 <h3>Laporan</h3>
                 <ul class="nav side-menu">
                     <li><a href="{{url('pencatatan')}}"><i class="fa fa-edit"></i> Pencatatan </a></li>                                       
-                    <li><a href="{{url('gagalpanen')}}"><i class="fa fa-ban"></i> Gagal Panen </a></li>     
-                    <li><a href="{{url('hasilpanen')}}"><i class="fa fa-pencil"></i> Hasil Panen </a></li>        
+                    <li><a href="{{url('hasilpanen')}}"><i class="fa fa-pencil"></i> Hasil Panen </a></li>                       
                 </ul>
               </div>
               @endif

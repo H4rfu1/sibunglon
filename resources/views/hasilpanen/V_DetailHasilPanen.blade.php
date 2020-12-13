@@ -50,7 +50,7 @@
 
                     <br />
 
-                    <!-- sidebar menu -->
+                   <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               @if(Auth::user()->id_role == 1)
               <div class="menu_section">
@@ -62,7 +62,8 @@
                         <li><a href="{{url('akun/pemimpin')}}">Akun Pemimpin</a>
                         </li>
                     </ul>
-                  </li>                  
+                  </li>   
+                  <li><a href="{{url('pencatatan')}}"><i class="fa fa-edit"></i> Pencatatan </a></li>     
                 </ul>
               </div>
               @endif
@@ -70,7 +71,7 @@
               <div class="menu_section">
                 <h3>Pencatatan</h3>
                 <ul class="nav side-menu">
-                  <li><a href="{{url('pencatatan')}}"><i class="fa fa-edit"></i> Pencatatan </a></li>     
+                  <li><a href="{{url('hasilpanen')}}"><i class="fa fa-pencil"></i> Hasil Panen </a></li>                       
                 </ul>
               </div>
               @endif
@@ -78,7 +79,7 @@
               <div class="menu_section">
                 <h3>Akun</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-sitemap"></i> Kelola Akun <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-sitemap"></i> Akun Pegawai<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                         <li><a href="{{url('akun/admin')}}">Akun Administrator</a>
                         <li><a href="{{url('akun/pengawas')}}">Akun Pengawas</a>
@@ -91,6 +92,7 @@
                 <h3>Laporan</h3>
                 <ul class="nav side-menu">
                     <li><a href="{{url('pencatatan')}}"><i class="fa fa-edit"></i> Pencatatan </a></li>                                       
+                    <li><a href="{{url('hasilpanen')}}"><i class="fa fa-pencil"></i> Hasil Panen </a></li>                       
                 </ul>
               </div>
               @endif
