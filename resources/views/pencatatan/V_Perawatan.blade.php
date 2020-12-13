@@ -6,13 +6,10 @@
   <div class="">
     <div class="page-title">
       <div class="">
-        <h3>Daftar Kegiatan Pencatatan</h3>
+        <h3>Daftar Kegiatan Perawatan</h3>
         <div class="col-md-12 col-sm-12  ">
                 <div class="x_panel">
                   <div class="x_content">
-                  @if(Auth::user()->id_role == 2)
-                  <a class="btn btn-primary" href="{{url('inputpencatatan')}}">Tambah Pencatatan</a>
-                  @endif
                     @if (session('status'))
                       <div class="alert alert-success alert-dismissible " role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
@@ -24,40 +21,49 @@
                       <table class="table table-striped jambo_table bulk_action">
                         <thead>
                           <tr class="headings">
+                            <th class="column-title">ID. Perawatan</th>
                             <th class="column-title">ID. Pencatatan</th>
                             <th class="column-title">No. Greenhouse</th>
-                            <th class="column-title">Pengawas</th>
                             <th class="column-title">Jenis Melon</th>
-                            <th class="column-title">Tanggal tanam</th>
-                            <th class="column-title no-link last"><span class="nobr">Action</span>
+                            <th class="column-title">Tanggal perawatan</th>
+                            <th class="column-title">Perawatan</th>
+                            <th class="column-title">Status</th>
+                            <th class="column-title no-link last"><span class="nobr">Aksi</span>
                             </th>
                           </tr>
                         </thead>
 
                         <tbody>
                           @foreach($datapencatatan as $p)
+                          @php
+                            $count = DB::table('aksi_perawatan')
+                            ->join('users', 'aksi_perawatan.id_perawat', '=', 'users.id')
+                            ->join('detail_perawatan', 'aksi_perawatan.id_detail_perawatan', '=', 'detail_perawatan.id_detail_perawatan')
+                            ->select('aksi_perawatan.*', 'users.name','detail_perawatan.*')
+                            ->where('aksi_perawatan.id_detail_perawatan', $p->id_detail_perawatan)
+                            ->count();
+                          @endphp
+                          
                           @if($loop->iteration % 2 == 1)
                           @if( Auth::user()->id_role == 2)
                           <tr class="even pointer">
                           @else
                           <tr class="even pointer" onclick="window.location='{{url('pencatatan/'.$p->id_dataperawatan)}}';" style="cursor: pointer;">
                           @endif
+                            <td>{{ $p->id_detail_perawatan }}</td>
                             <td>{{ $p->id_dataperawatan }}</td>
                             <td class=" ">{{ $p->no_greenhouse }}</td>
-                            <td class=" ">{{ $p->name }}</td>
                             <td class=" ">{{ $p->jenismelon }}</td>
-                            <td class=" ">{{ $p->tanggal_tanam }}</td>
+                            <td class=" ">{{ $p->tanggal_perawatan }}</td>
+                            <td class=" ">{{ $p->perawatan }}</td>
+                            <td id="status{{ $p->id_detail_perawatan }}">{{ $p->status}}</td>
                             @if( Auth::user()->id_role == 2)
                             <td class=" last">
                               <!-- <a href="#" data-toggle="modal" data-target="#exampleModal" data-id="{{$p->id_dataperawatan}}" class="text-decoration-none"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a> -->
-                              <a href="{{url('editpencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
-                              <a href="{{url('pencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-info" style="font-size: 1em;">Detail</span></a>           
-                            </td>
-                            @else  
-                            <td class=" last">
-                              <!-- <a href="#" data-toggle="modal" data-target="#exampleModal" data-id="{{$p->id_dataperawatan}}" class="text-decoration-none"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a> -->
-                              <a href="{{url('pencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-info" style="font-size: 1em;">Detail</span></a>           
-                            </td>         
+                              <div class="form-check">
+                                <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" data-id="{{$p->id_detail_perawatan}}" @if($count > 0) {{'checked'}} @endif>
+                              </div>       
+                            </td>       
                             @endif     
                           </tr>
                           @else
@@ -65,23 +71,21 @@
                           <tr class="odd pointer">
                           @else
                           <tr class="odd pointer" onclick="window.location='{{url('pencatatan/'.$p->id_dataperawatan)}}';" style="cursor: pointer;">
-                          @endif                            
-                          <td>{{ $p->id_dataperawatan }}</td>
-                            <td class=" ">{{ $p->no_greenhouse }}</td>
-                            <td class=" ">{{ $p->name }}</td>
+                          @endif
+                            <td>{{ $p->id_detail_perawatan }}</td>                            
+                            <td>{{ $p->id_dataperawatan }}</td>
+                            <td class=" ">{{ $p->no_greenhouse }} </td>
                             <td class=" ">{{ $p->jenismelon }}</td>
-                            <td class=" ">{{ $p->tanggal_tanam }}</td>
+                            <td class=" ">{{ $p->tanggal_perawatan }}</td>
+                            <td class=" ">{{ $p->perawatan }}</td>
+                            <td id="status{{ $p->id_detail_perawatan }}">{{ $p->status}}</td>
                             @if( Auth::user()->id_role == 2)
                             <td class=" last">
                               <!-- <a href="#" data-toggle="modal" data-target="#exampleModal" data-id="{{$p->id_dataperawatan}}" class="text-decoration-none"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a> -->
-                              <a href="{{url('editpencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
-                              <a href="{{url('pencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-info" style="font-size: 1em;">Detail</span></a>           
-                            </td>
-                            @else  
-                            <td class=" last">
-                              <!-- <a href="#" data-toggle="modal" data-target="#exampleModal" data-id="{{$p->id_dataperawatan}}" class="text-decoration-none"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a> -->
-                              <a href="{{url('pencatatan/'.$p->id_dataperawatan)}}"><span class="badge badge-info" style="font-size: 1em;">Detail</span></a>           
-                            </td>         
+                              <div class="form-check">
+                                <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" data-id="{{$p->id_detail_perawatan}}" @if($count > 0) {{'checked'}} @endif >
+                              </div>       
+                            </td>       
                             @endif                 
                           </tr>
                           @endif

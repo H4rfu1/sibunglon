@@ -70,20 +70,21 @@ class C_DataHasilPanen extends Controller
      */
     public function InputDataHasilPanen(Request $request)
     {
-        if($request->persentase_panen >= 80){
+        $target = 1000;
+        $persentase_panen = $request->jumlah_hasilpanen * 100 / $target;
+
+        if($persentase_panen >= 80){
             $status = 'berhasil';
         }else{
             $status = 'gagal';
         }
-        $jumlah_gagalpanen = (100 - $request->persentase_panen) / $request->persentase_panen * $request->jumlah_hasilpanen;
 
         M_DataHasilPanen::create([
             'id_data_perawatan' => $request->id_data_perawatan,
-            'persentase_panen' => $request->persentase_panen,
+            'persentase_panen' => $persentase_panen,
             'tanggal_hasilpanen' => $request->tanggal_hasilpanen,
             'id_akun' => $request->pencatat,
             'jumlah_hasilpanen' => $request->jumlah_hasilpanen,
-            'jumlah_gagalpanen' => $jumlah_gagalpanen,
             'status' => $status
         ]);
 

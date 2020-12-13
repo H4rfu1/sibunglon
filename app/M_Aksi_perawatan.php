@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class M_DataGagalPanen extends Model
+class M_Aksi_perawatan extends Model
 {
-    protected $table = 'gagal_panen';
-    protected $primaryKey = 'id_gagalpanen';
+    protected $table = 'aksi_perawatan';
+    protected $primaryKey = 'id_aksi_perawatan';
     public $timestamps = false;
-    protected $fillable = ['id_jenismelon', 'id_greenhouse', 'jumlah_gagalpanen', 'penyebab_gagalpanen', 'tanggal_gagalpanen', 'id_akun'];
+    protected $fillable = ['id_perawat', 'id_detail_perawatan', 'tanggal_aksi_perawatan'];
 }

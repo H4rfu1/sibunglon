@@ -10,7 +10,7 @@
         <div class="col-md-12 col-sm-12  ">
                 <div class="x_panel">
                   <div class="x_content">
-                  @if(Auth::user()->id_role == 1)
+                  @if(Auth::user()->id_role == 2)
                   <a class="btn btn-primary" href="{{url('inputhasilpanen')}}">Tambah Hasil Panen</a>
                   @endif
                     @if (session('status'))
@@ -31,7 +31,6 @@
                             <th class="column-title">Status panen</th>
                             <th class="column-title">Persentase panen</th>
                             <th class="column-title"> Hasil panen</th>
-                            <th class="column-title"> Gagal panen</th>
                             <th class="column-title">Tanggal Hasil panen</th>
                             @if( Auth::user()->id_role == 1)
                             <th class="column-title no-link last"><span class="nobr">Action</span>
@@ -55,7 +54,6 @@
                             <td class=" ">{{ $p->status }}</td>
                             <td class=" ">{{ $p->persentase_panen }}</td>
                             <td class=" ">{{ $p->jumlah_hasilpanen }} Kg</td>
-                            <td class=" ">{{ $p->jumlah_gagalpanen }} Kg</td>
                             <td class=" ">{{ $p->tanggal_hasilpanen }}</td>
                             @if( Auth::user()->id_role == 1)
                             <td class=" last">
@@ -77,7 +75,6 @@
                             <td class=" ">{{ $p->status }}</td>
                             <td class=" ">{{ $p->persentase_panen }}</td>
                             <td class=" ">{{ $p->jumlah_hasilpanen }} Kg</td>
-                            <td class=" ">{{ $p->jumlah_gagallpanen }} Kg</td>
                             <td class=" ">{{ $p->tanggal_hasilpanen }}</td>
                             @if( Auth::user()->id_role == 1)
                             <td class=" last">

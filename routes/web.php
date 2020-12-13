@@ -79,6 +79,11 @@ Route::get('/GetDataPerawatan/{id}', 'C_DataHasilPanen@getDataPerawatan');
 
 Route::patch('/hasilpanen/{id}', 'C_DataHasilPanen@UpdateDataHasilPanen');
 
+//perawatan
+Route::get('/perawatan', 'C_Perawatan@setListPerawatan')->name('perawatan');
+Route::get('/perawatan/{id}', 'C_Perawatan@aksiPerawatan');
+
+
 //auth
 Auth::routes();
 

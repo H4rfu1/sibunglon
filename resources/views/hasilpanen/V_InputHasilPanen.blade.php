@@ -49,12 +49,6 @@
                                     <input class="form-control" class='date' type="date" name="tanggal_hasilpanen" required='required'></div>                                            
                             </div>
                             <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Persentase Hasil Panen (%)<span class="required">*</span></label>
-                                <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" type="number" name="persentase_panen"  required="required" value="{{old('persentase_panen')}}" placeholder="contoh 20"/>
-                                </div>
-                            </div>
-                            <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Jumlah Hasil Panen (Kg)<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
                                     <input class="form-control" type="number" name="jumlah_hasilpanen"  required="required" value="{{old('jumlah')}}"/>

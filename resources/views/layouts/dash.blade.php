@@ -164,6 +164,32 @@
     <script src="{{url('vendors/jquery/dist/jquery.min.js')}}"></script>
     <!-- Bootstrap -->
    <script src="{{url('vendors/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+   @if(Route::current()->getName() == 'perawatan')
+   <script>
+                $(document).ready(function () {
+                $('.form-check-input').on('click', function () {
+                    console.log('klik');
+                let id = $(this).data('id');
+                var form = $(this);
+        
+                $.ajax({
+                type: 'GET',
+                url: 'perawatan/' + id,
+                success: function (response) {
+                console.log(response);
+                console.log(id);
+                // $('#status'+id).empty();
+                // $('#status'+id).text(response);
+                $('#status'+id).fadeOut(800, function(){
+                  $('#status'+id).text(response).fadeIn();
+                        });
+                }
+            });
+        });
+    });
+    </script>
+   @endif
+
     <!-- FastClick -->
     <script src="{{url('vendors/fastclick/lib/fastclick.js')}}"></script>
     <!-- NProgress -->
