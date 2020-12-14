@@ -52,17 +52,17 @@ Route::patch('/pencatatan/{id}', 'C_DataPencatatan@UpdateDataPencatatan');
 // Route::delete('/pencatatan/{id}', 'C_DataPencatatan@destroy');
 
 //kelola No Greenhouse
-// Route::get('/gagalpanen', 'C_DataGagalPanen@setTableDataGagalPanen');
+Route::get('/greenhouse', 'C_DataNoGreenhouse@setTableDataNoGreenhouse');
 
-// Route::get('/inputgagalpanen', 'C_DataGagalPanen@setFormInputGagalPanen');
+Route::get('/inputgreenhouse', 'C_DataNoGreenhouse@setFormInputNoGreenhouse');
 
-// Route::post('/simpangagalpanen', 'C_DataGagalPanen@InputDataGagalPanen');
+Route::post('/simpangreenhouse', 'C_DataNoGreenhouse@InputDataNoGreenhouse');
 
-// Route::get('/editgagalpanen/{id}', 'C_DataGagalPanen@setFormInputEditGagalPanen');
+Route::get('/editgreenhouse/{id}', 'C_DataNoGreenhouse@setFormInputEditNoGreenhouse');
 
-// Route::get('/pencatatan/{id}', 'C_DataGagalPanen@setTableDataPencatatan');
+// Route::get('/greenhouse/{id}', 'C_DataNoGreenhouse@setTableNoGreenhouse');
 
-// Route::patch('/gagalpanen/{id}', 'C_DataGagalPanen@UpdateDataGagalPanen');
+Route::patch('/greenhouse/{id}', 'C_DataNoGreenhouse@UpdateDataNoGreenhouse');
 
 //kelola Jenis Melon
 Route::get('/jenismelon', 'C_DataJenisMelon@setTableJanisMelon');

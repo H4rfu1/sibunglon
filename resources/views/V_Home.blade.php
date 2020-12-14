@@ -21,23 +21,23 @@
         @endif
         </small></h3>
           <!-- top tiles -->
-          <div class="row" style="display: inline-block;" >
-          <div class="tile_count">
-            <div class=" col-lg-3  tile_stats_count">
+          <div class="row">
+          <div class="tile_count ">
+            <div class=" col-lg-4  tile_stats_count">
               <p class="count_top"><i class="fa fa-user"></i> Total Users</p>
               <div class="count">{{$count}}</div>
             </div>
-            <div class="col-lg-3  tile_stats_count">
+            <div class="col-lg-4  tile_stats_count">
               <p class="count_top"><i class="fa fa-clock-o"></i> Pencatatan</p>
               <div class="count">{{$catat}}</div>
             </div>
-            <div class="col-lg-3  tile_stats_count">
+            <!-- <div class="col-lg-3  tile_stats_count">
               <p class="count_top"><i class="fa fa-ban"></i> Gagal Panen</p>
               <div class="count red">{{$gagal}} Kg</div>
-            </div>
-            <div class="col-lg-3  tile_stats_count">
+            </div> -->
+            <div class="col-lg-4  tile_stats_count">
               <p class="count_top"><i class="fa fa-pencil"></i> Hasil Panen</p>
-              <div class="count green">{{$hasil}} Kg</div>
+              <div class="count green" style="white-space: normal;"><p style="overflow: visible;">{{$hasil}} Kg</p></div>
             </div>
           </div>
         </div>

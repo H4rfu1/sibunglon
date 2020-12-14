@@ -6,12 +6,12 @@
   <div class="">
     <div class="page-title">
       <div class="">
-        <h3>Kelola Gagal Panen</h3>
+        <h3>Kelola No Greenhouse</h3>
         <div class="col-md-12 col-sm-12  ">
                 <div class="x_panel">
                   <div class="x_content">
-                  @if(Auth::user()->id_role == 2)
-                  <a class="btn btn-primary" href="{{url('inputgagalpanen')}}">Tambah Gagal Panen</a>
+                  @if(Auth::user()->id_role == 1)
+                  <a class="btn btn-primary" href="{{url('inputgreenhouse')}}">Tambah No Greenhouse</a>
                   @endif
                     @if (session('status'))
                       <div class="alert alert-success alert-dismissible " role="alert">
@@ -24,14 +24,9 @@
                       <table class="table table-striped jambo_table bulk_action">
                         <thead>
                           <tr class="headings">
-                            <th class="column-title">ID.</th>
-                            <th class="column-title">Pengawas</th>
-                            <th class="column-title">No. Greenhouse</th>
-                            <th class="column-title">Jenis melon</th>
-                            <th class="column-title">Jumlah gagal</th>
-                            <th class="column-title">Tanggal gagal panen</th>
-                            <th class="column-title">Penyebab</th>
-                            @if( Auth::user()->id_role == 2)
+                            <th class="column-title">No.</th>
+                            <th class="column-title">No Greenhouse</th>
+                            @if( Auth::user()->id_role == 1)
                             <th class="column-title no-link last"><span class="nobr">Action</span>
                             </th>
                             @endif
@@ -41,42 +36,32 @@
                         <tbody>
                           @foreach($data as $p)
                           @if($loop->iteration % 2 == 1)
-                          @if( Auth::user()->id_role == 2)
-                          <tr class="even pointer" onclick="window.location='{{url('editgagalpanen/'.$p->id_gagalpanen)}}';" style="cursor: pointer;">
+                          @if( Auth::user()->id_role == 1)
+                          <tr class="even pointer" onclick="window.location='{{url('editgreenhouse/'.$p->id_greenhouse )}}';" style="cursor: pointer;">
                           @else
                           <tr class="even pointer">
                           @endif
-                            <td>{{ $p->id_gagalpanen }}</td>
-                            <td class=" ">{{ $p->name }}</td>
+                            <td>{{ $loop->iteration  }}</td>
                             <td class=" ">{{ $p->no_greenhouse }}</td>
-                            <td class=" ">{{ $p->jenismelon }}</td>
-                            <td class=" ">{{ $p->jumlah_gagalpanen }}</td>
-                            <td class=" ">{{ $p->tanggal_gagalpanen }}</td>
-                            <td class=" ">{{ $p->penyebab_gagalpanen }}</td>
-                            @if( Auth::user()->id_role == 2)
+                            @if( Auth::user()->id_role == 1)
                             <td class=" last">
                               <!-- <a href="#" data-toggle="modal" data-target="#exampleModal" data-id="{{$p->id_dataperawatan}}" class="text-decoration-none"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a> -->
-                              <a href="{{url('editgagalpanen/'.$p->id_gagalpanen)}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
+                              <a href="{{url('editgreenhouse/'.$p->id_greenhouse )}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
                             </td>
                             @endif
                           </tr>
                           @else
-                          @if( Auth::user()->id_role == 2)
-                          <tr class="even pointer" onclick="window.location='{{url('editgagalpanen/'.$p->id_gagalpanen)}}';" style="cursor: pointer;">
+                          @if( Auth::user()->id_role == 1)
+                          <tr class="even pointer" onclick="window.location='{{url('editgreenhouse/'.$p->id_greenhouse )}}';" style="cursor: pointer;">
                           @else
                           <tr class="odd pointer">
-                          @endif                            
-                          <td>{{ $p->id_gagalpanen }}</td>
-                            <td class=" ">{{ $p->name }}</td>
+                          @endif
+                            <td>{{ $loop->iteration  }}</td>
                             <td class=" ">{{ $p->no_greenhouse }}</td>
-                            <td class=" ">{{ $p->jenismelon }}</td>
-                            <td class=" ">{{ $p->jumlah_gagalpanen }}</td>
-                            <td class=" ">{{ $p->tanggal_gagalpanen }}</td>
-                            <td class=" ">{{ $p->penyebab_gagalpanen }}</td>
-                            @if( Auth::user()->id_role == 2)
+                            @if( Auth::user()->id_role == 1)
                             <td class=" last">
                               <!-- <a href="#" data-toggle="modal" data-target="#exampleModal" data-id="{{$p->id_dataperawatan}}" class="text-decoration-none"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a> -->
-                              <a href="{{url('editgagalpanen/'.$p->id_gagalpanen)}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
+                              <a href="{{url('editgreenhouse/'.$p->id_greenhouse )}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
                             </td>           
                             @endif                 
                           </tr>
