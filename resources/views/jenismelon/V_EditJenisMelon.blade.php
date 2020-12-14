@@ -1,6 +1,6 @@
 @extends('layouts.dashinput')
 
-@section('judul1', 'Ubah Gagal Panen | ')
+@section('judul1', 'Ubah Jenis Melon | ')
 
 @section('content')
 <!-- page content -->
@@ -8,7 +8,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Ubah Gagal Panen</h3>
+                <h3>Ubah Jenis Melon</h3>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -17,63 +17,42 @@
             <div class="col-md-12 col-sm-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Pencatatan Gagal Panen
+                        <h2>Pencatatan Jenis Melon
                         </h2>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <form class="" action="{{url('gagalpanen/'.$data->id_gagalpanen )}}" method="post" novalidate>
+                        <form class="" action="{{url('jenismelon/'.$data->id_jenismelon  )}}" method="post" novalidate>
                             @csrf
                             @method('patch')
-                            <input type="hidden" name="pencatat" value="{{Auth::user()->id}}">
+                            <!-- <input type="hidden" name="pencatat" value="{{Auth::user()->id}}"> -->
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Jenis Melon<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <select name="jenis_melon" id="jenis_melon" class="form-control">
-                                    @foreach($jenismelon as $item)
-                                        <option class="form-control" value="{{ $item->id_jenismelon }}" 
-                                        @if($item->id_jenismelon == $data->id_jenismelon)
-                                            {{"selected"}}
-                                        @endif
-                                        >{{ $item->jenismelon }}</option>
-                                    @endforeach
-                                    </select>
+                                    <input class="form-control" type="text" name="jenismelon"  required="required" value="{{$data->jenismelon}}"/>
                                 </div>
                             </div>
                             <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">No Greenhouse<span class="required">*</span></label>
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Lama Panen<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <select name="no_greenhouse" id="no_greenhouse" class="form-control">
-                                        @foreach($nogrenhouse as $item)
-                                            <option class="form-control" value="{{ $item->id_greenhouse }}"
-                                            @if($item->id_greenhouse == $data->id_greenhouse)
-                                                {{"selected"}}
-                                            @endif
-                                                >{{ $item->no_greenhouse }}</option>
-                                        @endforeach
-                                    </select>
+                                    <input class="form-control" type="number" name="masa_panen"  required="required" value="{{$data->masa_panen}}"/>
                                 </div>
                             </div>
                             <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Tanggal Gagal Panen<span class="required">*</span></label>
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Masa Pemupukan<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" class='date' type="date" name="tanggal_gagalpanen" required='required' value="{{$data->tanggal_gagalpanen}}"></div>                                            
-                            </div>
-                            <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Jumlah Gagal Panen<span class="required">*</span></label>
-                                <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" type="number" name="jumlah_gagalpanen"  required="required" value="{{$data->jumlah_gagalpanen}}"/>
+                                    <input class="form-control" type="number" name="masa_pupuk"  required="required" value="{{$data->masa_pupuk}}"/>
                                 </div>
                             </div>
                             <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Penyebab Gagal Panen<span class="required" >*</span></label>
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Keterangan<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <textarea class="boxsizingBorder" required="required" name='penyebab_gagalpanen'>{{$data->penyebab_gagalpanen}}</textarea></div>
+                                    <textarea class="boxsizingBorder" required="required" name='keterangan'>{{$data->keterangan}}</textarea></div>
                             </div>
                             <div class="ln_solid">
                                 <div class="form-group">
                                     <div class="col-md-6 offset-md-3 mt-2">
-                                        <a class="btn btn-danger" href = "{{url('gagalpanen')}}">Batal</a>
+                                        <a class="btn btn-danger" href = "{{url('jenismelon')}}">Batal</a>
                                         <button type='submit' class="btn btn-success">Simpan</button>
                                     </div>
                                 </div>

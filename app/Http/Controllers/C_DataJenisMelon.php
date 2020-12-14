@@ -53,27 +53,17 @@ class C_DataJenisMelon extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function InputDataGagalPanen(Request $request)
+    public function InputDataJenisMelon(Request $request)
     {
-        //metode sistem pakar
-        $data = DB::table('jenis_melon')
-            ->where('id_jenismelon', '=', $request->jenis_melon)
-            ->first();
-        $tanampanen = strtotime($request->tanggal_tanam . " +". $data->masa_panen ." days");
-        $tanampanen = date('Y-m-d',$tanampanen);
-        $tanampupuk = strtotime($request->tanggal_tanam . " +". $data->masa_pupuk ." days");
-        $tanampupuk = date('Y-m-d',$tanampupuk);
 
         M_JenisMelon::create([
-            'id_jenismelon' => $request->jenis_melon,
-            'id_greenhouse' => $request->no_greenhouse,
-            'tanggal_gagalpanen' => $request->tanggal_gagalpanen,
-            'id_akun' => $request->pencatat,
-            'jumlah_gagalpanen' => $request->jumlah_gagalpanen,
-            'penyebab_gagalpanen' => $request->penyebab_gagalpanen
+            'jenismelon' => $request->jenismelon,
+            'masa_panen' => $request->masa_panen,
+            'masa_pupuk' => $request->masa_pupuk,
+            'keterangan' => $request->keterangan
         ]);
 
-            return redirect('gagalpanen')->with('status', 'Berhasil Menambahkan Data Gagal Panen');
+            return redirect('jenismelon')->with('status', 'Berhasil Menambahkan Data Jenis Melon');
         
     }
 
@@ -90,18 +80,13 @@ class C_DataJenisMelon extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function setFormInputEditGagalPanen($id)
+    public function setFormInputEditJenisMelon($id)
     {
-        $jenismelon = DB::table('jenis_melon')->orderBy('jenismelon')->get();
-        $nogrenhouse = DB::table('no_greenhouse')->orderBy('no_greenhouse')->get();
 
-        $data = M_JenisMelon::where('id_gagalpanen', $id)->first();
-
-        $data->tanggal_gagalpanen = strtotime($data->tanggal_gagalpanen);
-        $data->tanggal_gagalpanen = date('Y-m-d',$data->tanggal_gagalpanen);
+        $data = M_JenisMelon::where('id_jenismelon', '=', $id)->first();
 
         // dd($data);
-        return view('jenismelon.V_EditGagalPanen', ['data' => $data, 'jenismelon' => $jenismelon, 'nogrenhouse' => $nogrenhouse]);
+        return view('jenismelon.V_EditJenisMelon', ['data' => $data]);
     }
 
     /**
@@ -111,23 +96,16 @@ class C_DataJenisMelon extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function UpdateDataGagalPanen(Request $request, $id)
+    public function UpdateDataJenisMelon(Request $request, $id)
     {
-        //metode sistem pakar
-        $data = DB::table('jenis_melon')
-            ->where('id_jenismelon', '=', $request->jenis_melon)
-            ->first();
-        
-            M_JenisMelon::where('id_gagalpanen', $id)
+            M_JenisMelon::where('id_jenismelon', $id)
             ->update([
-                'id_jenismelon' => $request->jenis_melon,
-                'id_greenhouse' => $request->no_greenhouse,
-                'tanggal_gagalpanen' => $request->tanggal_gagalpanen,
-                'id_akun' => $request->pencatat,
-                'jumlah_gagalpanen' => $request->jumlah_gagalpanen,
-                'penyebab_gagalpanen' => $request->penyebab_gagalpanen
+                'jenismelon' => $request->jenismelon,
+                'masa_panen' => $request->masa_panen,
+                'masa_pupuk' => $request->masa_pupuk,
+                'keterangan' => $request->keterangan
             ]);
-            return redirect('gagalpanen')->with('status', 'Data Gagal Panen Berhasil Disimpan');
+            return redirect('jenismelon')->with('status', 'Data Jenis Melon Berhasil Disimpan');
     }
 
     /**
