@@ -77,15 +77,21 @@
                         </li>
                     </ul>
                   </li>   
-                  <li><a href="{{url('pencatatan')}}"><i class="fa fa-edit"></i> Pencatatan </a></li>     
+                  <li><a href="{{url('hasilpanen')}}"><i class="fa fa-pencil"></i> Hasil Panen </a></li>                       
                 </ul>
+                <h3>Data</h3>
+                <ul class="nav side-menu">     
+                  <li><a href="{{url('greenhouse')}}"><i class="fa fa-home"></i> Greenhouse </a></li>     
+                  <li><a href="{{url('jenismelon')}}"><i class="fa fa-lemon-o"></i> Jenis Melon </a></li>                       
+                </ul> 
               </div>
               @endif
               @if( Auth::user()->id_role == 2)
               <div class="menu_section">
-                <h3>Pencatatan</h3>
+                <h3>Menu</h3>
                 <ul class="nav side-menu">
-                  <li><a href="{{url('hasilpanen')}}"><i class="fa fa-pencil"></i> Hasil Panen </a></li>                       
+                  <li><a href="{{url('pencatatan')}}"><i class="fa fa-edit"></i> Pencatatan </a></li>  
+                  <li><a href="{{url('perawatan')}}"><i class="fa fa-calendar-check-o"></i> Perawatan </a></li>  
                 </ul>
               </div>
               @endif
@@ -101,12 +107,15 @@
                     </ul>
                   </li>
                 </ul>
-              </div>
-              <div class="menu_section">
                 <h3>Laporan</h3>
                 <ul class="nav side-menu">
                     <li><a href="{{url('pencatatan')}}"><i class="fa fa-edit"></i> Pencatatan </a></li>                                       
                     <li><a href="{{url('hasilpanen')}}"><i class="fa fa-pencil"></i> Hasil Panen </a></li>                       
+                </ul>
+                <h3>Data</h3>
+                <ul class="nav side-menu">     
+                  <li><a href="{{url('greenhouse')}}"><i class="fa fa-home"></i> Greenhouse </a></li>     
+                  <li><a href="{{url('jenismelon')}}"><i class="fa fa-lemon-o"></i> Jenis Melon </a></li>                       
                 </ul>
               </div>
               @endif

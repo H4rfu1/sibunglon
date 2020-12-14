@@ -51,7 +51,7 @@ Route::patch('/pencatatan/{id}', 'C_DataPencatatan@UpdateDataPencatatan');
 
 // Route::delete('/pencatatan/{id}', 'C_DataPencatatan@destroy');
 
-//kelola Gagal Panen
+//kelola No Greenhouse
 // Route::get('/gagalpanen', 'C_DataGagalPanen@setTableDataGagalPanen');
 
 // Route::get('/inputgagalpanen', 'C_DataGagalPanen@setFormInputGagalPanen');
@@ -63,6 +63,17 @@ Route::patch('/pencatatan/{id}', 'C_DataPencatatan@UpdateDataPencatatan');
 // Route::get('/pencatatan/{id}', 'C_DataGagalPanen@setTableDataPencatatan');
 
 // Route::patch('/gagalpanen/{id}', 'C_DataGagalPanen@UpdateDataGagalPanen');
+
+//kelola Jenis Melon
+Route::get('/jenismelon', 'C_DataJenisMelon@setTableJanisMelon');
+
+Route::get('/inputjenismelon', 'C_DataJenisMelon@setFormInputJenisMelon');
+
+Route::post('/simpanjenismelon', 'C_DataJenisMelon@InputDataJenisMelon');
+
+Route::get('/editjenismelon/{id}', 'C_DataJenisMelon@setFormInputEditJenisMelon');
+
+Route::patch('/jenismelon/{id}', 'C_DataJenisMelon@UpdateDataJenisMelon');
 
 //kelola Hasil Panen
 Route::get('/hasilpanen', 'C_DataHasilPanen@setTableDataHasilPanen');

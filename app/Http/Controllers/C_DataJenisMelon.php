@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
-use App\M_DataGagalPanen;
+use App\M_JenisMelon;
 
-class C_DataGagalPanen extends Controller
+class C_DataJenisMelon extends Controller
 {
 
     /**
@@ -26,7 +26,7 @@ class C_DataGagalPanen extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function setTableDataGagalPanen()
+    public function setTableJanisMelon()
     {
         // $query = DB::table('data_perawatan')->select('id_jenismelon')->get()->toArray();
         // $query = DB::table("jenis_melon")->select('*')->whereNotIn('id_jenismelon',function($query) {
@@ -36,26 +36,14 @@ class C_DataGagalPanen extends Controller
         //  })->get();
         // dd($query);
 
-        $data = M_DataGagalPanen::join('jenis_melon', 'gagal_panen.id_jenismelon', '=', 'jenis_melon.id_jenismelon')
-                                        ->join('no_greenhouse', 'gagal_panen.id_greenhouse', '=', 'no_greenhouse.id_greenhouse')
-                                        ->join('users', 'gagal_panen.id_akun', '=', 'users.id')
-                                        ->get();
+        $data = M_JenisMelon::all();
         // dd($datapencatatan);
-        
-        return view('gagalpanen.V_DataGagalPanen', compact('data'));
+        return view('jenismelon.V_DataJenisMelon', compact('data'));
     }
 
-    public function setFormInputGagalPanen()
+    public function setFormInputJenisMelon()
     {
-        // $jenismelon = DB::table('jenis_melon')->orderBy('jenismelon')->get();
-        $jenismelon = DB::table("jenis_melon")->select('*')->whereIn('id_jenismelon',function($query) {
-            $query->select('id_jenismelon')->from('data_perawatan');
-         })->get();
-        // $nogrenhouse = DB::table('no_greenhouse')->orderBy('no_greenhouse')->get();
-        $nogrenhouse = DB::table("no_greenhouse")->select('*')->whereIn('id_greenhouse',function($query) {
-            $query->select('id_greenhouse')->from('data_perawatan');
-         })->get();
-        return view('gagalpanen.V_InputGagalPanen', ['jenismelon' => $jenismelon, 'nogrenhouse' => $nogrenhouse]);
+        return view('jenismelon.V_InputJenisMelon');
     }
 
 
@@ -76,7 +64,7 @@ class C_DataGagalPanen extends Controller
         $tanampupuk = strtotime($request->tanggal_tanam . " +". $data->masa_pupuk ." days");
         $tanampupuk = date('Y-m-d',$tanampupuk);
 
-        M_DataGagalPanen::create([
+        M_JenisMelon::create([
             'id_jenismelon' => $request->jenis_melon,
             'id_greenhouse' => $request->no_greenhouse,
             'tanggal_gagalpanen' => $request->tanggal_gagalpanen,
@@ -107,13 +95,13 @@ class C_DataGagalPanen extends Controller
         $jenismelon = DB::table('jenis_melon')->orderBy('jenismelon')->get();
         $nogrenhouse = DB::table('no_greenhouse')->orderBy('no_greenhouse')->get();
 
-        $data = M_DataGagalPanen::where('id_gagalpanen', $id)->first();
+        $data = M_JenisMelon::where('id_gagalpanen', $id)->first();
 
         $data->tanggal_gagalpanen = strtotime($data->tanggal_gagalpanen);
         $data->tanggal_gagalpanen = date('Y-m-d',$data->tanggal_gagalpanen);
 
         // dd($data);
-        return view('gagalpanen.V_EditGagalPanen', ['data' => $data, 'jenismelon' => $jenismelon, 'nogrenhouse' => $nogrenhouse]);
+        return view('jenismelon.V_EditGagalPanen', ['data' => $data, 'jenismelon' => $jenismelon, 'nogrenhouse' => $nogrenhouse]);
     }
 
     /**
@@ -130,7 +118,7 @@ class C_DataGagalPanen extends Controller
             ->where('id_jenismelon', '=', $request->jenis_melon)
             ->first();
         
-            M_DataGagalPanen::where('id_gagalpanen', $id)
+            M_JenisMelon::where('id_gagalpanen', $id)
             ->update([
                 'id_jenismelon' => $request->jenis_melon,
                 'id_greenhouse' => $request->no_greenhouse,

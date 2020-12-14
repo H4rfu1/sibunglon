@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Detail Pencatatan</title>
+    <title>Detail Gagal Panen</title>
 
     <!-- favicon -->
     <link rel="shortcut icon" href="{{url('favicon.ico')}}" type="image/x-icon">
@@ -162,7 +162,7 @@
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3>Detail Pencatatan</h3>
+                            <h3>Detail Gagal Panen</h3>
                         </div>
 
                     </div>
@@ -172,7 +172,7 @@
                         <div class="col-md-12 col-sm-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Detail Pencatatan 
+                                    <h2>Detail Gagal Panen 
                                     </h2>
                                     <div class="clearfix"></div>
                                 </div>
@@ -196,15 +196,15 @@
                                             </div>
                                         </div>
                                         <div class="field item form-group">
-                                            <label class="col-md-3 col-sm-3  label-align">Jens Melon<span > : </span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <p>{{$data->jenismelon}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="field item form-group">
                                             <label class="col-md-3 col-sm-3  label-align">Tanggal Tanam<span > : </span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <p>{{$data->tanggal_tanam}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="field item form-group">
+                                            <label class="col-md-3 col-sm-3  label-align">Tanggal pemberian pupuk<span > : </span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <p>{{$data->tanggal_pemberianpupuk}}</p>
                                             </div>
                                         </div>
                                         <div class="field item form-group">
