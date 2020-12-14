@@ -46,31 +46,10 @@
           <img src="{{asset('images/logo.png')}}" alt="Your logo" title="Your logo" style="height:35px;" />
       </a>
       <a class="navbar-brand" href="index.html">Si<span class="">bunglon</span></a> 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon fa fa-bars"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mx-auto mt-2">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link" href="services.html">Services</a>
-          </li>
-         
-        
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-        </ul>
-        <form action="#" class="form-inline position-relative my-2 my-lg-0">
+
+        <form action="#" class="form-inline position-relative my-2 my-lg-0 float-right">
           <a href="{{url('login')}}" class="btn btn-primary" >Login</a>
         </form>
-      </div>
     </div>
   </nav>
 </section>
@@ -85,8 +64,7 @@
             <div class="banner-info">
               <div class="container">
                 <div class="banner-info-bg mx-auto text-center">
-                  <h5>Garden fresh organic vegetables </h5>
-                 <a class="btn btn-secondary btn-theme2 mt-md-5 mt-4" href="services.html">Read More</a>
+                  <h5>Greenhouse organic vegetables </h5>
                 </div>
                 
               </div>
@@ -100,8 +78,7 @@
             <div class="banner-info">
               <div class="container">
                 <div class="banner-info-bg mx-auto text-center">
-                  <h5> Fruits from premium gardens</h5>
-                  <a class="btn btn-secondary btn-theme2 mt-md-5 mt-4" href="services.html">Read More</a>
+                  <h5> Buah premium </h5>
                 </div>
               </div>
             </div>
@@ -114,8 +91,7 @@
             <div class="banner-info">
               <div class="container">
                 <div class="banner-info-bg mx-auto text-center">
-                  <h5>We provide organic products</h5>
-                 <a class="btn btn-secondary btn-theme2 mt-md-5 mt-4" href="services.html">Read More</a>
+                  <h5>Sedia organic products</h5>
                 </div>
               </div>
             </div>
@@ -128,8 +104,7 @@
             <div class="banner-info">
               <div class="container">
                 <div class="banner-info-bg mx-auto text-center">
-                  <h5>We grow food for all appetites</h5>
-                  <a class="btn btn-secondary btn-theme2 mt-md-5 mt-4" href="services.html">Read More</a>
+                  <h5>Tumbuh makanan organic</h5>
                 </div>
               </div>
             </div>
@@ -186,21 +161,18 @@
 			<div class="middle-section grid-column text-center">
 				<div class="three-grids-columns">
 					<span class="fa fa-viadeo"></span>
-					<h4>Natural Products</h4>
-					<p>Auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet</p>
-					<a href="services.html" class="red mt-3">Read More </a>
+					<h4>Produk Alami</h4>
+					<p>Semua produk dikelola dengan alami dan terbaik buat pelanggan</p>
 				</div>
 				<div class="three-grids-columns">
 					<span class="fa fa-pagelines"></span>
-					<h4>Wheat Cultivation</h4>
-					<p>Auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet</p>
-					<a href="services.html" class="red mt-3">Read More </a>
+					<h4>Perawatan kualitas</h4>
+					<p>Perawatan dikelola oleh para ahli dan expert dibidangnya</p>
 				</div>
 				<div class="three-grids-columns">
 					<span class="fa fa-apple"></span>
-					<h4>Modern Truck</h4>
-					<p>Auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet</p>
-					<a href="services.html" class="red mt-3">Read More </a>
+					<h4>Modern Teknologi</h4>
+					<p>Menggunakan teknologi terbaru untuk mendukung perkembangan produk</p>
 				</div>
 			</div>
 		</div>
@@ -221,26 +193,24 @@
           <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
             <div class="features-with-17-right-tp_sur">
               <div class="features-with-17-left1 mb-3">
-                <h4>40</h4>
+                <h4>10</h4>
               </div>
               <div class="features-with-17-left2">
-                <h6>Years  Experience</h6>
+                <h6>Tahun  Experience</h6>
                 <p> Lorem Ipsum is simply dummy text of the printing and industry.
                   Lorem Ipsum has the industry's standard dummy text ever since the 1500s,</p>
-                  <a href="services.html" class="red mt-3">Read More </a>
               </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mt-md-0 mt-5">
             <div class="features-with-17-right-tp_sur">
               <div class="features-with-17-left1 mb-3">
-                <h4>30</h4>
+                <h4>20</h4>
               </div>
               <div class="features-with-17-left2">
                 <h6>Specialists Farmers</h6>
                 <p> Lorem Ipsum is simply dummy text of the printing and industry.
                   Lorem Ipsum has the industry's standard dummy text ever since the 1500s,</p>
-                  <a href="services.html" class="red mt-3">Read More </a>
               </div>
             </div>
           </div>
@@ -250,10 +220,9 @@
                 <h4>15</h4>
               </div>
               <div class="features-with-17-left2">
-                <h6>Winning  Awards </h6>
+                <h6>Product</h6>
                 <p> Lorem Ipsum is simply dummy text of the printing and industry.
                   Lorem Ipsum has the industry's standard dummy text ever since the 1500s,</p>
-                  <a href="services.html" class="red mt-3">Read More </a>
               </div>
             </div>
           </div>
@@ -347,10 +316,8 @@
     <div id="products4-block" class="text-center">
         <div class="container">
             <div class="heading text-center mx-auto mb-5">
-                <h3 class="head">What I Do</h3>
-                <p class="my-3 head"> Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-                Nulla mollis dapibus nunc, ut rhoncus
-                turpis sodales quis. Integer sit amet mattis quam.</p>
+                <h3 class="head">Apa saja kegiatan</h3>
+                <p class="my-3 head"> Masa penanaman dalam greenhose dan perawatannya. produk2 yang dimiliki dan sebagainya.</p>
               </div>
             <input id="tab1" type="radio" name="tabs" checked>
             <label class="tabtle" for="tab1">All </label>
@@ -544,127 +511,8 @@
 </div>
 <script src="assets/js/jquery-3.3.1.min.js"></script>
 <script src="assets/js/lightbox-plus-jquery.min.js"></script>
-<section class="w3l-features-4">
-	<!-- /features -->
-		<div class="features py-5" id="features">
-            <div class="container py-md-3">
-			<div class="heading text-center mx-auto">
-				<h3 class="head">Advance Features!</h3>
-				<p class="my-3 head"> Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-				  Nulla mollis dapibus nunc, ut rhoncus
-				  turpis sodales quis. Integer sit amet mattis quam.</p>
-			  </div>
-			<div class="fea-gd-vv row mt-5 pt-3">	
-			   <div class="float-lt feature-gd col-md-6">	
-					 <div class="icon"> <span class="fa fa-leaf" aria-hidden="true"></span></div>
-					 <div class="icon-info">
-						<h5><a href="#">Fresh</a></h5>
-						<p> Lorem ipsum dolor sit amet, consectetur adipisicingelit, sed do eiusmod tempor incididunt primis in faucibus orci luctus et ultrices posuere  primis in faucibus </p>
-						<a href="#" class="red mt-3">Read More </a>
-					</div>
-					 
-				</div>	
-				<div class="float-mid feature-gd col-md-6 mt-md-0 mt-5">	
-					 <div class="icon"> <span class="fa fa-thumbs-up" aria-hidden="true"></span></div>
-					 <div class="icon-info">
-						<h5><a href="#">Tasty</a></h5>
-						<p> Lorem ipsum dolor sit amet, consectetur adipisicingelit, sed do eiusmod tempor incididunt primis in faucibus orci luctus et ultrices posuere  primis in faucibus </p>
-						<a href="#" class="red mt-3">Read More </a>
-					</div>
-			 </div> 
-				<div class="float-rt feature-gd col-md-6 mt-5">	
-					 <div class="icon"> <span class="fa fa-heartbeat" aria-hidden="true"></span></div>
-					 <div class="icon-info">
-						<h5><a href="#">Healthy</a></h5>
-						<p> Lorem ipsum dolor sit amet, consectetur adipisicingelit, sed do eiusmod tempor incididunt primis in faucibus orci luctus et ultrices posuere  primis in faucibus </p>
-						<a href="#" class="red mt-3">Read More </a>
-					</div>
-			 </div>	 
-			 <div class="float-lt feature-gd col-md-6 mt-5">	
-					 <div class="icon"> <span class="fa fa-heart" aria-hidden="true"></span></div>
-					 <div class="icon-info">
-						<h5><a href="#">Yammy</a>
-						</h5>
-						<p> Lorem ipsum dolor sit amet, consectetur adipisicingelit, sed do eiusmod tempor incididunt primis in faucibus orci luctus et ultrices posuere  primis in faucibus </p>
-						<a href="#" class="red mt-3">Read More <span class="fa fa-angle-right pl-1"></span></a>
-					</div>
-					 
-				</div>	
-				<div class="float-mid feature-gd col-md-6 mt-5">	
-					 <div class="icon"> <span class="fa fa-pagelines" aria-hidden="true"></span></div>
-					 <div class="icon-info">
-						<h5><a href="#">Eco</a>
-						</h5>
-						<p> Lorem ipsum dolor sit amet, consectetur adipisicingelit, sed do eiusmod tempor incididunt primis in faucibus orci luctus et ultrices posuere  primis in faucibus </p>
-						<a href="#" class="red mt-3">Read More </a>
-					</div>
-			 </div> 
-				<div class="float-rt feature-gd col-md-6 mt-5">	
-					 <div class="icon"> <span class="fa fa-gift" aria-hidden="true"></span></div>
-					 <div class="icon-info">
-						<h5><a href="#">Premium</a>
-						</h5>
-						<p> Lorem ipsum dolor sit amet, consectetur adipisicingelit, sed do eiusmod tempor incididunt primis in faucibus orci luctus et ultrices posuere  primis in faucibus </p>
-						<a href="#" class="red mt-3">Read More </a>
-					</div>
-			 </div>		 				 
-		  </div>  
-		 </div>
-	   </div>
-   <!-- //features -->
-</section>
-<section class="w3l-news" id="news">
-  <section id="grids5-block" class="py-5">
-    <div class="container py-lg-3">
-      <div class="heading text-center mx-auto">
-				<h3 class="head">Recent posts and updates</h3>
-				<p class="my-3 head"> Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-				  Nulla mollis dapibus nunc, ut rhoncus
-				  turpis sodales quis. Integer sit amet mattis quam.</p>
-			  </div>
-      <div class="grid-view">
-        <div class="row">
-          <div class="col-lg-4 col-md-6 mt-md-4 mt-4">
-            <div class="grids5-info">
-              <a href="#" class="d-block zoom"><img src="assets/images/g7.jpg" alt="" class="img-fluid news-image"></a>
-              <div class="blog-info">
-                <p class="date">Mar 29, 2020</p>
-                <h4><a href="#">Organic Veggies in Your Diet</a></h4>
-               
-                <p class="blog-text">Lorem ipsum dolor sit amet nostrum ad minus libero fugiat molestiae ullam ipsam quas unde earum...</p>
-                <a href="#" class="btn btn-news">Read More <span class="fa fa-angle-right pl-1"></span> </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mt-md-4 mt-5">
-            <div class="grids5-info">
-              <a href="#" class="d-block zoom"><img src="assets/images/g8.jpg" alt="" class="img-fluid news-image"></a>
-              <div class="blog-info">
-                <p class="date">Sep 28, 2020</p>
-                <h4><a href="#">Importance of Food Safety Training</a></h4>
-                
-                <p class="blog-text">Lorem ipsum dolor sit amet nostrum ad minus libero fugiat molestiae ullam ipsam quas unde earum...</p>
-                <a href="#" class="btn btn-news">Read More <span class="fa fa-angle-right pl-1"></span> </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 offset-md-3 offset-lg-0 col-md-6 mt-md-4 mt-5">
-            <div class="grids5-info">
-              <a href="#" class="d-block zoom"><img src="assets/images/g9.jpg" alt="" class="img-fluid news-image"></a>
-              <div class="blog-info">
-                <p class="date">Dec 28, 2020</p>
-                <h4><a href="#">Eight Tips for Healthy Eating</a></h4>
-               
-                <p class="blog-text">Lorem ipsum dolor sit amet nostrum ad minus libero fugiat molestiae ullam ipsam quas unde earum...</p>
-                <a href="#" class="btn btn-news">Read More <span class="fa fa-angle-right pl-1"></span> </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</section>
+
+
 <!-- grids block 5 -->
 <section class="w3l-footer-29-main">
   <div class="footer-29">
