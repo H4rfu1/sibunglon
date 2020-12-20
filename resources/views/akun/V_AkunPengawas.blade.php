@@ -33,7 +33,9 @@
                           <tr class="headings">
                             <th class="column-title">No. </th>
                             <th class="column-title">Nama</th>
-                            <th class="column-title">email </th>
+                            <th class="column-title">Jenis Kelamin</th>
+                            <th class="column-title">Alamat</th>
+                            <th class="column-title">Email </th>
                             <th class="column-title no-link last"><span class="nobr">Action</span>
                             </th>
                           </tr>
@@ -45,6 +47,8 @@
                           <tr class="even pointer" onclick="window.location='{{url('profil/'.$p->id)}}';" style="cursor: pointer;">
                             <td>{{ $loop->iteration }}</td>
                             <td class=" ">{{ $p->name }}</td>
+                            <td class=" ">{{ $p->jenis_kelamin }}</td>
+                            <td class=" ">{{ $p->alamat }}</td>
                             <td class=" ">{{ $p->email }}</td>
                             <td class=" last"><a href="{{url('profil/'.$p->id)}}"><span class="badge badge-info">Detail</span></a>
                             </td>
@@ -53,6 +57,8 @@
                           <tr class="odd pointer" onclick="window.location='{{url('profil/'.$p->id)}}';" style="cursor: pointer;">
                             <td>{{ $loop->iteration }}</td>
                             <td class=" ">{{ $p->name }}</td>
+                            <td class=" ">{{ $p->jenis_kelamin }}</td>
+                            <td class=" ">{{ $p->alamat }}</td>
                             <td class=" ">{{ $p->email }}</td>
                             <td class=" last"><a href="{{url('profil/'.$p->id)}}"><span class="badge badge-info">Detail</span></a>
                             </td>                            

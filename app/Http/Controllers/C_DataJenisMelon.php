@@ -116,7 +116,7 @@ class C_DataJenisMelon extends Controller
      */
     public function destroy($id)
     {
-        M_DataPerawatan::destroy($id);
-        return redirect('gagalpanen')->with('status', 'Data Pencatatan Perkembangan Melon Berhasil Dihapus');
+        M_JenisMelon::destroy($id);
+        return redirect('jenismelon')->with('status', 'Data Jenis Melon Berhasil Dihapus');
     }
 }

@@ -207,7 +207,11 @@
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Jenis Kelamin<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control"  name="jenis_kelamin" placeholder="laki-laki/perempuan" required="required" />
+                                            <select name="jenis_kelamin" id="jenis_kelamin" class="form-control" required='required'>
+                                                <option value="" disabled selected> Jenis Kelamin</option>
+                                                <option class="form-control" value="laki-laki" >Laki - laki</option>
+                                                <option class="form-control" value="perempuan" >Perempuan</option>
+                                            </select>
                                             </div>
                                         </div>
                                         <div class="field item form-group">

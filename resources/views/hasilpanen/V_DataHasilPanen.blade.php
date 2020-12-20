@@ -10,7 +10,7 @@
         <div class="col-md-12 col-sm-12  ">
                 <div class="x_panel">
                   <div class="x_content">
-                  @if(Auth::user()->id_role == 2)
+                  @if(Auth::user()->id_role == 1)
                   <a class="btn btn-primary" href="{{url('inputhasilpanen')}}">Tambah Hasil Panen</a>
                   @endif
                     @if (session('status'))

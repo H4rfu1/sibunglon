@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use App\M_DataPerawatan;
 use App\M_NoGreenhouse;
 
 class C_DataNoGreenhouse extends Controller
@@ -102,7 +103,7 @@ class C_DataNoGreenhouse extends Controller
      */
     public function destroy($id)
     {
-        M_DataPerawatan::destroy($id);
-        return redirect('gagalpanen')->with('status', 'Data Pencatatan No Grenhouse Berhasil Dihapus');
+        M_NoGreenhouse::destroy($id);
+        return redirect('greenhouse')->with('status', 'Data No Greenhouse Berhasil Dihapus');
     }
 }

@@ -27,7 +27,7 @@
                             <th class="column-title">No.</th>
                             <th class="column-title">No Greenhouse</th>
                             @if( Auth::user()->id_role == 1)
-                            <th class="column-title no-link last"><span class="nobr">Action</span>
+                            <th class="column-title no-link last" ><span class="nobr">Action</span>
                             </th>
                             @endif
                           </tr>
@@ -37,7 +37,7 @@
                           @foreach($data as $p)
                           @if($loop->iteration % 2 == 1)
                           @if( Auth::user()->id_role == 1)
-                          <tr class="even pointer" onclick="window.location='{{url('editgreenhouse/'.$p->id_greenhouse )}}';" style="cursor: pointer;">
+                          <tr class="even pointer" style="cursor: pointer;">
                           @else
                           <tr class="even pointer">
                           @endif
@@ -45,9 +45,13 @@
                             <td class=" ">{{ $p->no_greenhouse }}</td>
                             @if( Auth::user()->id_role == 1)
                             <td class=" last">
-                              <!-- <a href="#" data-toggle="modal" data-target="#exampleModal" data-id="{{$p->id_dataperawatan}}" class="text-decoration-none"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a> -->
-                              <a href="{{url('editgreenhouse/'.$p->id_greenhouse )}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
+                              <a href="{{url('editgreenhouse/'.$p->id_greenhouse )}}" class="d-inine"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
+                              <button form="del{{$p->id_greenhouse}}" type="submit" class="badge badge-danger" style="font-size: 1em; border: none;">Hapus</button>
                             </td>
+                            <form id="del{{$p->id_greenhouse}}" action="{{url('deletegreenhouse/'.$p->id_greenhouse)}}" method="post" class="d-inline">
+                              @csrf 
+                              @method('delete')
+                            </form>
                             @endif
                           </tr>
                           @else
@@ -60,10 +64,14 @@
                             <td class=" ">{{ $p->no_greenhouse }}</td>
                             @if( Auth::user()->id_role == 1)
                             <td class=" last">
-                              <!-- <a href="#" data-toggle="modal" data-target="#exampleModal" data-id="{{$p->id_dataperawatan}}" class="text-decoration-none"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a> -->
-                              <a href="{{url('editgreenhouse/'.$p->id_greenhouse )}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
-                            </td>           
-                            @endif                 
+                              <a href="{{url('editgreenhouse/'.$p->id_greenhouse )}}" class="d-inine"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
+                              <button form="del{{$p->id_greenhouse}}" type="submit" class="badge badge-danger" style="font-size: 1em; border: none;">Hapus</button>
+                            </td>
+                            <form id="del{{$p->id_greenhouse}}" action="{{url('deletegreenhouse/'.$p->id_greenhouse)}}" method="post" class="d-inline">
+                              @csrf 
+                              @method('delete')
+                            </form>
+                            @endif            
                           </tr>
                           @endif
                           @endforeach

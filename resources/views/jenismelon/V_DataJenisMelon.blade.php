@@ -6,7 +6,7 @@
   <div class="">
     <div class="page-title">
       <div class="">
-        <h3>Kelola Jesis Melon</h3>
+        <h3>Kelola Jenis Melon</h3>
         <div class="col-md-12 col-sm-12  ">
                 <div class="x_panel">
                   <div class="x_content">
@@ -30,7 +30,7 @@
                             <th class="column-title">Masa Pupuk</th>
                             <th class="column-title">keterangan</th>
                             @if( Auth::user()->id_role == 1)
-                            <th class="column-title no-link last"><span class="nobr">Action</span>
+                            <th class="column-title no-link last text-center" ><span class="nobr">Action</span>
                             </th>
                             @endif
                           </tr>
@@ -40,7 +40,7 @@
                           @foreach($data as $p)
                           @if($loop->iteration % 2 == 1)
                           @if( Auth::user()->id_role == 1)
-                          <tr class="even pointer" onclick="window.location='{{url('editjenismelon/'.$p->id_jenismelon )}}';" style="cursor: pointer;">
+                          <tr class="even pointer" style="cursor: pointer;">
                           @else
                           <tr class="even pointer">
                           @endif
@@ -51,14 +51,18 @@
                             <td class=" ">{{ $p->keterangan}}</td>
                             @if( Auth::user()->id_role == 1)
                             <td class=" last">
-                              <!-- <a href="#" data-toggle="modal" data-target="#exampleModal" data-id="{{$p->id_dataperawatan}}" class="text-decoration-none"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a> -->
-                              <a href="{{url('editjenismelon/'.$p->id_jenismelon )}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
+                              <a href="{{url('editjenismelon/'.$p->id_jenismelon )}}"><span class="badge badge-warning d-inline" style="font-size: 1em;">Ubah</span></a>
+                            <button form="del{{$p->id_jenismelon}}" type="submit" class="badge badge-danger mt-2" style="font-size: 1em; border: none;">Hapus</button>
                             </td>
+                            <form id="del{{$p->id_jenismelon}}" action="{{url('deletejenismelon/'.$p->id_jenismelon)}}" method="post" class="d-inline">
+                              @csrf 
+                              @method('delete')
+                            </form>
                             @endif
                           </tr>
                           @else
                           @if( Auth::user()->id_role == 1)
-                          <tr class="even pointer" onclick="window.location='{{url('editjenismelon/'.$p->id_jenismelon )}}';" style="cursor: pointer;">
+                          <tr class="even pointer" style="cursor: pointer;">
                           @else
                           <tr class="odd pointer">
                           @endif
@@ -69,9 +73,13 @@
                             <td class=" ">{{ $p->keterangan}}</td>
                             @if( Auth::user()->id_role == 1)
                             <td class=" last">
-                              <!-- <a href="#" data-toggle="modal" data-target="#exampleModal" data-id="{{$p->id_dataperawatan}}" class="text-decoration-none"><span class="badge badge-danger" style="font-size: 1em;">Hapus</span></a> -->
-                              <a href="{{url('editjenismelon/'.$p->id_jenismelon )}}"><span class="badge badge-warning" style="font-size: 1em;">Ubah</span></a>
-                            </td>           
+                              <a href="{{url('editjenismelon/'.$p->id_jenismelon )}}"><span class="badge badge-warning d-inline" style="font-size: 1em;">Ubah</span></a>
+                            <button form="del{{$p->id_jenismelon}}" type="submit" class="badge badge-danger  mt-2" style="font-size: 1em; border: none;">Hapus</button>
+                            </td>
+                            <form id="del{{$p->id_jenismelon}}" action="{{url('deletejenismelon/'.$p->id_jenismelon)}}" method="post" class="d-inline">
+                              @csrf 
+                              @method('delete')
+                            </form>      
                             @endif                 
                           </tr>
                           @endif

@@ -5,8 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{{url('favicon.ico')}}" type="image/x-icon">
+    <link rel="icon" href="{{url('favicon.ico')}}" type="image/x-icon">
     <title>Farm Planning a Agriculture Category Bootstrap Responsive Website Template | Home :: W3layouts</title>
     <!-- web fonts -->
+    
    <!-- web fonts -->
    <link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
    <link href="//fonts.googleapis.com/css?family=Hind&display=swap" rel="stylesheet">
@@ -25,7 +29,7 @@
 	<header class="row top-menu-top">
 		<div class="accounts col-md-9 col-6">
 				<li class="top_li"><span class="fa fa-phone"></span><a href="tel:+142 5897555">+142 5897555</a> </li>
-				<li class="top_li1"><span class="fa fa-envelope-o"></span> <a href="mailto:education-mail@support.com" class="mail"> info@example.com</a>	</li>
+				<li class="top_li1"><span class="fa fa-envelope-o"></span> <a href="mailto:education-mail@support.com" class="mail"> sibunglon@kulitekno.com</a>	</li>
 		</div>
 		<div class="social-top col-md-3 col-6">
 			<div class="main-social-head">

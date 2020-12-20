@@ -212,7 +212,11 @@
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Jenis Kelamin<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="6" name="jenis_kelamin" placeholder="laki-laki/perempuan" required="required" value="{{$data->jenis_kelamin}}"/>
+                                                <select name="jenis_kelamin" id="jenis_kelamin" class="form-control" required='required'>
+                                                    <option value="" disabled selected @if($data->jenis_kelamin != "laki-laki" && $data->jenis_kelamin != "perempuan"){{'selected'}} @endif> Jenis Kelamin</option>
+                                                    <option class="form-control" value="laki-laki" @if($data->jenis_kelamin == "laki-laki") {{'selected'}} @endif >Laki - laki</option>
+                                                    <option class="form-control" value="perempuan" @if($data->jenis_kelamin == "perempuan") {{'selected'}} @endif >Perempuan</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="field item form-group">

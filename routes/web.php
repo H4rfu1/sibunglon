@@ -64,6 +64,8 @@ Route::get('/editgreenhouse/{id}', 'C_DataNoGreenhouse@setFormInputEditNoGreenho
 
 Route::patch('/greenhouse/{id}', 'C_DataNoGreenhouse@UpdateDataNoGreenhouse');
 
+Route::delete('/deletegreenhouse/{id}', 'C_DataNoGreenhouse@destroy');
+
 //kelola Jenis Melon
 Route::get('/jenismelon', 'C_DataJenisMelon@setTableJanisMelon');
 
@@ -74,6 +76,8 @@ Route::post('/simpanjenismelon', 'C_DataJenisMelon@InputDataJenisMelon');
 Route::get('/editjenismelon/{id}', 'C_DataJenisMelon@setFormInputEditJenisMelon');
 
 Route::patch('/jenismelon/{id}', 'C_DataJenisMelon@UpdateDataJenisMelon');
+
+Route::delete('/deletejenismelon/{id}', 'C_DataJenisMelon@destroy');
 
 //kelola Hasil Panen
 Route::get('/hasilpanen', 'C_DataHasilPanen@setTableDataHasilPanen');

@@ -27,19 +27,19 @@
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Jenis Melon<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" type="text" name="jenismelon"  required="required" value="{{old('jenismelon')}}"/>
+                                    <input class="form-control" type="text" name="jenismelon" placeholder="Contoh: Haltiva"  required="required" value="{{old('jenismelon')}}"/>
                                 </div>
                             </div>
                             <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Lama Panen<span class="required">*</span></label>
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Lama Panen <span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" type="number" name="masa_panen"  required="required" value="{{old('masa_panen')}}"/>
+                                    <input class="form-control" type="number" name="masa_panen" placeholder="Dalam hari"  required="required" value="{{old('masa_panen')}}"/>
                                 </div>
                             </div>
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Masa Pemupukan<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" type="number" name="masa_pupuk"  required="required" value="{{old('masa_pupuk')}}"/>
+                                    <input class="form-control" type="number" name="masa_pupuk" placeholder="Dalam hari"  required="required" value="{{old('masa_pupuk')}}"/>
                                 </div>
                             </div>
                             <div class="field item form-group">

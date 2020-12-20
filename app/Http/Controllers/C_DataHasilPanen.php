@@ -56,8 +56,11 @@ class C_DataHasilPanen extends Controller
         // $nogrenhouse = DB::table("no_greenhouse")->select('*')->whereIn('id_greenhouse',function($query) {
         //     $query->select('id_greenhouse')->from('data_perawatan');
         //  })->get();
-        $data_perawatan = DB::table('data_perawatan')->orderBy('id_dataperawatan')->get();
-
+        $data_perawatan = DB::table('data_perawatan')
+                                ->join('jenis_melon', 'data_perawatan.id_jenismelon', '=', 'jenis_melon.id_jenismelon')
+                                ->join('no_greenhouse', 'data_perawatan.id_greenhouse', '=', 'no_greenhouse.id_greenhouse')
+                                ->orderBy('id_dataperawatan')->get();
+                                // dd($data_perawatan);
         return view('hasilpanen.V_InputHasilPanen', compact('data_perawatan'));
     }
 
@@ -70,6 +73,11 @@ class C_DataHasilPanen extends Controller
      */
     public function InputDataHasilPanen(Request $request)
     {
+        $request->validate([
+            'jumlah_hasilpanen' => 'required|numeric|min:0|not_in:0',
+        ],[
+            'jumlah_hasilpanen.required' => 'Data tidak boleh kosong',
+        ]);
         $target = 1000;
         $persentase_panen = $request->jumlah_hasilpanen * 100 / $target;
 

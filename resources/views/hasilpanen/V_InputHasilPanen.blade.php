@@ -21,6 +21,15 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                         <form class="" action="{{url('simpanhasilpanen')}}" method="post" novalidate>
                             @csrf
                             <input type="hidden" name="pencatat" value="{{Auth::user()->id}}">
@@ -30,7 +39,7 @@
                                 <select name="id_data_perawatan" id="id_data_perawatan" class="form-control" required='required'>
                                 <option value="" disabled selected> Pilih Id Perawatan</option>
                                     @foreach($data_perawatan as $item)
-                                        <option class="form-control" value="{{ $item->id_dataperawatan }}" >{{ $item->id_dataperawatan  }}</option>
+                                        <option class="form-control" value="{{ $item->id_dataperawatan }}" >{{ $item->id_dataperawatan." | ".$item->tanggal_tanam." | ".$item->no_greenhouse." | ".$item->jenismelon }}</option>
                                     @endforeach
                                     </select>
                                 </div>
