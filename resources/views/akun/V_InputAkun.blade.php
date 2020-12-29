@@ -186,24 +186,14 @@
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Nama<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="name" placeholder="Nama Lengkap" required="required" value="{{old('name')}}"/>
+                                                <input class="form-control" name="name" placeholder="Nama Lengkap" required="required" value="{{old('name')}}" data-validate-length-range="1,15"/>
                                             </div>
                                         </div>
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Email<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="email" class='email' required="required" type="email" /></div>
+                                                <input class="form-control" name="email" class='email' required="required" type="email" data-validate-length-range="1,15"/></div>
                                         </div>
-                                        <!-- <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Confirm email address<span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" type="email" class='email' name="confirm_email" data-validate-linked='email' required='required' /></div>
-                                        </div> -->
-                                        <!-- <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">No. HP <span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" type="number" class='number' name="number" data-validate-minmax="10,100" required='required'></div>
-                                        </div> -->
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Jenis Kelamin<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
@@ -217,7 +207,7 @@
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Tempat Lahir<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control"  name="tempat_lahir" placeholder="Kota/kabupaten" required="required" />
+                                                <input class="form-control"  name="tempat_lahir" placeholder="Kota/kabupaten" required="required" data-validate-length-range="1,15" />
                                             </div>
                                         </div>
                                         <div class="field item form-group">
@@ -234,7 +224,7 @@
                                         <div class="field item form-group">
 											<label class="col-form-label col-md-3 col-sm-3  label-align">Password<span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6">
-												<input class="form-control" type="password" id="password1" name="password" pattern="(?=.*[a-z,A-Z]).{3,}" title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character" required />
+												<input class="form-control" type="password" id="password1" name="password" pattern="(?=.*[a-z,A-Z]).{3,}" title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character" required data-validate-length-range="3,13" />
 												
 												<span style="position: absolute;right:15px;top:7px;" onclick="hideshow()" >
 													<i id="slash" class="fa fa-eye-slash"></i>
@@ -256,7 +246,7 @@
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">alamat<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <textarea required="required" name='alamat'></textarea></div>
+                                                <textarea required="required" name='alamat' data-validate-length-range="1,50"></textarea></div>
                                         </div>
                                         <div class="ln_solid">
                                             <div class="form-group">

@@ -27,25 +27,25 @@
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Jenis Melon<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" type="text" name="jenismelon" placeholder="Contoh: Haltiva"  required="required" value="{{old('jenismelon')}}"/>
+                                    <input class="form-control" type="text" name="jenismelon" placeholder="Contoh: Haltiva"  required="required" value="{{old('jenismelon')}}"  data-validate-length-range="1,50"/>
                                 </div>
                             </div>
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Lama Panen <span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" type="number" name="masa_panen" placeholder="Dalam hari"  required="required" value="{{old('masa_panen')}}"/>
+                                    <input class="form-control" type="number" name="masa_panen" placeholder="Dalam hari"  required="required" value="{{old('masa_panen')}}"  data-validate-length-range="1,15"/>
                                 </div>
                             </div>
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Masa Pemupukan<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" type="number" name="masa_pupuk" placeholder="Dalam hari"  required="required" value="{{old('masa_pupuk')}}"/>
+                                    <input class="form-control" type="number" name="masa_pupuk" placeholder="Dalam hari"  required="required" value="{{old('masa_pupuk')}}"  data-validate-length-range="1,15"/>
                                 </div>
                             </div>
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Keterangan<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <textarea class="boxsizingBorder" required="required" name='keterangan'></textarea></div>
+                                    <textarea class="boxsizingBorder" required="required" name='keterangan'  data-validate-length-range="1,50"></textarea></div>
                             </div>
 
                             <div class="ln_solid">

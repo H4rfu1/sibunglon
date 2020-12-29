@@ -31,17 +31,17 @@
     FormValidator.prototype = {
         // Validation error texts
         texts : {
-            invalid         : 'data yang dimasukkan tidak valid',
+            invalid         : 'data tidak valid',
             short           : 'input terlalu pendek',
             long            : 'input terlalu panjang',
             checked         : 'must be checked',
             empty           : 'data tidak boleh kosong',
             select          : 'Please select an option',
-            number_min      : 'too low',
-            number_max      : 'too high',
+            number_min      : 'Harus lebih dari 0',
+            number_max      : 'data tidak valid',
             url             : 'invalid URL',
-            number          : 'not a number',
-            email           : 'data yang dimasukkan tidak valid',
+            number          : 'data tidak valid',
+            email           : 'data tidak valid',
             email_repeat    : 'emails do not match',
             date            : 'invalid date',
             time            : 'invalid time',

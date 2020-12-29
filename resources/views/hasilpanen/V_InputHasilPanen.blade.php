@@ -60,7 +60,7 @@
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Jumlah Hasil Panen (Kg)<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" type="number" name="jumlah_hasilpanen"  required="required" value="{{old('jumlah')}}"/>
+                                    <input class="form-control" type="number" name="jumlah_hasilpanen"  required="required" value="{{old('jumlah')}}"  data-validate-minmax="1,999999999999999"/>
                                 </div>
                             </div>
 

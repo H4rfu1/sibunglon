@@ -27,27 +27,27 @@
                             @method('patch')
                             <!-- <input type="hidden" name="pencatat" value="{{Auth::user()->id}}"> -->
                             <div class="field item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3  label-align">Jenis Melon<span class="required">*</span></label>
+                                <label class="col-form-label col-md-3 col-sm-3  label-align">Jenis Melon<span class="required" >*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" type="text" name="jenismelon"  required="required" value="{{$data->jenismelon}}"/>
+                                    <input class="form-control" type="text" name="jenismelon"  required="required" value="{{$data->jenismelon}}" data-validate-length-range="1,50"/>
                                 </div>
                             </div>
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Lama Panen<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" type="number" name="masa_panen"  required="required" value="{{$data->masa_panen}}"/>
+                                    <input class="form-control" type="number" name="masa_panen"  required="required" value="{{$data->masa_panen}}"  data-validate-minmax="1,999999999999999"/>
                                 </div>
                             </div>
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Masa Pemupukan<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" type="number" name="masa_pupuk"  required="required" value="{{$data->masa_pupuk}}"/>
+                                    <input class="form-control" type="number" name="masa_pupuk"  required="required" value="{{$data->masa_pupuk}}"  data-validate-minmax="1,999999999999999"/>
                                 </div>
                             </div>
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Keterangan<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <textarea class="boxsizingBorder" required="required" name='keterangan'>{{$data->keterangan}}</textarea></div>
+                                    <textarea class="boxsizingBorder" required="required" name='keterangan'  data-validate-length-range="1,50">{{$data->keterangan}}</textarea></div>
                             </div>
                             <div class="ln_solid">
                                 <div class="form-group">

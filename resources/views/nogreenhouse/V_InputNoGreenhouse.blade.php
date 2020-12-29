@@ -27,7 +27,7 @@
                             <div class="field item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3  label-align">No Greenhouse<span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6">
-                                    <input class="form-control" type="text" name="no_greenhouse"  required="required" value="{{old('no_greenhouse')}}"/>
+                                    <input class="form-control" type="text" name="no_greenhouse"  required="required" value="{{old('no_greenhouse')}}"  data-validate-length-range="1,15"/>
                                 </div>
                             </div>
                             <div class="ln_solid">

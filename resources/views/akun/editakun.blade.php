@@ -189,26 +189,16 @@
                                         @method('patch')
                                         <input type="hidden" name="role" value="{{$data->id_role}}">
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Nama<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Nama<span class="required" >*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Nama Lengkap" required="required" value="{{$data->name}}"/>
+                                                <input class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Nama Lengkap" required="required" value="{{$data->name}}"  data-validate-length-range="1,15"/>
                                             </div>
                                         </div>
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Email<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="email" class='email' required="required" type="email" value="{{$data->email}}"/></div>
+                                                <input class="form-control" name="email" class='email' required="required" type="email" value="{{$data->email}}"  data-validate-length-range="1,15"/></div>
                                         </div>
-                                        <!-- <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Confirm email address<span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" type="email" class='email' name="confirm_email" data-validate-linked='email' required='required' /></div>
-                                        </div> -->
-                                        <!-- <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">No. HP <span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" type="number" class='number' name="number" data-validate-minmax="10,100" required='required'></div>
-                                        </div> -->
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Jenis Kelamin<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
@@ -222,7 +212,7 @@
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Tempat Lahir<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="6" name="tempat_lahir" placeholder="Kota/kabupaten" required="required" value="{{$data->tempat_lahir}}"/>
+                                                <input class="form-control" data-validate-length-range="6" name="tempat_lahir" placeholder="Kota/kabupaten" required="required" value="{{$data->tempat_lahir}}" data-validate-length-range="1,15"/>
                                             </div>
                                         </div>
                                         <div class="field item form-group">
@@ -239,7 +229,7 @@
                                         <div class="field item form-group">
 											<label class="col-form-label col-md-3 col-sm-3  label-align">Password<span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6">
-												<input class="form-control" type="password" id="password1" name="password" pattern="(?=.*[a-z,A-Z]).{3,}" title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character" required value=""/>
+												<input class="form-control" type="password" id="password1" name="password" pattern="(?=.*[a-z,A-Z]).{3,}" title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character" required value=""  data-validate-length-range="1,15"/>
 												
 												<span style="position: absolute;right:15px;top:7px;" onclick="hideshow()" >
 													<i id="slash" class="fa fa-eye-slash"></i>
@@ -259,9 +249,9 @@
                                                 <input class="form-control" type="tel" class='tel' name="no_hp" required='required' data-validate-length-range="10,13" value="{{$data->no_hp}}"/></div>
                                         </div>
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">alamat<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">alamat<span class="required" >*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <textarea required="required" name='alamat'>{{$data->alamat}}</textarea></div>
+                                                <textarea required="required" name='alamat'  data-validate-length-range="1,50">{{$data->alamat}}</textarea></div>
                                         </div>
                                         <div class="ln_solid">
                                             <div class="form-group">
